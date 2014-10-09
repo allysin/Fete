@@ -16,6 +16,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".UserDetail"
+            android:label="@string/title_activity_user_detail"
+            android:parentActivityName=".HomePage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.group9.fete.HomePage" />
+        </activity>
+        <activity
+            android:name=".VenueDetail"
+            android:label="@string/title_activity_venue_detail"
+            android:parentActivityName=".HomePage" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.group9.fete.HomePage" />
+        </activity>
     </application>
 
 </manifest>
