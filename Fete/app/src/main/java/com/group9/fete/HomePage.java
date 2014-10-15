@@ -52,9 +52,9 @@ public class HomePage extends Activity {
             View rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
             return rootView;
 
-        /**String [] featureduserArray = {
+        /*String [] featureduserArray = {
                 Userphoto - Username - Userlocation - other detail
-        };
+        };*/
         }
     }
 }
