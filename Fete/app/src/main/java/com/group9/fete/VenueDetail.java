@@ -60,7 +60,7 @@ public class VenueDetail extends Activity {
             TextView venueNameView = (TextView)rootView.findViewById(R.id.venueName);
             venueNameView.setText("My backyard");
             ImageView venueImageView = (ImageView)rootView.findViewById(R.id.imageView);
-            venueImageView.setImageResource(R.drawable.backyard_with_pool_landscaping_ideas);
+            venueImageView.setImageResource(R.drawable.backyardwithpool);
             return rootView;
         }
     }

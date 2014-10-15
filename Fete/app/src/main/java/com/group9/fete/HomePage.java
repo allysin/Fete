@@ -55,7 +55,7 @@ public class HomePage extends Activity {
             ImageView userImage = (ImageView)rootView.findViewById(R.id.userImage);
             userImage.setImageResource(R.drawable.nina);
             TextView userDetailView = (TextView)rootView.findViewById(R.id.userDetail);
-            userDetailView.setText("Nina Dobrev");
+            userDetailView.setText("Nina Dobrev is our featured user this week.");
             return rootView;
 
         /*String [] featureduserArray = {
