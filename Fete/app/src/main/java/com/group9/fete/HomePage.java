@@ -8,7 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class HomePage extends Activity {
 
@@ -17,6 +18,7 @@ public class HomePage extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
     }
+    ImageView image;
 
 
     @Override
@@ -50,6 +52,10 @@ public class HomePage extends Activity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
+            ImageView userImage = (ImageView)rootView.findViewById(R.id.userImage);
+            userImage.setImageResource(R.drawable.nina);
+            TextView userDetailView = (TextView)rootView.findViewById(R.id.userDetail);
+            userDetailView.setText("Nina Dobrev");
             return rootView;
 
         /*String [] featureduserArray = {

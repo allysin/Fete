@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,6 +7,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".HomePage"
+    android:orientation="vertical"
     android:id="@+id/homeLayout">
 
     <TextView
@@ -16,6 +17,24 @@
         android:id="@+id/textView"
         android:textStyle="bold"
         android:textSize="20sp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="7"
+        android:layout_below="@+id/featuredUserLayout"
+        android:layout_alignParentBottom="@+id/textView2">
+        <ImageView
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:id="@+id/userImage"/>
+        <TextView
+            android:layout_weight="5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/userDetail"/>
+        </LinearLayout>
 
     <TextView
         android:text="Featured Properties"
@@ -28,22 +47,22 @@
         android:textStyle="bold"
         android:textSize="20sp" />
 
-    <HorizontalScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/horizontalScrollView3"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true" />
-
     <TableLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"
-        android:layout_toRightOf="@+id/horizontalScrollView3"
         android:background="@android:color/background_light"
         android:baselineAligned="true"
         android:longClickable="true"
-        android:visibility="visible"></TableLayout>
+        android:visibility="visible"
+        android:orientation="horizontal"
+        android:id="@+id/venueTable">
+        android:weightSum="2">
+        <TableRow>
+
+        </TableRow>
+    </TableLayout>
 
 
-</RelativeLayout>
+
+</LinearLayout>
