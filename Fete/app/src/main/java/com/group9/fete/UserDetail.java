@@ -61,4 +61,6 @@ public class UserDetail extends Activity {
             return rootView;
         }
     }
+
+
 }
