@@ -25,10 +25,11 @@
         android:layout_below="@+id/featuredUserLayout"
         android:layout_alignParentBottom="@+id/textView2">
         <ImageView
-            android:layout_weight="2"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:id="@+id/userImage"/>
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/userImage"
+            android:src="@drawable/nina"
+            android:onClick="goToUser" />
         <TextView
             android:layout_weight="5"
             android:layout_width="wrap_content"

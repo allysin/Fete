@@ -2,6 +2,7 @@ package com.group9.fete;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -62,5 +63,10 @@ public class HomePage extends Activity {
                 Userphoto - Username - Userlocation - other detail
         };*/
         }
+    }
+
+    public void goToUser(View view){
+        Intent userIntent = new Intent(this, UserDetail.class);
+        startActivity(userIntent);
     }
 }
