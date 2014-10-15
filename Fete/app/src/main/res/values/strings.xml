@@ -7,7 +7,12 @@
     <string name="registration_button">Register</string>
     <string name="title_activity_user_detail">UserDetail</string>
     <string name="title_activity_venue_detail">VenueDetail</string>
+<<<<<<< Updated upstream
 <!--Venue detail constants -->
+=======
+    <string name="userName">User Name</string>
+////Venue Detail
+>>>>>>> Stashed changes
     <string name="venue_detail_image_desc">Venue Image</string>
     <string name="venue_detail_description">Venue Details</string>
     <string name="publish_button_text">Save &amp; Publish</string>
