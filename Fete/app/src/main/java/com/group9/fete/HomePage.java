@@ -69,4 +69,8 @@ public class HomePage extends Activity {
         Intent userIntent = new Intent(this, UserDetail.class);
         startActivity(userIntent);
     }
+    public void goToProperty(View view){
+        Intent userIntent = new Intent(this, VenueDetail.class);
+        startActivity(userIntent);
+    }
 }
