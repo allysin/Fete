@@ -14,11 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:id="@+id/venueName"/>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
+        android:maxHeight="40dp"
         android:contentDescription="@string/venue_detail_image_desc" />
     <TextView
         android:layout_width="match_parent"

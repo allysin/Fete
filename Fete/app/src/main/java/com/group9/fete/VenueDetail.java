@@ -1,7 +1,6 @@
 package com.group9.fete;
 
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,8 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
-
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class VenueDetail extends Activity {
@@ -58,6 +57,10 @@ public class VenueDetail extends Activity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_venue_detail, container, false);
+            TextView venueNameView = (TextView)rootView.findViewById(R.id.venueName);
+            venueNameView.setText("My backyard");
+            ImageView venueImageView = (ImageView)rootView.findViewById(R.id.imageView);
+            venueImageView.setImageResource(R.drawable.backyard_with_pool_landscaping_ideas);
             return rootView;
         }
     }
