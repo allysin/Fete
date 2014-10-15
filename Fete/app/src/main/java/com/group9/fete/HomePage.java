@@ -51,6 +51,10 @@ public class HomePage extends Activity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
             return rootView;
+
+        /**String [] featureduserArray = {
+                Userphoto - Username - Userlocation - other detail
+        };
         }
     }
 }
