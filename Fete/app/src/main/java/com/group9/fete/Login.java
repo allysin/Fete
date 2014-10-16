@@ -2,6 +2,7 @@ package com.group9.fete;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -59,4 +60,11 @@ public class Login extends Activity {
             return rootView;
         }
     }
+
+
+    public void login(View view){
+        Intent userIntent = new Intent(this, HomePage.class);
+        startActivity(userIntent);
+    }
+
 }
