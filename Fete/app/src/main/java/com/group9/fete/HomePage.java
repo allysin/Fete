@@ -73,4 +73,9 @@ public class HomePage extends Activity {
         Intent userIntent = new Intent(this, VenueDetail.class);
         startActivity(userIntent);
     }
+
+    public void searchPage(View view){
+        Intent userIntent = new Intent(this, SearchPage.class);
+        startActivity(userIntent);
+    }
 }

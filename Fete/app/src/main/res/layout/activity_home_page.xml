@@ -17,6 +17,16 @@
         android:id="@+id/textView"
         android:textStyle="bold"
         android:textSize="20sp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:clickable="true"
+        android:layout_gravity="right|top"
+        android:src="@drawable/search"
+        android:onClick="searchPage" />
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
@@ -82,3 +92,5 @@
 
 
 </LinearLayout>
+
+
