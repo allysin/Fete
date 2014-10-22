@@ -197,8 +197,14 @@ public class HomePage extends Activity {
         Fragment fragment = null;
         switch (position) {
             case 0:
+                fragment = new PlaceholderFragment();
+                break;
             case 1:
+                fragment = new UserDetail.PlaceholderFragment();
+                break;
             case 2:
+                fragment = new ManageVenue.PlaceholderFragment();
+                break;
             case 3:
             case 4:
             case 5:

@@ -3,7 +3,7 @@
     android:shape="rectangle" >
 
     <!-- view background color -->
-    <solid android:color="@color/wallet_highlighted_text_holo_dark" >
+    <solid android:color="#EEEEEE" >
     </solid>
 
     <!-- If you want to add some padding -->
