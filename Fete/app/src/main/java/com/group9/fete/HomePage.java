@@ -248,7 +248,7 @@ public class HomePage extends Activity {
 //            return true;
 //        }
 //        return super.onOptionsItemSelected(item);
-        // toggle nav drawer on selecting action bar app icon/title
+        // toggle nav drawer on selecting action bar app icon/title\
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
@@ -256,6 +256,9 @@ public class HomePage extends Activity {
         switch (item.getItemId()) {
             case R.id.action_settings:
                 return true;
+            case R.id.action_search:
+                Intent userIntent = new Intent(this, SearchPage.class);
+                startActivity(userIntent);
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -330,4 +333,8 @@ public class HomePage extends Activity {
         Intent userIntent = new Intent(this, SearchPage.class);
         startActivity(userIntent);
     }
+
+
+
+
 }
