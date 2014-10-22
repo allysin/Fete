@@ -130,7 +130,7 @@ public class HomePage extends Activity {
         }
     }
 
-<<<<<<< HEAD
+
 //    // a list class type must be used when using a list view
 //    // list items are added to a list view programatically and not through xml
 //    List<Map<String, String>> teamsList = new ArrayList<Map<String,String>>();
@@ -188,7 +188,7 @@ public class HomePage extends Activity {
 //    // openVenueDetail is called whenever a list item is clicked on
 //    // it calls for an intent that starts up the venue detail activity and sends the venue's id over
 //    // to the activity with the message variable declared at the top of the activity
-=======
+
     /**
      * Diplaying fragment view for selected nav drawer list item
      * */
@@ -224,7 +224,6 @@ public class HomePage extends Activity {
             Log.e("MainActivity", "Error in creating fragment");
         }
     }
->>>>>>> 5a66b28cf082e2982cbe84b86ed97e4f4111b730
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
