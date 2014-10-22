@@ -1,31 +1,41 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.group9.fete.SearchPage$PlaceholderFragment">
 
-    <TextView
-        android:text="Search Results"
-        android:layout_width="wrap_content"
+
+
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:textSize="14dp" />
+        android:id="@+id/scrollView" >
+
+
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
+        <TextView
+            android:text="Search Results"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:textSize="14dp" />
+
         <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="12">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -33,17 +43,19 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="USERS"
                 android:id="@+id/textView3"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="15dp" />
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="7"/>
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="View All"
                 android:id="@+id/textView4"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="300dp" />
+                android:layout_marginTop="0dp"
+                android:gravity="right"
+                android:layout_weight="3"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -51,24 +63,25 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="4"
                 android:id="@+id/textView5"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="25dp"
-                android:textSize="60dp"
+                android:textSize="15dp"
                 android:background="#fffff689"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:textColor="#f72f00ff" />
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textColor="#f72f00ff"
+                android:textAlignment="center"
+                android:layout_weight="2"
+                 />
         </TableRow>
 
         <TableRow
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="105dp"
             android:weightSum="1"
-            android:layout_margin="15dp">
+            android:layout_margin="5dp">
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="fill_parent"
                 android:clickable="true"
                 android:onClick="goToUser">
@@ -85,21 +98,21 @@
                     android:layout_height="wrap_content"
                     android:text="Here will be UserName and Profile Details"
                     android:id="@+id/textView"
-                    android:layout_margin="15dp"
+                    android:layout_margin="5dp"
                     android:textSize="14dp" />
             </LinearLayout>
 
         </TableRow>
 
         <TableRow
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="105dp"
-            android:layout_margin="15dp">
+            android:layout_margin="5dp">
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="106dp"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
                 android:clickable="true"
                 android:id="@+id/linearLayout"
                 android:onClick="goToUser">
@@ -116,51 +129,56 @@
                     android:layout_height="wrap_content"
                     android:text="Here will be UserName and Profile Details"
                     android:id="@+id/textView2"
-                    android:layout_margin="15dp"
+                    android:layout_margin="5dp"
                     android:textSize="14dp" />
             </LinearLayout>
         </TableRow>
 
         <TableRow
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp">
+            android:weightSum="12"
+            android:divider="#ff4cb4ff">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Venues"
+                android:text="VENUES"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
                 android:id="@+id/textView6"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="15dp" />
+                android:layout_weight="7"/>
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="View All"
-                android:id="@+id/textView7"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="300dp" />
+                android:id="@+id/textView4"
+                android:layout_marginTop="0dp"
+                android:gravity="right"
+                android:layout_weight="3"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="4"
-                android:id="@+id/textView8"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="25dp"
-                android:textSize="60dp"
+                android:id="@+id/textView5"
+                android:textSize="15dp"
                 android:background="#fffff689"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:textColor="#f72f00ff" />
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textColor="#f72f00ff"
+                android:textAlignment="center"
+                android:layout_weight="2"
+                />
+
         </TableRow>
 
         <TableRow
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <LinearLayout
@@ -190,7 +208,7 @@
         </TableRow>
 
         <TableRow
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="fill_parent">
 
             <LinearLayout
@@ -217,7 +235,7 @@
                     android:textSize="14dp" />
             </LinearLayout>
         </TableRow>
-
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
