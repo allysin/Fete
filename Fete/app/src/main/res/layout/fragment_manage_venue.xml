@@ -8,9 +8,28 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.group9.fete.ManageVenue$PlaceholderFragment">
 
-    <TextView
-        android:text="@string/hello_world"
+    <Switch
+        android:id="@+id/mySwitch"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:text="Venue 1" />
+
+
+    <TextView
+        android:id="@+id/switchStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/mySwitch"
+        android:layout_marginTop="22dp"
+        android:text="other venues will list below, etc."
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
 
 </RelativeLayout>
+
+
+    //code from: http://www.mysamplecode.com/2013/04/android-switch-button-example.html

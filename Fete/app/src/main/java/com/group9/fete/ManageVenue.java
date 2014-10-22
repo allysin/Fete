@@ -1,19 +1,25 @@
 package com.group9.fete;
 
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.Switch;
 
 
 public class ManageVenue extends Activity {
+    List<String> teamsList = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +29,71 @@ public class ManageVenue extends Activity {
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
+        initList();
+
+        // Get the message from the intent
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(OverviewActivity.EXTRA_MESSAGE);
+
+        int id = (int) Long.parseLong(message);
+
+        // Create the text view
+        TextView textView = new TextView(this);
+        textView.setTextSize(40);
+        textView.setText(venueList.get(id));
+
+        // Set the text view as the activity layout
+        setContentView(textView);
+
+        }
         }
     }
+    private void initList() {
+        venueList.add("Venue 1");
+        venueList.add("Venue 2");
+        venueList.add("Venue 3");
+        venueList.add("Venue 4");
+        venueList.add("Venue 5");
+        venueList.add("Venue 6");
+        venueList.add("Venue 7");
+    }
+private TextView switchStatus;
+private Switch mySwitch;
+//code from http://www.mysamplecode.com/2013/04/android-switch-button-example.html
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
+        switchStatus = (TextView) findViewById(R.id.switchStatus);
+        mySwitch = (Switch) findViewById(R.id.mySwitch);
 
+        //set the switch to ON
+        mySwitch.setChecked(true);
+        //attach a listener to check for changes in state
+        mySwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+
+                if(isChecked){
+                    switchStatus.setText("Venue currently visible");
+                }else{
+                    switchStatus.setText("Venue currently invisible");
+                }
+
+            }
+        });
+
+        //check the current state before we display the screen
+        if(mySwitch.isChecked()){
+            switchStatus.setText("Venue currently visible");
+        }
+        else {
+            switchStatus.setText("Venue currently invisible");
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -41,12 +108,19 @@ public class ManageVenue extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            // launch intent to settings screen
+            return true;
+        }
+        else if (id == R.id.action_logout) {
+            // launch intent to settings screen
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    /**
+}
+
+/**
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {

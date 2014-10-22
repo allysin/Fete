@@ -21,6 +21,63 @@ public class HomePage extends Activity {
     }
     ImageView image;
 
+//    // a list class type must be used when using a list view
+//    // list items are added to a list view programatically and not through xml
+//    List<Map<String, String>> teamsList = new ArrayList<Map<String,String>>();
+//
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_overview);
+//
+//        // we need to pick which view we want our context menu to respond to
+//        // here, we've chosen the list of team names (which in turn applies the context menu to
+//        // each list item separately)
+//        registerForContextMenu((ListView) findViewById(R.id.listView));
+//
+//        // we call this initiList function to fill in our list class variable with our venue names
+//        initList();
+//
+//        // adapters are what we use to associate the list variable and its contents with the list view
+//        ListView venueListView = (ListView) findViewById(R.id.listView);
+//        SimpleAdapter simpleAdpt = new SimpleAdapter(this, venueList, android.R.layout.simple_list_item_1, new String[] {"venue"}, new int[] {android.R.id.text1});
+//        venueListView.setAdapter(simpleAdpt);
+//
+//        // setOnItemClickListener tells the activity what to do when a list item is clicked on
+//        venueListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//
+//            public void onItemClick(AdapterView<?> parentAdapter, View view, int position,
+//                                    long id) {
+//                openVenueDetail(id);
+//            }
+//        });
+//
+//    }
+//
+//    // initList simply adds our venue names to the list variable
+//    // in a real app, this would be where we query our database to retrieve the list of venues, but
+//    // for the sake of our demo, this hard-coded data is sufficient
+//    private void initList() {
+//        venueList.add(createVenue("venue", "Venue 1: Backyard"));
+//        venueList.add(createVenue("venue", "Venue 2: Pool"));
+//        venueList.add(createVenue("venue", "Venue 3: Space 2435"));
+//        venueList.add(createVenue("venue", "Venue 4: Duck Pond"));
+//        venueList.add(createVenue("venue", "Venue 5: Photo-shoot Destination"));
+//        venueList.add(createVenue("venue", "Venue 6: Butterfly Garden"));
+//        venueList.add(createVenue("venue", "Venue 7: Patio"));
+//    }
+//
+//    // this method helps us minimize the amount of repeat calls we need to make in initList to place
+//    // a venue name into out list
+//    private HashMap<String, String> createVenue(String key, String name) {
+//        HashMap<String, String> venue = new HashMap<String, String>();
+//        venue.put(key, name);
+//        return venue;
+//    }
+//
+//    // openVenueDetail is called whenever a list item is clicked on
+//    // it calls for an intent that starts up the venue detail activity and sends the venue's id over
+//    // to the activity with the message variable declared at the top of the activity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -58,10 +115,6 @@ public class HomePage extends Activity {
             TextView userDetailView = (TextView)rootView.findViewById(R.id.userDetail);
             userDetailView.setText("Nina Dobrev is our featured user this week.");
             return rootView;
-
-        /*String [] featureduserArray = {
-                Userphoto - Username - Userlocation - other detail
-        };*/
         }
     }
 
