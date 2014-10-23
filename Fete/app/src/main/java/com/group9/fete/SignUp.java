@@ -2,7 +2,6 @@ package com.group9.fete;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -12,12 +11,12 @@ import android.view.ViewGroup;
 
 
 
-public class Login extends Activity {
+public class SignUp extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_sign_up);
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
@@ -29,7 +28,7 @@ public class Login extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.login, menu);
+        getMenuInflater().inflate(R.menu.sign_up, menu);
         return true;
     }
 
@@ -56,21 +55,8 @@ public class Login extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_login, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_sign_up, container, false);
             return rootView;
         }
     }
-
-
-    public void login(View view){
-        Intent userIntent = new Intent(this, HomePage.class);
-        startActivity(userIntent);
-    }
-
-    public void signup(View view){
-        Intent userIntent = new Intent(this, SignUp.class);
-        startActivity(userIntent);
-    }
-
-
 }
