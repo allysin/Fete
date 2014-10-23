@@ -67,10 +67,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group9.fete.VenueDetail" />
         </activity>
+        <!--Changes an activity to act like a dialog using android theme
+        android:theme="@android:style/Theme.Dialog"-->
         <activity
             android:name=".SearchFilter"
             android:label="@string/title_activity_search_filter"
-            android:parentActivityName=".SearchPage" >
+            android:parentActivityName=".SearchPage"
+            android:theme="@android:style/Theme.Dialog">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group9.fete.SearchPage" />
