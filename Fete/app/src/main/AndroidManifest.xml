@@ -73,7 +73,7 @@
         -->
         <activity
             android:name=".SearchFilter"
-            android:label="@string/title_activity_search_filter"
+            android:label="Search Filter"
             android:parentActivityName=".SearchPage"
             android:theme="@android:style/Theme.Dialog" >
             <meta-data

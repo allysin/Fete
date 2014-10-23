@@ -66,6 +66,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Continue without logging in"
+        android:autoLink="email"
         android:id="@+id/textView"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
