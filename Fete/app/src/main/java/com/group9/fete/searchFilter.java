@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+//capitalized incorrectly so I had to refactor
+
 public class SearchFilter extends Activity {
 
     @Override
