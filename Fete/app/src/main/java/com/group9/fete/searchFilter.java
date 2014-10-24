@@ -9,8 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-
-
 public class SearchFilter extends Activity {
 
     @Override
@@ -59,4 +57,6 @@ public class SearchFilter extends Activity {
             return rootView;
         }
     }
+
+
 }
