@@ -23,8 +23,8 @@
         <item >My Profile</item>
         <item>My Venues</item>
         <item >Communities</item>
-        <item >Pages</item>
-        <item >What\'s Hot</item>
+        <item >Settings</item>
+        <item >Logout</item>
     </string-array>
     <!-- Nav Drawer List Item Icons -->
     <!-- Keep them in order as the titles are in -->
@@ -38,4 +38,7 @@
     </array>
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
+    <!--Venue Image properties -->
+    <string name="venue_image_names">poolimage</string>
+    <string name="number_of_venues">7</string>
 </resources>

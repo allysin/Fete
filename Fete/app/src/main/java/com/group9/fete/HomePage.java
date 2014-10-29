@@ -3,6 +3,7 @@ package com.group9.fete;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -18,6 +19,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.group9.fete.adapter.NavDrawerListAdapter;
 import com.group9.fete.model.NavDrawerItem;
@@ -208,7 +212,7 @@ public class HomePage extends Activity {
             case 3:
             case 4:
             case 5:
-                fragment = new PlaceholderFragment();
+                fragment = new Login.PlaceholderFragment();
                 break;
 
             default:
@@ -308,11 +312,30 @@ public class HomePage extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
+            Context cont = getActivity();
             View rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
-            //ImageView userImage = (ImageView)rootView.findViewById(R.id.userImage);
-            //userImage.setImageResource(R.drawable.nina);
-            //TextView userDetailView = (TextView)rootView.findViewById(R.id.userDetail);
-            //userDetailView.setText("Nina Dobrev is our featured user this week.");
+            ImageView userImage = (ImageView)rootView.findViewById(R.id.userImage);
+            userImage.setImageResource(R.drawable.nina);
+            TextView userDetailView = (TextView)rootView.findViewById(R.id.userDetail);
+            userDetailView.setText("Nina Dobrev is our featured user this week.");
+            String filenameVenueImage = getString(R.string.venue_image_names);
+            String fileNumberTotalString = getString(R.string.number_of_venues);
+            Integer totalFiles = Integer.parseInt(fileNumberTotalString);
+            Integer totalRows = totalFiles/3;
+            TableLayout venueTable = (TableLayout)rootView.findViewById(R.id.venueTable);
+            for (int i=0;i<totalRows;i++ )
+            {
+                TableRow row = new TableRow(cont);
+                for (int j=0;j<3;j++) {
+                    View imageView = new ImageView(cont);
+                    String filename = filenameVenueImage + Integer.toString(3*i + j);
+                    int resID = getResources().getIdentifier(filename, "drawable", cont.getPackageName());
+                    ((ImageView) imageView).setImageResource(resID);
+                    ((ImageView) imageView).layout(10, 10, 10, 10);
+                    row.addView(imageView, 150, 150);
+                }
+                venueTable.addView(row);
+            }
             return rootView;
         }
     }
@@ -321,6 +344,7 @@ public class HomePage extends Activity {
         Intent userIntent = new Intent(this, UserDetail.class);
         startActivity(userIntent);
     }
+
     public void goToProperty(View view){
         Intent userIntent = new Intent(this, VenueDetail.class);
         startActivity(userIntent);

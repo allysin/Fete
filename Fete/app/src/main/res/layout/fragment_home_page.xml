@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -29,14 +32,14 @@
         android:layout_below="@+id/featuredUserLayout"
         android:layout_alignParentBottom="@+id/textView2">
         <ImageView
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="100dp"
             android:id="@+id/userImage"
-            android:src="@drawable/nina"
-            android:onClick="goToUser" />
+            android:onClick="goToUser"/>
         <TextView
-            android:layout_weight="5"
-            android:layout_width="wrap_content"
+            android:layout_weight="4"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:id="@+id/userDetail"/>
@@ -54,7 +57,7 @@
         android:textStyle="bold"
         android:textSize="20sp" />
 
-    <LinearLayout
+    <!--<LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -66,7 +69,7 @@
             android:layout_height="101dp"
             android:id="@+id/imageView"
             android:src="@drawable/backyardwithpool" />
-    </LinearLayout>
+    </LinearLayout>-->
 
     <TableLayout
         android:layout_width="match_parent"
@@ -79,8 +82,7 @@
         android:orientation="horizontal"
         android:id="@+id/venueTable">
         android:weightSum="2">
-        <TableRow>
 
-        </TableRow>
     </TableLayout>
 </LinearLayout>
+</ScrollView>
