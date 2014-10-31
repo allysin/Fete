@@ -211,6 +211,8 @@ public class HomePage extends Activity {
                 break;
             case 3:
             case 4:
+                fragment = new SettingsFragment();
+                break;
             case 5:
                 fragment = new Login.PlaceholderFragment();
                 break;

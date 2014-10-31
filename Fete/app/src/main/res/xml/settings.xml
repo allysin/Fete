@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="General Settings">
+        <ListPreference
+            android:key="textSizeList"
+            android:defaultValue="Medium"
+            android:dialogTitle="Select Text Size"
+            android:entries="@array/text_size_preference"
+            android:entryValues="@array/text_size_preference"
+            android:title="Select Text Size"
+            android:summary="Change text size for the app"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="History">
+    <com.group9.fete.customlayout.FeteYesNoDialog
+        android:title="Clear Search History"
+        android:summary="Change the search history setting"/>
+    </PreferenceCategory>
+</PreferenceScreen>
