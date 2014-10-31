@@ -320,7 +320,8 @@ public class HomePage extends Activity {
             ImageView userImage = (ImageView)rootView.findViewById(R.id.userImage);
             userImage.setImageResource(R.drawable.nina);
             TextView userDetailView = (TextView)rootView.findViewById(R.id.userDetail);
-            userDetailView.setText("Nina Dobrev is our featured user this week.");
+            userDetailView.setText("Nina Dobrev is our featured user this week. She likes to knit and ride bicycles" +
+                    "down by the river whenever...");
             String filenameVenueImage = getString(R.string.venue_image_names);
             String fileNumberTotalString = getString(R.string.number_of_venues);
             Integer totalFiles = Integer.parseInt(fileNumberTotalString);
