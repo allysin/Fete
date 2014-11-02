@@ -1,0 +1,99 @@
+{
+  "venues": [
+    {
+      "venueID": 1,
+      "venueName": "Location 1",
+      "venueImage": "poolimage0",
+      "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "ownerID": 1
+    },
+    {
+      "venueID": 2,
+      "venueName": "Location 2",
+      "venueImage": "poolimage1",
+      "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "ownerID": 2
+    },
+    {
+      "venueID": 3,
+      "venueName": "Location 2",
+      "venueImage": "poolimage2",
+      "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "ownerID": 2
+    },
+    {
+      "venueID": 4,
+      "venueName": "Location 2",
+      "venueImage": "poolimage3",
+      "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "ownerID": 3
+    },
+    {
+      "venueID": 5,
+      "venueName": "Location 2",
+      "venueImage": "poolimage4",
+      "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "ownerID": 2
+    },
+    {
+      "venueID": 6,
+      "venueName": "Location 2",
+      "venueImage": "poolimage5",
+      "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "ownerID": 1
+    }
+  ],
+  "users": [
+    {
+      "userID": 1,
+      "username": "User Surname",
+      "userimage": "user0",
+      "ownedVenues": [
+        {
+          "venueID": 1
+        },
+        {
+          "venueID": 6
+        }
+      ]
+    },
+    {
+      "userID": 2,
+      "username": "User Surname2",
+      "userimage": "user1",
+      "ownedVenues": [
+        {
+          "venueID": 2
+        },
+        {
+          "venueID": 3
+        },
+        {
+          "venueID": 5
+        }
+      ]
+    },
+    {
+      "userID": 3,
+      "username": "User Surname3",
+      "userimage": "user2",
+      "ownedVenues": [
+        {
+          "venueID": 4
+        }
+      ]
+    },
+    {
+      "userID": 4,
+      "username": "User Surname4",
+      "userimage": "user3",
+      "ownedVenue": []
+    },
+    {
+      "userID": 5,
+      "username": "User Surname5",
+      "userimage": "user4",
+      "ownedVenues": []
+    }
+  ]
+}
