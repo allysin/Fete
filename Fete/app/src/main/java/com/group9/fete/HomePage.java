@@ -24,6 +24,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.group9.fete.adapter.NavDrawerListAdapter;
+import com.group9.fete.model.GlobalData;
 import com.group9.fete.model.NavDrawerItem;
 
 import java.util.ArrayList;
@@ -49,6 +50,8 @@ public class HomePage extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        GlobalData data = (GlobalData)getApplicationContext();
+        data.SetData();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         mTitle = mDrawerTitle = getTitle();
