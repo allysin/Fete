@@ -1,0 +1,149 @@
+{
+  "venues": [
+    {
+      "venueID": 1,
+      "venueName": "Welcoming house on Fuller Road",
+      "venueImage": "poolimage0",
+      "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "ownerID": 1
+    },
+    {
+      "venueID": 2,
+      "venueName": "Big Pool blah",
+      "venueImage": "poolimage1",
+      "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "ownerID": 2
+    },
+    {
+      "venueID": 3,
+      "venueName": "Location 2",
+      "venueImage": "poolimage2",
+      "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "ownerID": 2
+    },
+    {
+      "venueID": 4,
+      "venueName": "Location 2",
+      "venueImage": "poolimage3",
+      "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "ownerID": 3
+    },
+    {
+      "venueID": 5,
+      "venueName": "Location 2",
+      "venueImage": "poolimage4",
+      "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "ownerID": 2
+    },
+    {
+      "venueID": 6,
+      "venueName": "Location 2",
+      "venueImage": "poolimage5",
+      "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "ownerID": 1
+    }
+  ],
+  "users": [
+    {
+      "userID": 1,
+      "username": "User Surname",
+      "userimage": "user0",
+      "ownedVenues": [
+        {
+          "venueID": 1
+        },
+        {
+          "venueID": 6
+        }
+      ]
+    },
+    {
+      "userID": 2,
+      "username": "Brian Surname2",
+      "userimage": "user1",
+      "ownedVenues": [
+        {
+          "venueID": 2
+        },
+        {
+          "venueID": 3
+        },
+        {
+          "venueID": 5
+        }
+      ]
+    },
+    {
+      "userID": 3,
+      "username": "User Surname3",
+      "userimage": "user2",
+      "ownedVenues": [
+        {
+          "venueID": 4
+        }
+      ]
+    },
+    {
+      "userID": 4,
+      "username": "User Surname4",
+      "userimage": "user3",
+      "ownedVenue": []
+    },
+    {
+      "userID": 5,
+      "username": "User Surname5",
+      "userimage": "user4",
+      "ownedVenues": []
+    },
+    {
+      "userID": 6,
+      "username": "User Surname6",
+      "userimage": "user5",
+      "ownedVenues": []
+    },
+    {
+      "userID": 7,
+      "username": "User Surname5",
+      "userimage": "user6",
+      "ownedVenues": []
+    }
+  ],
+  "reviews": [
+    {
+      "reviewID": 1,
+      "userID": 7,
+      "venueID": 6,
+      "reviewText": "Great communication and terrific view. Very convenient to the beach, super clean and well maintained. Thanks for a great party!"
+    },
+    {
+      "reviewID": 2,
+      "userID": 5,
+      "venueID": 2,
+      "reviewText": "Brian is a great host. Very friendly and personable, responded quickly to all my emails. The apartment is beautifully decorated and laid out well. Everything one would need or expect in there own home can be found here. All around perfect experience. Will definitely come back should the chance arise."
+    },
+    {
+      "reviewID": 3,
+      "userID": 5,
+      "venueID": 3,
+      "reviewText": "Great experience. Evy and her roommate Erin are very hospitable and considerate. They even gave us two Smartrip cards! Their place is neat spacious, and artistic. I highly recommend the place!"
+    },
+    {
+      "reviewID": 4,
+      "userID": 5,
+      "venueID": 4,
+      "reviewText": "Lovely backyard! Very welcoming crew. Fantastic location! Perfect place to chill right by the core of DuPont Circle. Perfect for an academic conference in either Georgetown or GeorgeWashington University."
+    },
+    {
+      "reviewID": 5,
+      "userID": 5,
+      "venueID": 5,
+      "reviewText": "Yet another fantastic fete experience. Bella was a great host, very friendly and helpful."
+    },
+    {
+      "reviewID": 6,
+      "userID": 5,
+      "venueID": 6,
+      "reviewText": "The barbeque party hosted here was a great hit, and I hope to host another one here next month."
+    }
+  ]
+}
