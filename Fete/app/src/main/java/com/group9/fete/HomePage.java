@@ -54,7 +54,8 @@ public class HomePage extends Activity {
         data.SetData();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        mTitle = mDrawerTitle = getTitle();
+        mDrawerTitle = getTitle();
+        mTitle = "Fete";
 
         // load slide menu items
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
@@ -325,9 +326,9 @@ public class HomePage extends Activity {
             View rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
             ImageView userImage = (ImageView)rootView.findViewById(R.id.userImage);
             userImage.setImageResource(R.drawable.nina);
-            TextView userDetailView = (TextView)rootView.findViewById(R.id.userDetail);
-            userDetailView.setText("Nina Dobrev is our featured user this week. She likes to knit and ride bicycles" +
-                    "down by the river whenever...");
+//            TextView userDetailView = (TextView)rootView.findViewById(R.id.userDetail);
+//            userDetailView.setText("Nina Dobrev is our featured user this week. She likes to knit and ride bicycles" +
+//                    "down by the river whenever...");
             String filenameVenueImage = getString(R.string.venue_image_names);
             String fileNumberTotalString = getString(R.string.number_of_venues);
             Integer totalFiles = Integer.parseInt(fileNumberTotalString);
