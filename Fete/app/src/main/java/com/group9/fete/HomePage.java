@@ -50,12 +50,17 @@ public class HomePage extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /*Data will be pulled from the json file whenever the Launch activity is created.
+         This will populate the global variable GlobalData that can then be used to fill data programmatically
+         on all screens.
+        */
         GlobalData data = (GlobalData)getApplicationContext();
         data.SetData();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
-        mTitle = mDrawerTitle = getTitle();
 
+        //Make the homepage activity the current activity
+        setContentView(R.layout.activity_home_page);
+        mTitle = mDrawerTitle = "fete";
         // load slide menu items
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
 
@@ -71,15 +76,15 @@ public class HomePage extends Activity {
         // adding nav drawer items to array
         // Home
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
-        // Find People
+        // My Profile
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
-        // Photos
+        // My Venues
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
-        // Communities, Will add a counter here
+        // Communities, Will change the name later TODO
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1), true, "22"));
-        // Pages
+        // Settings
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
-        // What's hot, We  will add a counter here
+        // Log Out
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1), true, "50+"));
 
 
@@ -137,65 +142,6 @@ public class HomePage extends Activity {
         }
     }
 
-
-//    // a list class type must be used when using a list view
-//    // list items are added to a list view programatically and not through xml
-//    List<Map<String, String>> teamsList = new ArrayList<Map<String,String>>();
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_overview);
-//
-//        // we need to pick which view we want our context menu to respond to
-//        // here, we've chosen the list of team names (which in turn applies the context menu to
-//        // each list item separately)
-//        registerForContextMenu((ListView) findViewById(R.id.listView));
-//
-//        // we call this initiList function to fill in our list class variable with our venue names
-//        initList();
-//
-//        // adapters are what we use to associate the list variable and its contents with the list view
-//        ListView venueListView = (ListView) findViewById(R.id.listView);
-//        SimpleAdapter simpleAdpt = new SimpleAdapter(this, venueList, android.R.layout.simple_list_item_1, new String[] {"venue"}, new int[] {android.R.id.text1});
-//        venueListView.setAdapter(simpleAdpt);
-//
-//        // setOnItemClickListener tells the activity what to do when a list item is clicked on
-//        venueListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//            public void onItemClick(AdapterView<?> parentAdapter, View view, int position,
-//                                    long id) {
-//                openVenueDetail(id);
-//            }
-//        });
-//
-//    }
-//
-//    // initList simply adds our venue names to the list variable
-//    // in a real app, this would be where we query our database to retrieve the list of venues, but
-//    // for the sake of our demo, this hard-coded data is sufficient
-//    private void initList() {
-//        venueList.add(createVenue("venue", "Venue 1: Backyard"));
-//        venueList.add(createVenue("venue", "Venue 2: Pool"));
-//        venueList.add(createVenue("venue", "Venue 3: Space 2435"));
-//        venueList.add(createVenue("venue", "Venue 4: Duck Pond"));
-//        venueList.add(createVenue("venue", "Venue 5: Photo-shoot Destination"));
-//        venueList.add(createVenue("venue", "Venue 6: Butterfly Garden"));
-//        venueList.add(createVenue("venue", "Venue 7: Patio"));
-//    }
-//
-//    // this method helps us minimize the amount of repeat calls we need to make in initList to place
-//    // a venue name into out list
-//    private HashMap<String, String> createVenue(String key, String name) {
-//        HashMap<String, String> venue = new HashMap<String, String>();
-//        venue.put(key, name);
-//        return venue;
-//    }
-//
-//    // openVenueDetail is called whenever a list item is clicked on
-//    // it calls for an intent that starts up the venue detail activity and sends the venue's id over
-//    // to the activity with the message variable declared at the top of the activity
-
     /**
      * Diplaying fragment view for selected nav drawer list item
      * */
@@ -204,20 +150,27 @@ public class HomePage extends Activity {
         Fragment fragment = null;
         switch (position) {
             case 0:
+                //Fragment for home page is returned when Home is selected on Drawer
                 fragment = new PlaceholderFragment();
                 break;
             case 1:
+                //Fragment for UserDetail page is returned when My Profile is selected
                 fragment = new UserDetail.PlaceholderFragment();
                 break;
             case 2:
+                //Fragment for ManageVenue page is returned when My Venues is selected
                 fragment = new ManageVenue.PlaceholderFragment();
                 break;
             case 3:
+                //My communities doesn't do any thing for now.. TODO
             case 4:
+                //Fragment for Settings page is returned when Settings is selected
                 fragment = new SettingsFragment();
                 break;
             case 5:
-                fragment = new Login.PlaceholderFragment();
+                //Intent is fired to go to Login activity on Logout
+                Intent loginIntent = new Intent(this, Login.class);
+                startActivity(loginIntent);
                 break;
 
             default:
@@ -264,12 +217,18 @@ public class HomePage extends Activity {
         // Handle action bar actions click
         switch (item.getItemId()) {
             case R.id.action_settings:
-                return true;
+                //When settings button is selected on the AppBar, settings page should show up
+                Intent settingsIntent = new Intent(this, SettingsActivity.class);
+                startActivity(settingsIntent);
+                break;
             case R.id.action_search:
+                //When Search button is clicked, Textbox should appear. TODO
                 Intent userIntent = new Intent(this, SearchPage.class);
                 startActivity(userIntent);
+                break;
             default:
                 return super.onOptionsItemSelected(item);
+            break;
         }
     }
 
@@ -286,7 +245,8 @@ public class HomePage extends Activity {
 
     @Override
     public void setTitle(CharSequence title) {
-        mTitle = title;
+        //override
+        mTitle = "fete";
         getActionBar().setTitle(mTitle);
     }
 
@@ -305,7 +265,7 @@ public class HomePage extends Activity {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        // Pass any configuration change to the drawer toggls
+        // Pass any configuration change to the drawer toggles
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
@@ -327,6 +287,7 @@ public class HomePage extends Activity {
             TextView userDetailView = (TextView)rootView.findViewById(R.id.userDetail);
             userDetailView.setText("Nina Dobrev is our featured user this week. She likes to knit and ride bicycles" +
                     "down by the river whenever...");
+            //code will fetch images named poolimage with numbers concatenated
             String filenameVenueImage = getString(R.string.venue_image_names);
             String fileNumberTotalString = getString(R.string.number_of_venues);
             Integer totalFiles = Integer.parseInt(fileNumberTotalString);
@@ -334,6 +295,7 @@ public class HomePage extends Activity {
             TableLayout venueTable = (TableLayout)rootView.findViewById(R.id.venueTable);
             for (int i=0;i<totalRows;i++ )
             {
+                //create tablerows dynamically, add imageviews to it filled with appropiate images
                 TableRow row = new TableRow(cont);
                 for (int j=0;j<3;j++) {
                     View imageView = new ImageView(cont);
@@ -341,6 +303,7 @@ public class HomePage extends Activity {
                     int resID = getResources().getIdentifier(filename, "drawable", cont.getPackageName());
                     ((ImageView) imageView).setImageResource(resID);
                     ((ImageView) imageView).layout(10, 10, 10, 10);
+                    //once the row is filled, all row to the table
                     row.addView(imageView, 150, 150);
                 }
                 venueTable.addView(row);

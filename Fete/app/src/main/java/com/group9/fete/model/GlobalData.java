@@ -5,6 +5,9 @@ import android.util.Log;
 
 import com.group9.fete.R;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +16,7 @@ import java.util.List;
  * Created by Anubhav on 02-11-2014.
  */
 public class GlobalData extends Application {
+    private String Tag = "GlobalData";
     private List<Venue> appVenues;
     private List<User> appUsers;
 
@@ -48,6 +52,14 @@ public class GlobalData extends Application {
     }
 
     public void SetData(){
-        String json = getJsonData();
+        String jsonString = getJsonData();
+        try {
+            JSONObject jsonObject = new JSONObject(jsonString);
+            JSONArray venueArray = jsonObject.getJSONArray("venues");
+            Log.v(Tag, jsonObject.toString());
+        }catch(Exception e)
+        {
+            Log.e(Tag, e.getMessage());
+        }
     }
 }
