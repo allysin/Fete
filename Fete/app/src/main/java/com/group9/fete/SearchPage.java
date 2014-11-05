@@ -11,11 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-
 public class SearchPage extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_page);
         if (savedInstanceState == null) {
@@ -23,7 +23,20 @@ public class SearchPage extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+//
+//        Intent intent = getIntent();
+//        String message = intent.getStringExtra(TestSearch.EXTRA_MESSAGE);
+//
+//        TextView textView = new TextView(this);
+//        textView.setTextSize(40);
+//        textView.setText(message);
+//
+//        // Set the text view as the activity layout
+//        setContentView(textView);
+
     }
+
+
 
 
     @Override
@@ -72,4 +85,6 @@ public class SearchPage extends Activity {
         Intent userIntent = new Intent(this, VenueDetail.class);
         startActivity(userIntent);
     }
+
+
 }

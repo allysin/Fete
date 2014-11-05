@@ -21,7 +21,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
-import android.widget.TextView;
 
 import com.group9.fete.adapter.NavDrawerListAdapter;
 import com.group9.fete.model.GlobalData;
@@ -202,6 +201,7 @@ public class HomePage extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Boolean flag = true;
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
@@ -212,7 +212,7 @@ public class HomePage extends Activity {
 //        return super.onOptionsItemSelected(item);
         // toggle nav drawer on selecting action bar app icon/title\
         if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
+            return flag;
         }
         // Handle action bar actions click
         switch (item.getItemId()) {
@@ -228,8 +228,8 @@ public class HomePage extends Activity {
                 break;
             default:
                 return super.onOptionsItemSelected(item);
-            break;
         }
+        return flag;
     }
 
     /***
@@ -284,9 +284,10 @@ public class HomePage extends Activity {
             View rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
             ImageView userImage = (ImageView)rootView.findViewById(R.id.userImage);
             userImage.setImageResource(R.drawable.nina);
-            TextView userDetailView = (TextView)rootView.findViewById(R.id.userDetail);
-            userDetailView.setText("Nina Dobrev is our featured user this week. She likes to knit and ride bicycles" +
-                    "down by the river whenever...");
+//            TextView userDetailView = (TextView)rootView.findViewById(R.id.userDetail);
+//            userDetailView.setText("Nina Dobrev is our featured user this week. She likes to knit and ride bicycles" +
+//                    "down by the river whenever...");
+
             //code will fetch images named poolimage with numbers concatenated
             String filenameVenueImage = getString(R.string.venue_image_names);
             String fileNumberTotalString = getString(R.string.number_of_venues);

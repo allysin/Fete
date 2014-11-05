@@ -44,6 +44,10 @@
     <string name="number_of_venues">7</string>
     <string name="title_activity_search_filter">searchFilter</string>
     <string name="title_activity_sign_up">SignUp</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="title_activity_sample_search">SampleSearchActivity</string>
+    <string name="search_title">Search Title</string>
+    <string name="title_activity_test_search">TestSearch</string>
     <string name="title_activity_app_settings">AppSettings</string>
     <!-- Setting Page -->
     <string name="settings">Settings</string>
@@ -57,5 +61,6 @@
     <string name="about_feedback">Feedback</string>
     <string name="about_version">Version</string>
     <string name="title_activity_settings">SettingsActivity</string>
+
 
 </resources>

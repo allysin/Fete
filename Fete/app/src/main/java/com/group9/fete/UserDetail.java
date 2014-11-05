@@ -30,6 +30,8 @@ public class UserDetail extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.user_detail, menu);
+
+
         return true;
     }
 
@@ -66,6 +68,9 @@ public class UserDetail extends Activity {
         startActivity(userIntent);
     }
 
-
+    public void goTest (View view){
+        Intent intent = new Intent(this, TestSearch.class);
+        startActivity(intent);
+    }
 
 }
