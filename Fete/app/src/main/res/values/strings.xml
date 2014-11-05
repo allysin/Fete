@@ -22,9 +22,9 @@
         <item>Home</item>
         <item>My Profile</item>
         <item>My Venues</item>
-        <item >Communities</item>
-        <item >Settings</item>
-        <item >Logout</item>
+        <item>Communities</item>
+        <item>Settings</item>
+        <item>Logout</item>
     </string-array>
     <!-- Nav Drawer List Item Icons -->
     <!-- Keep them in order as the titles are in -->
@@ -39,11 +39,14 @@
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
 
-    <!--Venue Image properties -->
+    <!-- Venue Image properties -->
     <string name="venue_image_names">poolimage</string>
     <string name="number_of_venues">7</string>
-
     <string name="title_activity_search_filter">searchFilter</string>
     <string name="title_activity_sign_up">SignUp</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="title_activity_sample_search">SampleSearchActivity</string>
+    <string name="search_title">Search Title</string>
+    <string name="title_activity_test_search">TestSearch</string>
 
 </resources>

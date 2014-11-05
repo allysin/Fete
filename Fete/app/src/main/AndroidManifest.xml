@@ -17,14 +17,17 @@
 
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
+
         </activity>
         <activity
             android:name=".UserDetail"
             android:label="@string/title_activity_user_detail"
             android:parentActivityName=".HomePage" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.group9.fete.HomePage" />
+
+             <meta-data
+             android:name="android.support.PARENT_ACTIVITY"
+             android:value="com.group9.fete.HomePage" />
+
         </activity>
         <activity
             android:name=".VenueDetail"
@@ -87,6 +90,20 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group9.fete.Login" />
+        </activity>
+        <activity
+            android:name=".TestSearch"
+            android:label="@string/title_activity_test_search" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable"
+                android:value=".TestSearch" />
         </activity>
     </application>
     <!-- To access Google+ APIs: -->

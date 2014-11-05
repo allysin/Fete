@@ -263,6 +263,7 @@ public class HomePage extends Activity {
             case R.id.action_search:
                 Intent userIntent = new Intent(this, SearchPage.class);
                 startActivity(userIntent);
+
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -26,7 +26,8 @@
                 android:padding="15dp"
                 android:layout_margin="15dp"
                 android:clickable="true"
-                android:src="@drawable/nina" />
+                android:src="@drawable/nina"
+                android:onClick="goTest" />
 
 
             <TextView
@@ -106,4 +107,9 @@
                 android:layout_alignParentEnd="true" />
         </RelativeLayout>
     </LinearLayout>
+    <TextView
+        android:id="@+id/status_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"/>
 </FrameLayout>
