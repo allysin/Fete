@@ -13,6 +13,8 @@ public class Venue {
 
     private String venueDescription;
 
+    private String venueImage;
+
     private int ownerID;
 
     public Venue(){
@@ -26,11 +28,12 @@ public class Venue {
     and everything else is empty.
     To use the one below, use Venue v = new Venue(2, "Backyard with Pool", "Amazing backyard with pool, lighting and barbeque.", 1);
     In this case v.id will be 2, v.venueName will be "Backyard with Pool" and so on.*/
-    public Venue(int id, String venueName, String venueDescription, int ownerID){
+    public Venue(int id, String venueName, String venueDescription, String venueImage, int ownerID){
         this.id = id;
         this.venueName = venueName;
         this.venueDescription = venueDescription;
         this.ownerID = ownerID;
+        this.venueImage = venueImage;
     }
 
     /*Get set methods help you control access to your variables. GetID does not have a corresponding SetID function
@@ -58,6 +61,12 @@ public class Venue {
         and v.SetVenueDescription("hello"), the parameter venueDescription above gets filled with "hello",
         and the line below becomes v.venueDescription = "hello";*/
         this.venueDescription = venueDescription;
+    }
+
+    public String GetVenueImage(){return this.venueImage;}
+
+    public void SetVenueImage(String venueImage){
+        this.venueImage = venueImage;
     }
 
     public int GetOwnerID(){

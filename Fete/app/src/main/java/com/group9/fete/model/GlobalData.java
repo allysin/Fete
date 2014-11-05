@@ -52,10 +52,23 @@ public class GlobalData extends Application {
     }
 
     public void SetData(){
+        if (appVenues == null){
+            appVenues = new ArrayList<Venue>();
+        }
         String jsonString = getJsonData();
         try {
             JSONObject jsonObject = new JSONObject(jsonString);
             JSONArray venueArray = jsonObject.getJSONArray("venues");
+            for(int i=0; i<venueArray.length(); i++){
+                JSONObject venue = venueArray.getJSONObject(i);
+                int ownerID = venue.getInt("ownerID");
+                int venueID = venue.getInt("venueID");
+                String venueImage = venue.getString("venueImage");
+                String venueName = venue.getString("venueName");
+                String venueDescription = venue.getString("venueDescription");
+                Venue v = new Venue(venueID, venueName, venueDescription, venueImage, ownerID);
+                appVenues.add(v);
+            }
             Log.v(Tag, jsonObject.toString());
         }catch(Exception e)
         {

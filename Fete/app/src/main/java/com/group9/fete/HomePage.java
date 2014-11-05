@@ -3,7 +3,6 @@ package com.group9.fete;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -11,16 +10,11 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 
 import com.group9.fete.adapter.NavDrawerListAdapter;
 import com.group9.fete.model.GlobalData;
@@ -29,7 +23,7 @@ import com.group9.fete.model.NavDrawerItem;
 import java.util.ArrayList;
 
 public class HomePage extends Activity {
-    ImageView image;
+    public GlobalData AppData;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -53,8 +47,10 @@ public class HomePage extends Activity {
          This will populate the global variable GlobalData that can then be used to fill data programmatically
          on all screens.
         */
-        GlobalData data = (GlobalData)getApplicationContext();
-        data.SetData();
+        if (AppData == null) {
+            AppData = (GlobalData) getApplicationContext();
+            AppData.SetData();
+        }
         super.onCreate(savedInstanceState);
 
         //Make the homepage activity the current activity
@@ -150,7 +146,7 @@ public class HomePage extends Activity {
         switch (position) {
             case 0:
                 //Fragment for home page is returned when Home is selected on Drawer
-                fragment = new PlaceholderFragment();
+                fragment = new HomeFragment();
                 break;
             case 1:
                 //Fragment for UserDetail page is returned when My Profile is selected
@@ -272,46 +268,47 @@ public class HomePage extends Activity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            Context cont = getActivity();
-            View rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
-            ImageView userImage = (ImageView)rootView.findViewById(R.id.userImage);
-            userImage.setImageResource(R.drawable.nina);
-//            TextView userDetailView = (TextView)rootView.findViewById(R.id.userDetail);
-//            userDetailView.setText("Nina Dobrev is our featured user this week. She likes to knit and ride bicycles" +
-//                    "down by the river whenever...");
-
-            //code will fetch images named poolimage with numbers concatenated
-            String filenameVenueImage = getString(R.string.venue_image_names);
-            String fileNumberTotalString = getString(R.string.number_of_venues);
-            Integer totalFiles = Integer.parseInt(fileNumberTotalString);
-            Integer totalRows = totalFiles/3;
-            TableLayout venueTable = (TableLayout)rootView.findViewById(R.id.venueTable);
-            for (int i=0;i<totalRows;i++ )
-            {
-                //create tablerows dynamically, add imageviews to it filled with appropiate images
-                TableRow row = new TableRow(cont);
-                for (int j=0;j<3;j++) {
-                    View imageView = new ImageView(cont);
-                    String filename = filenameVenueImage + Integer.toString(3*i + j);
-                    int resID = getResources().getIdentifier(filename, "drawable", cont.getPackageName());
-                    ((ImageView) imageView).setImageResource(resID);
-                    ((ImageView) imageView).layout(10, 10, 10, 10);
-                    //once the row is filled, all row to the table
-                    row.addView(imageView, 150, 150);
-                }
-                venueTable.addView(row);
-            }
-            return rootView;
-        }
-    }
+//    public static class PlaceholderFragment extends Fragment {
+//
+//        public PlaceholderFragment() {
+//        }
+//
+//        @Override
+//        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                                 Bundle savedInstanceState) {
+//            Context cont = getActivity();
+//            GlobalData data = (GlobalData) getApplicationContext();
+//            View rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
+//            ImageView userImage = (ImageView)rootView.findViewById(R.id.userImage);
+//            userImage.setImageResource(R.drawable.nina);
+////            TextView userDetailView = (TextView)rootView.findViewById(R.id.userDetail);
+////            userDetailView.setText("Nina Dobrev is our featured user this week. She likes to knit and ride bicycles" +
+////                    "down by the river whenever...");
+//
+//            //code will fetch images named poolimage with numbers concatenated
+//            String filenameVenueImage = getString(R.string.venue_image_names);
+//            String fileNumberTotalString = getString(R.string.number_of_venues);
+//            Integer totalFiles = Integer.parseInt(fileNumberTotalString);
+//            Integer totalRows = totalFiles/3;
+//            TableLayout venueTable = (TableLayout)rootView.findViewById(R.id.venueTable);
+//            for (int i=0;i<totalRows;i++ )
+//            {
+//                //create tablerows dynamically, add imageviews to it filled with appropiate images
+//                TableRow row = new TableRow(cont);
+//                for (int j=0;j<3;j++) {
+//                    View imageView = new ImageView(cont);
+//                    String filename = filenameVenueImage + Integer.toString(3*i + j);
+//                    int resID = getResources().getIdentifier(filename, "drawable", cont.getPackageName());
+//                    ((ImageView) imageView).setImageResource(resID);
+//                    ((ImageView) imageView).layout(10, 10, 10, 10);
+//                    //once the row is filled, all row to the table
+//                    row.addView(imageView, 150, 150);
+//                }
+//                venueTable.addView(row);
+//            }
+//            return rootView;
+//        }
+//    }
 
     public void goToUser(View view){
         Intent userIntent = new Intent(this, UserDetail.class);
