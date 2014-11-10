@@ -217,11 +217,11 @@ public class HomePage extends Activity {
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
                 break;
-            case R.id.action_search:
-                //When Search button is clicked, Textbox should appear. TODO
-                Intent userIntent = new Intent(this, SearchPage.class);
-                startActivity(userIntent);
-                break;
+//            case R.id.action_search:
+//                //When Search button is clicked, Textbox should appear. TODO
+//                Intent userIntent = new Intent(this, SearchPage.class);
+//                startActivity(userIntent);
+//                break;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -325,6 +325,10 @@ public class HomePage extends Activity {
         startActivity(userIntent);
     }
 
+    public void goTest(View view){
+        Intent userIntent = new Intent(this, TestSearch.class);
+        startActivity(userIntent);
+    }
 
 
 

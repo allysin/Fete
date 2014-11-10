@@ -6,17 +6,17 @@
         android:orderInCategory="100"
         android:showAsAction="never" />
 
-    <item android:id="@+id/action_search"
-        android:title="search"
-        android:orderInCategory="100"
-        android:showAsAction="always"
-        android:icon="@android:drawable/ic_menu_search"
-        />
     <!--<item android:id="@+id/action_search"-->
         <!--android:title="search"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:showAsAction="always"-->
         <!--android:icon="@android:drawable/ic_menu_search"-->
-        <!--android:showAsAction="collapseActionView|ifRoom"-->
-        <!--android:actionViewClass="android.widget.SearchView" />-->
+        />
+    <item android:id="@+id/action_search"
+        android:title="search"
+        android:icon="@android:drawable/ic_menu_search"
+        android:showAsAction="collapseActionView|ifRoom"
+        android:actionViewClass="android.widget.SearchView" />
 
 
 </menu>

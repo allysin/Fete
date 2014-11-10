@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.app.SearchManager;
 import android.app.SearchableInfo;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -44,13 +44,6 @@ public class TestSearch extends Activity implements SearchView.OnQueryTextListen
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.test_search, menu);
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        mSearchView = (SearchView) searchItem.getActionView();
-        setupSearchView(searchItem);
-
 
 
         return true;
@@ -90,13 +83,13 @@ public class TestSearch extends Activity implements SearchView.OnQueryTextListen
 
 
     public boolean onQueryTextSubmit(String query) {
-//        Intent intent = new Intent(this, SearchPage.class);
-//        String message = query;
-//        intent.putExtra(EXTRA_MESSAGE, message);
-//        startActivity(intent);
+        Intent intent = new Intent(this, SearchPage.class);
+        String message = query;
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
 
         mStatusView.setText("Query = " + query + " : submitted");
-        return false;
+        return true;
 
     }
 
