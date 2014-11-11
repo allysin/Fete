@@ -53,7 +53,7 @@ public class Venue {
     }
 
     public String GetVenueDescription(){
-        return venueName;
+        return venueDescription;
     }
 
     public void SetVenueDescription(String venueDescription){

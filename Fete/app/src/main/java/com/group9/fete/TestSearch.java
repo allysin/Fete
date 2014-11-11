@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.group9.fete.model.GlobalData;
@@ -20,6 +21,7 @@ import com.group9.fete.model.Venue;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class TestSearch extends Activity  {
@@ -28,7 +30,7 @@ public class TestSearch extends Activity  {
 
     public final static String EXTRA_MESSAGE = "com.group9.fete.TestSearch.MESSAGE";
 
-    List<Venue> venuesList = new ArrayList<Venue>();
+    List<Map<String, String>> venuesList = new ArrayList<Map<String,String>>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +66,8 @@ public class TestSearch extends Activity  {
 
 
         ListView venueListView = (ListView) findViewById(R.id.listView);
-        //SimpleAdapter simpleAdpt = new SimpleAdapter(this, venuesList, android.R.layout.simple_list_item_1, new String[] {"venue"}, new int[] {android.R.id.text1});
-        //venueListView.setAdapter(simpleAdpt);
+        SimpleAdapter simpleAdpt = new SimpleAdapter(this, venuesList, android.R.layout.simple_list_item_1, new String[] {"venue"}, new int[] {android.R.id.text1});
+        venueListView.setAdapter(simpleAdpt);
 
         venueListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parentAdapter, View view, int position,
@@ -80,14 +82,15 @@ public class TestSearch extends Activity  {
 
     private void initList(GlobalData data, String query){
         List<Venue> featuredVenues = data.GetVenues();
-        venuesList = new ArrayList<Venue>();
+        List<Venue> filteredVenues = new ArrayList<Venue>();
 
         for (int i=0;i<featuredVenues.size();i++ ) {
             Venue v = featuredVenues.get(i);
+
             if(v.GetVenueName().contains(query) == true){
-                venuesList.add(v);
+                venuesList.add(createVenue("venue", v.GetVenueName()));
             }
-//            venuesList.add(createVenue("venue", "Venue 1"));
+
         }
     }
 
