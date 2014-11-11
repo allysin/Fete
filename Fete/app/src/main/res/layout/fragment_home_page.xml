@@ -24,12 +24,14 @@
         <!--android:src="@drawable/nina"-->
 
         <ImageView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:layout_gravity="bottom|center"
+            android:layout_gravity="bottom|left"
+            android:layout_marginLeft="10dp"
             android:id="@+id/userImage"
             android:src="@drawable/nina"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:background="@drawable/abc_menu_dropdown_panel_holo_light" />
     </FrameLayout>
 
 
