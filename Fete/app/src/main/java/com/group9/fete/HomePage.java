@@ -3,6 +3,8 @@ package com.group9.fete;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -11,10 +13,12 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SearchView;
 
 import com.group9.fete.adapter.NavDrawerListAdapter;
 import com.group9.fete.model.GlobalData;
@@ -191,8 +195,40 @@ public class HomePage extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home_page, menu);
-        return true;
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.home_page, menu);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        MenuItem swi= menu.findItem(R.id.action_search);
+
+        SearchView sw= (SearchView) swi.getActionView();
+        sw.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        sw.setIconifiedByDefault(true);
+
+        sw.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Intent intent = new Intent(HomePage.this, TestSearch.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("query", query);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(final String s) {
+                return false;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+
+
+
+
+
+
     }
 
     @Override
@@ -217,11 +253,9 @@ public class HomePage extends Activity {
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
                 break;
-//            case R.id.action_search:
-//                //When Search button is clicked, Textbox should appear. TODO
-//                Intent userIntent = new Intent(this, SearchPage.class);
-//                startActivity(userIntent);
-//                break;
+            case R.id.action_search:
+                //When Search button is clicked, Textbox should appear. TODO
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

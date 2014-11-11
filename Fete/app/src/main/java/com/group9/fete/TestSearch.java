@@ -1,21 +1,25 @@
+//Allyson, Michael, and Anubhav implemented simple adapter for list view of unfiltered search results
+
 package com.group9.fete;
 
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
+import com.group9.fete.model.GlobalData;
+import com.group9.fete.model.Venue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 public class TestSearch extends Activity  {
@@ -24,31 +28,44 @@ public class TestSearch extends Activity  {
 
     public final static String EXTRA_MESSAGE = "com.group9.fete.TestSearch.MESSAGE";
 
-    List<Map<String, String>> venuesList = new ArrayList<Map<String,String>>();
+    List<Venue> venuesList = new ArrayList<Venue>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        GlobalData data = ((GlobalData)getApplicationContext());
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_search);
 
         registerForContextMenu((ListView) findViewById(R.id.listView));
 
-        initList();
+
 
         TextView textView = (TextView) findViewById(R.id.status_text);
 
-        ListView venueListView = (ListView) findViewById(R.id.listView);
-        SimpleAdapter simpleAdpt = new SimpleAdapter(this, venuesList, android.R.layout.simple_list_item_1, new String[] {"venue"}, new int[] {android.R.id.text1});
-        venueListView.setAdapter(simpleAdpt);
 
 
+        String query = new String();
         // Get the intent, verify the action and get the query
         Intent intent = getIntent();
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-           String query = intent.getStringExtra(SearchManager.QUERY);
-            textView.setText("You Searched for" + query);
+           query = intent.getStringExtra(SearchManager.QUERY);
+            textView.setText("You Searched for " + query);
+
         }
+
+        if(query != ""){
+            initList(data, query);
+        }
+        else {
+            Log.e("TestSearch.java", "No query variable");
+        }
+
+
+        ListView venueListView = (ListView) findViewById(R.id.listView);
+        //SimpleAdapter simpleAdpt = new SimpleAdapter(this, venuesList, android.R.layout.simple_list_item_1, new String[] {"venue"}, new int[] {android.R.id.text1});
+        //venueListView.setAdapter(simpleAdpt);
 
         venueListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parentAdapter, View view, int position,
@@ -61,21 +78,24 @@ public class TestSearch extends Activity  {
 
     }
 
-    private void initList(){
-        venuesList.add(createVenue("venue", "Venue 1"));
-        venuesList.add(createVenue("venue", "Venue 1"));
-        venuesList.add(createVenue("venue", "Venue 1"));
-        venuesList.add(createVenue("venue", "Venue 1"));
-        venuesList.add(createVenue("venue", "Venue 1"));
-        venuesList.add(createVenue("venue", "Venue 1"));
-        venuesList.add(createVenue("venue", "Venue 1"));
+    private void initList(GlobalData data, String query){
+        List<Venue> featuredVenues = data.GetVenues();
+        venuesList = new ArrayList<Venue>();
+
+        for (int i=0;i<featuredVenues.size();i++ ) {
+            Venue v = featuredVenues.get(i);
+            if(v.GetVenueName().contains(query) == true){
+                venuesList.add(v);
+            }
+//            venuesList.add(createVenue("venue", "Venue 1"));
+        }
     }
 
 
     private HashMap<String, String> createVenue(String key, String name) {
-        HashMap<String, String> team = new HashMap<String, String>();
-        team.put(key, name);
-        return team;
+        HashMap<String, String> venue = new HashMap<String, String>();
+        venue.put(key, name);
+        return venue;
     }
 
     public void openVenueDetail(long id) {
