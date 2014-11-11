@@ -2,44 +2,88 @@ package com.group9.fete;
 
 import android.app.Activity;
 import android.app.SearchManager;
-import android.app.SearchableInfo;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.SearchView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
-public class TestSearch extends Activity implements SearchView.OnQueryTextListener  {
+public class TestSearch extends Activity  {
 
 
-    private SearchView mSearchView;
-    private TextView mStatusView;
 
     public final static String EXTRA_MESSAGE = "com.group9.fete.TestSearch.MESSAGE";
 
+    List<Map<String, String>> venuesList = new ArrayList<Map<String,String>>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_search);
 
-        mStatusView = (TextView) findViewById(R.id.status_text);
+        registerForContextMenu((ListView) findViewById(R.id.listView));
+
+        initList();
+
+        TextView textView = (TextView) findViewById(R.id.status_text);
+
+        ListView venueListView = (ListView) findViewById(R.id.listView);
+        SimpleAdapter simpleAdpt = new SimpleAdapter(this, venuesList, android.R.layout.simple_list_item_1, new String[] {"venue"}, new int[] {android.R.id.text1});
+        venueListView.setAdapter(simpleAdpt);
+
+
+        // Get the intent, verify the action and get the query
+        Intent intent = getIntent();
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+           String query = intent.getStringExtra(SearchManager.QUERY);
+            textView.setText("You Searched for" + query);
+        }
+
+        venueListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parentAdapter, View view, int position,
+                                    long id) {
+                openVenueDetail(id);
+            }
+        });
+
 
 
     }
 
+    private void initList(){
+        venuesList.add(createVenue("venue", "Venue 1"));
+        venuesList.add(createVenue("venue", "Venue 1"));
+        venuesList.add(createVenue("venue", "Venue 1"));
+        venuesList.add(createVenue("venue", "Venue 1"));
+        venuesList.add(createVenue("venue", "Venue 1"));
+        venuesList.add(createVenue("venue", "Venue 1"));
+        venuesList.add(createVenue("venue", "Venue 1"));
+    }
 
 
-//    private void doMySearch(String query) {
-//        Log.d("Event", query);
-//
-//    }
+    private HashMap<String, String> createVenue(String key, String name) {
+        HashMap<String, String> team = new HashMap<String, String>();
+        team.put(key, name);
+        return team;
+    }
 
-
+    public void openVenueDetail(long id) {
+        Intent intent = new Intent(this, VenueDetail.class);
+        String message = String.valueOf(id);
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -49,54 +93,54 @@ public class TestSearch extends Activity implements SearchView.OnQueryTextListen
         return true;
     }
 
+//
+//    private void setupSearchView(MenuItem searchItem) {
+//
+//        if (isAlwaysExpanded()) {
+//            mSearchView.setIconifiedByDefault(false);
+//        } else {
+//            searchItem.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM
+//                    | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
+//        }
+//
+//        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+//        if (searchManager != null) {
+//            List<SearchableInfo> searchables = searchManager.getSearchablesInGlobalSearch();
+//
+//            SearchableInfo info = searchManager.getSearchableInfo(getComponentName());
+//            for (SearchableInfo inf : searchables) {
+//                if (inf.getSuggestAuthority() != null
+//                        && inf.getSuggestAuthority().startsWith("applications")) {
+//                    info = inf;
+//                }
+//            }
+//            mSearchView.setSearchableInfo(info);
+//        }
+//
+//        mSearchView.setOnQueryTextListener(this);
+//    }
+//
+//    public boolean onQueryTextChange(String newText) {
+//        mStatusView.setText("Query = " + newText);
+//        return false;
+//    }
+//
+//
+//    public boolean onQueryTextSubmit(String query) {
+//        Intent intent = new Intent(this, SearchPage.class);
+//        String message = query;
+//        intent.putExtra(EXTRA_MESSAGE, message);
+//        startActivity(intent);
+//
+//        mStatusView.setText("Query = " + query + " : submitted");
+//        return true;
+//
+//    }
 
-    private void setupSearchView(MenuItem searchItem) {
-
-        if (isAlwaysExpanded()) {
-            mSearchView.setIconifiedByDefault(false);
-        } else {
-            searchItem.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM
-                    | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
-        }
-
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        if (searchManager != null) {
-            List<SearchableInfo> searchables = searchManager.getSearchablesInGlobalSearch();
-
-            SearchableInfo info = searchManager.getSearchableInfo(getComponentName());
-            for (SearchableInfo inf : searchables) {
-                if (inf.getSuggestAuthority() != null
-                        && inf.getSuggestAuthority().startsWith("applications")) {
-                    info = inf;
-                }
-            }
-            mSearchView.setSearchableInfo(info);
-        }
-
-        mSearchView.setOnQueryTextListener(this);
-    }
-
-    public boolean onQueryTextChange(String newText) {
-        mStatusView.setText("Query = " + newText);
-        return false;
-    }
-
-
-    public boolean onQueryTextSubmit(String query) {
-        Intent intent = new Intent(this, SearchPage.class);
-        String message = query;
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-
-        mStatusView.setText("Query = " + query + " : submitted");
-        return true;
-
-    }
-
-    public boolean onClose() {
-        mStatusView.setText("Closed!");
-        return false;
-    }
+//    public boolean onClose() {
+//        mStatusView.setText("Closed!");
+//        return false;
+//    }
 
     protected boolean isAlwaysExpanded() {
         return false;

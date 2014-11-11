@@ -21,4 +21,10 @@
         <item name="android:textColor">@color/White</item>
     </style>
 
+    <!--Used for login/signup page-->
+    <style name="Theme.NoActionBar" parent="@style/AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
 </resources>
