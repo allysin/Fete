@@ -8,7 +8,7 @@ import android.view.View;
 import com.group9.fete.R;
 
 /**
- * Created by Anubhav on 30-10-2014.
+ Allyson and Michael and Anubhav had a robot party with alert dialogs and fragments on 11/11/2014
  */
 public class FeteYesNoDialog extends DialogPreference {
     public FeteYesNoDialog(Context context, AttributeSet attr){
