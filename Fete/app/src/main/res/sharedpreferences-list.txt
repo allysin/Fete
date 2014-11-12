@@ -1,0 +1,10 @@
+Scenarios for shared preferences in Fete
+
+1. Login
+2. Search function - keeping same search filters for next search
+3. Editing user proifle. Storing user info like user location.
+4. JSON objects
+5. Changing text size
+6. Saving what the user's preference is for messaging app
+7. Color/theme preferences (e.g. "dark" or "light theme")
+8. 
