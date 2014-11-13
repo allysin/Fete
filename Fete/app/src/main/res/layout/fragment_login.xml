@@ -25,11 +25,11 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/userName"
         android:autoText="false"
-        android:hint="Email"
+        android:hint="Username"
         android:background="#ffffffff"
         android:layout_marginTop="133dp"
         android:layout_alignParentTop="true"
@@ -44,7 +44,7 @@
         android:hint="Password"
         android:background="#fff"
         android:layout_marginTop="18dp"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/userName"
         android:layout_centerHorizontal="true" />
 
     <Button

@@ -202,6 +202,8 @@ public class HomePage extends Activity {
         MenuItem swi= menu.findItem(R.id.action_search);
 
         SearchView sw= (SearchView) swi.getActionView();
+        sw.setQueryHint("Try Pool");
+
         sw.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         sw.setIconifiedByDefault(true);
 

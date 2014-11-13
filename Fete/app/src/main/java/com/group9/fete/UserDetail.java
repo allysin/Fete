@@ -5,7 +5,9 @@ import android.app.Fragment;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,6 +29,15 @@ public class UserDetail extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+
+        //access sharedpreferences to get username stored at login
+        SharedPreferences mySP = getSharedPreferences("AppPreferences", Activity.MODE_PRIVATE);
+
+        String user =  mySP.getString("UserName", "");
+
+        Log.i("user", user);
+
+
     }
 
 

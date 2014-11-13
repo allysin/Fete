@@ -46,7 +46,7 @@
   "users": [
     {
       "userID": 1,
-      "username": "User Surname",
+      "username": "Allyson Mackay",
       "userimage": "user0",
       "ownedVenues": [
         {
@@ -59,7 +59,7 @@
     },
     {
       "userID": 2,
-      "username": "Brian Surname2",
+      "username": "Michael Nguyen",
       "userimage": "user1",
       "ownedVenues": [
         {
@@ -75,7 +75,7 @@
     },
     {
       "userID": 3,
-      "username": "User Surname3",
+      "username": "Anubhav Saxena",
       "userimage": "user2",
       "ownedVenues": [
         {
