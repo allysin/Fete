@@ -5,46 +5,136 @@
     tools:context="com.group9.fete.VenueDetail$PlaceholderFragment">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:id="@+id/venueName"/>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:maxHeight="40dp"
-        android:contentDescription="@string/venue_detail_image_desc" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:text="@string/venue_detail_description"/>
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="149dp"
+        android:layout_gravity="center_horizontal|top"
+        android:id="@+id/top">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/detailTable"></TableLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="126dp"
+                android:layout_height="126dp"
+                android:id="@+id/imageView"
+                android:layout_margin="15dp"
+                android:clickable="true"
+                android:src="@drawable/backyardwithpool"
+                android:background="@drawable/abc_menu_dropdown_panel_holo_light" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Backyard Pool"
+                android:id="@+id/textView"
+                android:layout_weight="0.59"
+                android:layout_margin="10dp"
+                android:padding="10dp" />
+
+        </LinearLayout>
     </LinearLayout>
-    <TableLayout
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="178dp"
+        android:layout_margin="15dp"
+        android:layout_gravity="center"
+        android:layout_below="@+id/top"
+        android:id="@+id/mid"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Details"
+            android:id="@+id/textView2"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Stunning pool in a quiet, secluded backyard. Can accomodate up to 30 people. No rowdy parties, please!"
+            android:id="@+id/textView3"
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            android:layout_weight="0.39" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="169dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/mid"
+        android:id="@+id/mid2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Owner"
+            android:id="@+id/textView4" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:weightSum="4">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView2"
+                android:visibility="visible"
+                android:src="@drawable/nina"
+                android:onClick="goToProperty"
+                android:layout_weight="5"
+                android:background="@drawable/abc_menu_dropdown_panel_holo_light" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Nina"
+                android:id="@+id/textView4" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Book venue"
+            />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:weightSum="2">
-        <TableRow>
-            <Button android:layout_weight="1" android:text="@string/save_draft_button_text"/>
-            <Button android:layout_weight="1" android:text="@string/publish_button_text"/>
-        </TableRow>
-    </TableLayout>
+        android:layout_below="@+id/mid2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="My Reviews"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/reviews" />
+
+    </LinearLayout>
+
+
+
+
 </RelativeLayout>
+    </ScrollView>
