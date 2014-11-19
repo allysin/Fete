@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.group9.fete.VenueDetail$PlaceholderFragment">
-
+    <ScrollView android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
@@ -43,16 +44,19 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="178dp"
-        android:layout_margin="15dp"
+        android:layout_height="120dp"
         android:layout_gravity="center"
         android:layout_below="@+id/top"
         android:id="@+id/mid"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Details"
             android:id="@+id/textView2"
@@ -63,7 +67,7 @@
             android:layout_height="wrap_content"
             android:text="Stunning pool in a quiet, secluded backyard. Can accomodate up to 30 people. No rowdy parties, please!"
             android:id="@+id/textView3"
-            android:layout_margin="5dp"
+            android:layout_margin="0dp"
             android:padding="10dp"
             android:layout_weight="0.39" />
 
@@ -72,7 +76,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="169dp"
+        android:layout_height="120dp"
         android:layout_gravity="center_horizontal"
         android:layout_below="@+id/mid"
         android:id="@+id/mid2">
@@ -80,40 +84,40 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_marginLeft="25dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Owner"
             android:id="@+id/textView4" />
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="10dp"
+        android:weightSum="4">
+
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:layout_margin="10dp"
-            android:weightSum="4">
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView2"
+            android:visibility="visible"
+            android:src="@drawable/nina"
+            android:onClick="goToUser"
+            android:layout_weight="5"
+            android:background="@drawable/abc_menu_dropdown_panel_holo_light" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView2"
-                android:visibility="visible"
-                android:src="@drawable/nina"
-                android:onClick="goToProperty"
-                android:layout_weight="5"
-                android:background="@drawable/abc_menu_dropdown_panel_holo_light" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Nina"
-                android:id="@+id/textView4" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="Book venue"
-            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Nina"
+            android:id="@+id/textView4" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Book venue"
+        />
 
 
         </LinearLayout>
@@ -121,16 +125,36 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mid2">
+        android:layout_height="130dp"
+        android:layout_below="@+id/mid2"
+        android:layout_margin="5dp"
+        android:layout_weightSum="4">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:text="My Reviews"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/reviews" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weightSum="3">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView2"
+                android:visibility="visible"
+                android:src="@drawable/headshot_mn"
+                android:onClick="goToUser"
+                android:layout_weight="2"
+                android:background="@drawable/abc_menu_dropdown_panel_holo_light" />
+        </LinearLayout>
     </LinearLayout>
 
 
