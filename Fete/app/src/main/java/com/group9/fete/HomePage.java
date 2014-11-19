@@ -6,6 +6,7 @@ import android.app.FragmentManager;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -27,6 +28,8 @@ import com.group9.fete.model.NavDrawerItem;
 import java.util.ArrayList;
 
 public class HomePage extends Activity {
+
+
     public GlobalData AppData;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -177,7 +180,19 @@ public class HomePage extends Activity {
         }
 
         if (fragment != null) {
+            //access sharedpreferences to get username stored at login
+            SharedPreferences mySP = getSharedPreferences("AppPreferences", Activity.MODE_PRIVATE);
+            String user =  mySP.getString("UserName", "");
+
+            Log.i("user", user);
+
             FragmentManager fragmentManager = getFragmentManager();
+
+            //set username from shared preferences
+            Bundle b = new Bundle();
+            b.putString("LoggedUser", user);
+            fragment.setArguments(b);
+
             fragmentManager.beginTransaction()
                     .replace(R.id.container, fragment).commit();
 

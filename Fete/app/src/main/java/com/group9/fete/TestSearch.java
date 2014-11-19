@@ -57,7 +57,7 @@ public class TestSearch extends Activity  {
 
         }
 
-        if(query != ""){
+        if(query != "" && venuesList.isEmpty() == true){
             initList(data, query);
         }
         else {

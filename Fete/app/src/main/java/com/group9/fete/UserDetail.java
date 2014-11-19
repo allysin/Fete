@@ -5,9 +5,7 @@ import android.app.Fragment;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,7 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
-
+import android.widget.TextView;
 
 
 public class UserDetail extends Activity {
@@ -30,12 +28,7 @@ public class UserDetail extends Activity {
                     .commit();
         }
 
-        //access sharedpreferences to get username stored at login
-        SharedPreferences mySP = getSharedPreferences("AppPreferences", Activity.MODE_PRIVATE);
 
-        String user =  mySP.getString("UserName", "");
-
-        Log.i("user", user);
 
 
     }
@@ -99,6 +92,18 @@ public class UserDetail extends Activity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_user_detail, container, false);
+            Bundle arguments = getArguments();
+
+            TextView textView = (TextView) rootView.findViewById(R.id.userName);
+
+
+            if (arguments != null){
+                textView.setText(arguments.getString("LoggedUser", ""));
+            }
+
+
+
+
             return rootView;
         }
     }
