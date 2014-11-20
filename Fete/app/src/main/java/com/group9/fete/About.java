@@ -1,40 +1,36 @@
 package com.group9.fete;
 
 import android.app.Activity;
+import android.app.ActionBar;
 import android.app.Fragment;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.os.Build;
 
 
-public class Login extends Activity {
 
-    public static final String PREFS_NAME = "AppPreferences";
+public class About extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_about);
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-
-
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.login, menu);
+        getMenuInflater().inflate(R.menu.about, menu);
         return true;
     }
 
@@ -61,39 +57,8 @@ public class Login extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_login, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_about, container, false);
             return rootView;
         }
     }
-
-
-    public void login(View view){
-
-
-
-        String userName = new String();
-        EditText textView = (EditText) findViewById(R.id.userName);
-        userName = textView.getText().toString();
-
-        //access shared preferences and editor to put username string
-        SharedPreferences mySP = getSharedPreferences("AppPreferences", Activity.MODE_PRIVATE);
-        SharedPreferences.Editor editor = mySP.edit();
-
-        editor.putString("UserName", userName);
-
-        editor.apply();
-
-        Intent userIntent = new Intent(this, HomePage.class);
-        startActivity(userIntent);
-
-
-    }
-
-    public void signup(View view){
-        Intent userIntent = new Intent(this, SignUp.class);
-        startActivity(userIntent);
-    }
-
-
-
 }

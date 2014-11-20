@@ -2,6 +2,7 @@ package com.group9.fete;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -64,4 +65,20 @@ public class VenueDetail extends Activity {
             return rootView;
         }
     }
+
+    public void goToUser(View view){
+        Intent userIntent = new Intent(this, UserDetail.class);
+        startActivity(userIntent);
+    }
+
+    public void contact(View view){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("message/rfc822");
+        intent.putExtra(Intent.EXTRA_EMAIL, "emailaddress@emailaddress.com");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "I'm interested in your property");
+        intent.putExtra(Intent.EXTRA_TEXT, "I'm email body.");
+
+        startActivity(Intent.createChooser(intent, "Send Email"));
+    }
+
 }

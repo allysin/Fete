@@ -3,11 +3,12 @@
     package="com.group9.fete" >
 
     <application
+        android:name=".model.GlobalData"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        android:name=".model.GlobalData">
+        android:theme="@style/AppTheme">
+
         <activity
             android:name=".HomePage"
             android:label="@string/app_name" >
@@ -15,22 +16,20 @@
                 android:name="android.app.default_searchable"
                 android:value=".TestSearch" />
         </activity>
-
-
         <activity
             android:name=".UserDetail"
             android:label="@string/title_activity_user_detail"
             android:parentActivityName=".HomePage" >
 
-
-             <!--android:name="android.support.PARENT_ACTIVITY
-              android:value="com.group9.fete.HomePage""-->
+            <!--
+              android:name="android.support.PARENT_ACTIVITY
+              android:value="com.group9.fete.HomePage""
+            -->
             <meta-data
-            android:name="android.app.default_searchable"
-            android:value=".TestSearch" />/>
-
+                android:name="android.app.default_searchable"
+                android:value=".TestSearch" />
+/>
         </activity>
-
         <activity
             android:name=".VenueDetail"
             android:label="@string/title_activity_venue_detail"
@@ -39,7 +38,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group9.fete.HomePage" />
         </activity>
-
         <activity
             android:name=".SearchPage"
             android:label="@string/title_activity_search_page"
@@ -48,7 +46,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group9.fete.HomePage" />
         </activity>
-
         <activity
             android:name=".ManageVenue"
             android:label="@string/title_activity_manage_venue"
@@ -57,21 +54,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group9.fete.HomePage" />
         </activity>
-
-
         <activity
             android:name=".Login"
             android:label="@string/title_activity_login"
-            android:theme="@style/Theme.NoActionBar">
-
+            android:theme="@style/Theme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".VenueImageViewer"
             android:label="@string/title_activity_venue_image_viewer"
@@ -93,28 +85,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group9.fete.SearchPage" />
         </activity>
-
-
         <activity
             android:name=".SignUp"
             android:label="@string/title_activity_sign_up"
             android:parentActivityName=".Login"
-            android:theme="@style/Theme.NoActionBar">
+            android:theme="@style/Theme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group9.fete.Login" />
         </activity>
-
-
         <activity
             android:name=".TestSearch"
             android:label="@string/title_activity_test_search" >
-
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable"
@@ -122,10 +110,12 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group9.fete.HomePage" />
-
         </activity>
-
-
+        <activity
+            android:name=".About"
+            android:label="@string/title_activity_about"
+           >
+        </activity>
     </application>
     <!-- To access Google+ APIs: -->
     <uses-permission android:name="android.permission.INTERNET" />
