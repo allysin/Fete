@@ -29,6 +29,11 @@ public class HomeFragment extends Fragment {
         GlobalData data = ((HomePage)getActivity()).AppData;
         View rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
         ImageView userImage = (ImageView)rootView.findViewById(R.id.userImage);
+
+
+
+
+
         userImage.setImageResource(R.drawable.nina);
 //            TextView userDetailView = (TextView)rootView.findViewById(R.id.userDetail);
 //            userDetailView.setText("Nina Dobrev is our featured user this week. She likes to knit and ride bicycles" +

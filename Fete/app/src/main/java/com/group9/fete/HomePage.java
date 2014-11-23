@@ -1,15 +1,18 @@
 package com.group9.fete;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -48,6 +51,9 @@ public class HomePage extends Activity {
     private ArrayList<NavDrawerItem> navDrawerItems;
     private NavDrawerListAdapter adapter;
 
+    final String welcomeScreenShownPref = "welcomeScreenShown";
+    SharedPreferences mPrefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         /*Data will be pulled from the json file whenever the Launch activity is created.
@@ -62,6 +68,34 @@ public class HomePage extends Activity {
 
         //Make the homepage activity the current activity
         setContentView(R.layout.activity_home_page);
+
+        //get shared preferences
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        //set shared preference for welcome screen to false
+        Boolean welcomeScreenShown = mPrefs.getBoolean(welcomeScreenShownPref, false);
+
+        //check to see if welcomescreen SP exists, if not, display it
+        if (!welcomeScreenShown) {
+
+            //get details for alert dialog from strings.xml
+            String whatsNewTitle = getResources().getString(R.string.About);
+            String whatsNewText = getResources().getString(R.string.AboutText);
+
+            //build content of alert dialogue
+            new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_info).setTitle(whatsNewTitle).setMessage(whatsNewText).setPositiveButton("Got It!", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).show();
+            //change value of welcomescreen in SP and commit changes
+
+            SharedPreferences.Editor editor = mPrefs.edit();
+            editor.putBoolean(welcomeScreenShownPref, true);
+            editor.commit(); // Very important to save the preference
+        }
+
+
         mTitle = mDrawerTitle = "fete";
         // load slide menu items
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
@@ -380,7 +414,5 @@ public class HomePage extends Activity {
         Intent userIntent = new Intent(this, TestSearch.class);
         startActivity(userIntent);
     }
-
-
 
 }
