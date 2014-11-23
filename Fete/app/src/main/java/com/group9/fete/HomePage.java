@@ -116,12 +116,12 @@ public class HomePage extends Activity {
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
         // My Venues
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
-        // Communities, Will change the name later TODO
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1), true, "22"));
         // Settings
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
+        // About
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
         // Log Out
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1), true, "50+"));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
 
 
         // Recycle the typed array
@@ -198,10 +198,12 @@ public class HomePage extends Activity {
                 fragment = new ManageVenue.PlaceholderFragment();
                 break;
             case 3:
-                //My communities doesn't do any thing for now.. TODO
-            case 4:
                 //Fragment for Settings page is returned when Settings is selected
                 fragment = new SettingsFragment();
+                break;
+            case 4:
+                //Fragment for About
+                fragment = new About.PlaceholderFragment();
                 break;
             case 5:
                 //Intent is fired to go to Login activity on Logout

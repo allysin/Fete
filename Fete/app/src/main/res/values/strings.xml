@@ -22,8 +22,8 @@
         <item>Home</item>
         <item>My Profile</item>
         <item>My Venues</item>
-        <item>Communities</item>
         <item>Settings</item>
+        <item>About</item>
         <item>Logout</item>
     </string-array>
     <!-- Nav Drawer List Item Icons -->
