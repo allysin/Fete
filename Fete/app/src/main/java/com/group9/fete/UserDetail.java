@@ -5,18 +5,26 @@ import android.app.Fragment;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.TextView;
 
 
 public class UserDetail extends Activity {
+
+
+
+    SharedPreferences mPrefs;
+    public final static String EXTRA_MESSAGE = "com.group9.fete.UserDetail.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +35,6 @@ public class UserDetail extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-
 
 
 
@@ -95,10 +102,13 @@ public class UserDetail extends Activity {
             Bundle arguments = getArguments();
 
             TextView textView = (TextView) rootView.findViewById(R.id.userName);
+            Button editButton = (Button) rootView.findViewById(R.id.edit);
 
-
-            if (arguments != null){
+            //set logged in user name to userdetail name and also show edit profile button
+            if (arguments.getString("LoggedUser", "").length() > 1){
                 textView.setText(arguments.getString("LoggedUser", ""));
+                editButton.setVisibility(View.VISIBLE);
+
             }
 
 
@@ -117,5 +127,18 @@ public class UserDetail extends Activity {
         Intent intent = new Intent(this, TestSearch.class);
         startActivity(intent);
     }
+
+    public void goEdit (View view){
+        Intent intent = new Intent(this, EditUserProfile.class);
+
+        TextView textview = (TextView) findViewById(R.id.userName);
+        String user = textview.toString();
+        intent.putExtra(EXTRA_MESSAGE, user);
+        Log.i("userNamePassed to Edit", user);
+
+        startActivity(intent);
+    }
+
+
 
 }

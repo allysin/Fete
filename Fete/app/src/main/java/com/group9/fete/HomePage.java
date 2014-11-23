@@ -23,6 +23,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.group9.fete.adapter.NavDrawerListAdapter;
 import com.group9.fete.model.GlobalData;
@@ -51,8 +52,11 @@ public class HomePage extends Activity {
     private ArrayList<NavDrawerItem> navDrawerItems;
     private NavDrawerListAdapter adapter;
 
+    ///welcome screen
     final String welcomeScreenShownPref = "welcomeScreenShown";
     SharedPreferences mPrefs;
+
+    public final static String EXTRA_MESSAGE = "com.group9.fete.HomePage.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -416,5 +420,19 @@ public class HomePage extends Activity {
         Intent userIntent = new Intent(this, TestSearch.class);
         startActivity(userIntent);
     }
+
+
+    public void goEdit (View view){
+        Intent intent = new Intent(this, EditUserProfile.class);
+
+        TextView textview = (TextView) findViewById(R.id.userName);
+        String user = textview.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, user);
+        Log.i("userNamePassed to Edit", user);
+
+        startActivity(intent);
+
+    }
+
 
 }

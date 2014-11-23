@@ -73,12 +73,15 @@ public class VenueDetail extends Activity {
 
     public void contact(View view){
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("message/rfc822");
+        intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_EMAIL, "emailaddress@emailaddress.com");
         intent.putExtra(Intent.EXTRA_SUBJECT, "I'm interested in your property");
         intent.putExtra(Intent.EXTRA_TEXT, "I'm email body.");
 
-        startActivity(Intent.createChooser(intent, "Send Email"));
+        startActivity(Intent.createChooser(intent, "Contact Owner"));
     }
+
+
+
 
 }

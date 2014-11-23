@@ -67,5 +67,8 @@
     together, or a party, or backyard bbq when you do not own one. We focus on the local community and each month
     have a Featured User so that you can know more about the people renting spaces and throwing events. Welcome to
     Fete!</string>
+    <string name="title_activity_edit_user">EditUser</string>
+    <string name="title_activity_edit_user_profile">EditUserProfile</string>
+    <string name="title_activity_workit">Workit</string>
 
 </resources>

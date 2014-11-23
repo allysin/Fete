@@ -58,6 +58,17 @@
         android:id="@+id/mid"
         android:weightSum="1">
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:id="@+id/edit"
+            android:layout_gravity="right"
+            android:textSize="10sp"
+            android:visibility="gone"
+            android:clickable="true"
+            android:onClick="goEdit"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

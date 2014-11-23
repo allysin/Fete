@@ -1,10 +1,12 @@
 package com.group9.fete;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,22 +15,19 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 
-public class Login extends Activity {
-
-    public static final String PREFS_NAME = "AppPreferences";
-
-    // Welcome screen variable in sp...only used when need to reset for system
-    // final String welcomeScreenShownPref = "welcomeScreenShown";
+public class EditUserProfile extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_edit_user_profile);
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
+
         }
+
 
 
     }
@@ -37,7 +36,7 @@ public class Login extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.login, menu);
+        getMenuInflater().inflate(R.menu.edit_user_profile, menu);
         return true;
     }
 
@@ -64,60 +63,44 @@ public class Login extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_login, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_edit_user_profile, container, false);
+
+
+
+        //intent passed username via extra message. get it to change the text view
+        String message  = getActivity().getIntent().getExtras().getString(HomePage.EXTRA_MESSAGE);
+        Log.i("message", message);
+        EditText user = (EditText)rootView.findViewById(R.id.userName);
+        user.setText(message);
+
             return rootView;
         }
     }
 
 
-    public void login(View view){
+    public void saveProfile(View view){
+        //alert dialog confirming profile saved
+        new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_info).setMessage("Profile Saved!.").setPositiveButton("ok!", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }).show();
 
-
-
-        String userName = new String();
-        EditText textView = (EditText) findViewById(R.id.userName);
-        userName = textView.getText().toString();
-
-        //access shared preferences and editor to put username string
         SharedPreferences mySP = getSharedPreferences("AppPreferences", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = mySP.edit();
+        EditText user = (EditText)findViewById(R.id.userName);
+        String newUserName = user.getText().toString();
+        Log.i("edited name", newUserName);
 
-        editor.putString("UserName", userName);
+        //not quite fixed but will make better TODO
 
-        // If need to reset for testing purposes
-        // editor.putBoolean(welcomeScreenShownPref, false);
-
-        editor.apply();
-
-        Intent userIntent = new Intent(this, HomePage.class);
-        startActivity(userIntent);
-
+        if(newUserName.length() > 2){
+            editor.remove("UserName");
+            editor.putString("UserName", newUserName);
+            editor.commit();
+        }
 
     }
-
-    public void signup(View view){
-        Intent userIntent = new Intent(this, SignUp.class);
-        startActivity(userIntent);
-    }
-
-    public void noLogin(View view){
-        String userName = new String();
-
-
-        //access shared preferences and editor to put username string
-        SharedPreferences mySP = getSharedPreferences("AppPreferences", Activity.MODE_PRIVATE);
-        SharedPreferences.Editor editor = mySP.edit();
-
-        editor.putString("UserName", "");
-
-        // If need to reset for testing purposes
-        // editor.putBoolean(welcomeScreenShownPref, false);
-
-        editor.apply();
-        Intent userIntent = new Intent(this, HomePage.class);
-        startActivity(userIntent);
-    }
-
 
 
 }
