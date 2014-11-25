@@ -29,13 +29,11 @@ public class User {
     and everything else is empty.
     To use the one below, use Venue v = new Venue(2, "Backyard with Pool", "Amazing backyard with pool, lighting and barbeque.", 1);
     In this case v.id will be 2, v.venueName will be "Backyard with Pool" and so on.*/
-    public User(int id, String userName, String userImage, int[] venues){
+    public User(int id, String userName, String userImage, ArrayList<Integer> venues){
         this.userID = id;
         this.userName = userName;
         this.userImage = userImage;
-        for(int i:venues){
-            this.userVenues.add(i);
-        }
+        this.userVenues = venues;
     }
 
     /*Get set methods help you control access to your variables. GetUserID does not have a corresponding SetUserID function
@@ -65,7 +63,7 @@ public class User {
         this.userImage = userImage;
     }
 
-    public List<Integer> GetOwnerID(){
+    public List<Integer> GetUserVenues(){
         return userVenues;
     }
 }
