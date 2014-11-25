@@ -103,13 +103,15 @@ public class UserDetail extends Activity {
 
             TextView textView = (TextView) rootView.findViewById(R.id.userName);
             Button editButton = (Button) rootView.findViewById(R.id.edit);
-
-            //set logged in user name to userdetail name and also show edit profile button
-            if (arguments.getString("LoggedUser", "").length() > 1){
+//
+//            set logged in user name to userdetail name and also show edit profile button
+            if (arguments != null && arguments.getString("LoggedUser")!= ""){
                 textView.setText(arguments.getString("LoggedUser", ""));
                 editButton.setVisibility(View.VISIBLE);
 
             }
+
+
 
 
 
