@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="Welcome to Fete"
         android:id="@+id/Welcome"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textColor="@color/Orange"
         android:layout_marginBottom="10sp"/>
 
@@ -39,6 +39,7 @@
         android:layout_height="wrap_content"
         android:text="Who is Fete for?"
         android:id="@+id/Who"
+        android:textColor="@color/Orange"
         android:layout_below="@+id/textView"
         android:textSize="16sp"/>
     <TextView
@@ -63,23 +64,100 @@
         android:layout_height="wrap_content"
         android:text="Why is Fete Important?"
         android:id="@+id/Why"
+        android:textColor="@color/Orange"
         android:layout_below="@+id/WhoAnswer1"
         android:textSize="16sp"
-        android:layout_marginTop="10sp"/>
+        android:layout_marginTop="20dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Space is expensive"
         android:id="@+id/WhyAnswer"
         android:layout_below="@+id/Why"
-        android:layout_marginLeft="10sp" />
+        android:layout_marginLeft="10dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Resources are limited"
         android:id="@+id/WhyAnswer2"
         android:layout_below="@+id/WhyAnswer"
-        android:layout_marginLeft="10sp" />
+        android:layout_marginLeft="10dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Who are we?"
+            android:id="@+id/Us"
+            android:textSize="16sp"
+            android:textColor="@color/Orange"
+            android:layout_below="@+id/WhyAnswer2"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/Us"
+            android:id="@+id/teamPics"
+            android:weightSum="9">
+
+<!-- anubhav -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="3" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anubhav"/>
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/anubhav"
+            android:id="@+id/anub"/>
+        </LinearLayout>
+
+            <!-- Michael-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="3">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Michael"/>
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/michael"
+                    android:id="@+id/mnguyen"/>
+            </LinearLayout>
+
+            <!--Allyson-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="3">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Allyson"/>
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/allyson"
+                    android:id="@+id/atm"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
 
 </RelativeLayout>
 </ScrollView>
