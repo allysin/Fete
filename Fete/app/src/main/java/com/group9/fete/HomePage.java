@@ -1,14 +1,18 @@
 package com.group9.fete;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -19,6 +23,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.group9.fete.adapter.NavDrawerListAdapter;
 import com.group9.fete.model.GlobalData;
@@ -27,6 +32,8 @@ import com.group9.fete.model.NavDrawerItem;
 import java.util.ArrayList;
 
 public class HomePage extends Activity {
+
+
     public GlobalData AppData;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -45,6 +52,12 @@ public class HomePage extends Activity {
     private ArrayList<NavDrawerItem> navDrawerItems;
     private NavDrawerListAdapter adapter;
 
+    ///welcome screen
+    final String welcomeScreenShownPref = "welcomeScreenShown";
+    SharedPreferences mPrefs;
+
+    public final static String EXTRA_MESSAGE = "com.group9.fete.HomePage.MESSAGE";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         /*Data will be pulled from the json file whenever the Launch activity is created.
@@ -59,6 +72,34 @@ public class HomePage extends Activity {
 
         //Make the homepage activity the current activity
         setContentView(R.layout.activity_home_page);
+
+        //get shared preferences
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        //set shared preference for welcome screen to false
+        Boolean welcomeScreenShown = mPrefs.getBoolean(welcomeScreenShownPref, false);
+
+        //check to see if welcomescreen SP exists, if not, display it
+        if (!welcomeScreenShown) {
+
+            //get details for alert dialog from strings.xml
+            String whatsNewTitle = getResources().getString(R.string.About);
+            String whatsNewText = getResources().getString(R.string.AboutText);
+
+            //build content of alert dialogue
+            new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_info).setTitle(whatsNewTitle).setMessage(whatsNewText).setPositiveButton("Got It!", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).show();
+            //change value of welcomescreen in SP and commit changes
+
+            SharedPreferences.Editor editor = mPrefs.edit();
+            editor.putBoolean(welcomeScreenShownPref, true);
+            editor.commit(); // Very important to save the preference
+        }
+
+
         mTitle = mDrawerTitle = "fete";
         // load slide menu items
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
@@ -79,12 +120,12 @@ public class HomePage extends Activity {
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
         // My Venues
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
-        // Communities, Will change the name later TODO
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1), true, "22"));
         // Settings
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
+        // About
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
         // Log Out
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1), true, "50+"));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
 
 
         // Recycle the typed array
@@ -161,10 +202,12 @@ public class HomePage extends Activity {
                 fragment = new ManageVenue.PlaceholderFragment();
                 break;
             case 3:
-                //My communities doesn't do any thing for now.. TODO
-            case 4:
                 //Fragment for Settings page is returned when Settings is selected
                 fragment = new SettingsFragment();
+                break;
+            case 4:
+                //Fragment for About
+                fragment = new About.PlaceholderFragment();
                 break;
             case 5:
                 //Intent is fired to go to Login activity on Logout
@@ -177,7 +220,19 @@ public class HomePage extends Activity {
         }
 
         if (fragment != null) {
+            //access sharedpreferences to get username stored at login
+            SharedPreferences mySP = getSharedPreferences("AppPreferences", Activity.MODE_PRIVATE);
+            String user =  mySP.getString("UserName", "");
+
+            Log.i("user", user);
+
             FragmentManager fragmentManager = getFragmentManager();
+
+            //set username from shared preferences
+            Bundle b = new Bundle();
+            b.putString("LoggedUser", user);
+            fragment.setArguments(b);
+
             fragmentManager.beginTransaction()
                     .replace(R.id.container, fragment).commit();
 
@@ -366,6 +421,18 @@ public class HomePage extends Activity {
         startActivity(userIntent);
     }
 
+
+    public void goEdit (View view){
+        Intent intent = new Intent(this, EditUserProfile.class);
+
+        TextView textview = (TextView) findViewById(R.id.userName);
+        String user = textview.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, user);
+        Log.i("userNamePassed to Edit", user);
+
+        startActivity(intent);
+
+    }
 
 
 }

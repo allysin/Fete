@@ -14,11 +14,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.SearchView;
-
+import android.widget.TextView;
 
 
 public class UserDetail extends Activity {
+
+
+
+    SharedPreferences mPrefs;
+    public final static String EXTRA_MESSAGE = "com.group9.fete.UserDetail.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +36,6 @@ public class UserDetail extends Activity {
                     .commit();
         }
 
-        //access sharedpreferences to get username stored at login
-        SharedPreferences mySP = getSharedPreferences("AppPreferences", Activity.MODE_PRIVATE);
-
-        String user =  mySP.getString("UserName", "");
-
-        Log.i("user", user);
 
 
     }
@@ -99,6 +99,23 @@ public class UserDetail extends Activity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_user_detail, container, false);
+            Bundle arguments = getArguments();
+
+            TextView textView = (TextView) rootView.findViewById(R.id.userName);
+            Button editButton = (Button) rootView.findViewById(R.id.edit);
+//
+//            set logged in user name to userdetail name and also show edit profile button
+            if (arguments != null && arguments.getString("LoggedUser")!= ""){
+                textView.setText(arguments.getString("LoggedUser", ""));
+                editButton.setVisibility(View.VISIBLE);
+
+            }
+
+
+
+
+
+
             return rootView;
         }
     }
@@ -112,5 +129,18 @@ public class UserDetail extends Activity {
         Intent intent = new Intent(this, TestSearch.class);
         startActivity(intent);
     }
+
+    public void goEdit (View view){
+        Intent intent = new Intent(this, EditUserProfile.class);
+
+        TextView textview = (TextView) findViewById(R.id.userName);
+        String user = textview.toString();
+        intent.putExtra(EXTRA_MESSAGE, user);
+        Log.i("userNamePassed to Edit", user);
+
+        startActivity(intent);
+    }
+
+
 
 }

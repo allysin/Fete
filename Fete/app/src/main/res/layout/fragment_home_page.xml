@@ -8,6 +8,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/featuredUser"
+        android:text="Featured Local User"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,6 +40,7 @@
             android:src="@drawable/nina"
             android:layout_marginTop="20dp"
             android:background="@drawable/abc_menu_dropdown_panel_holo_light" />
+
     </FrameLayout>
     <TextView
         android:text="Featured Properties"
