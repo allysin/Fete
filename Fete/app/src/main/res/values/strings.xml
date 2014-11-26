@@ -22,8 +22,8 @@
         <item>Home</item>
         <item>My Profile</item>
         <item>My Venues</item>
+        <item>Communities</item>
         <item>Settings</item>
-        <item>About</item>
         <item>Logout</item>
     </string-array>
     <!-- Nav Drawer List Item Icons -->
@@ -63,13 +63,4 @@
     <string name="title_activity_settings">SettingsActivity</string>
     <!--Home page java variable strings-->
     <string name="venueId">venueId</string>
-    <string name="title_activity_about">About</string>
-    <string name="About">Welcome to Fete</string>
-    <string name="AboutText">Find Event-venues Together Everywhere. Fete is about finding a place to have a get
-    together, or a party, or backyard bbq when you do not own one. We focus on the local community and each month
-    have a Featured User so that you can know more about the people renting spaces and throwing events. Welcome to
-    Fete!</string>
-    <string name="title_activity_edit_user">EditUser</string>
-    <string name="title_activity_edit_user_profile">EditUserProfile</string>
-    <string name="title_activity_workit">Workit</string>
 </resources>

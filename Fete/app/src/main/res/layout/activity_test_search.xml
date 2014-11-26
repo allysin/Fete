@@ -17,16 +17,8 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listUsers"
-        android:layout_below="@+id/status_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="86dp" />
-
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/listView"
-        android:layout_below="@+id/listUsers"
+        android:layout_below="@+id/status_text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="86dp" />
 </RelativeLayout>

@@ -17,9 +17,6 @@ public class Login extends Activity {
 
     public static final String PREFS_NAME = "AppPreferences";
 
-    // Welcome screen variable in sp...only used when need to reset for system
-    // final String welcomeScreenShownPref = "welcomeScreenShown";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,9 +81,6 @@ public class Login extends Activity {
 
         editor.putString("UserName", userName);
 
-        // If need to reset for testing purposes
-        // editor.putBoolean(welcomeScreenShownPref, false);
-
         editor.apply();
 
         Intent userIntent = new Intent(this, HomePage.class);
@@ -99,25 +93,6 @@ public class Login extends Activity {
         Intent userIntent = new Intent(this, SignUp.class);
         startActivity(userIntent);
     }
-
-    public void noLogin(View view){
-        String userName = new String();
-
-
-        //access shared preferences and editor to put username string
-        SharedPreferences mySP = getSharedPreferences("AppPreferences", Activity.MODE_PRIVATE);
-        SharedPreferences.Editor editor = mySP.edit();
-
-        editor.putString("UserName", "");
-
-        // If need to reset for testing purposes
-        // editor.putBoolean(welcomeScreenShownPref, false);
-
-        editor.apply();
-        Intent userIntent = new Intent(this, HomePage.class);
-        startActivity(userIntent);
-    }
-
 
 
 }

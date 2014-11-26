@@ -1,216 +1,73 @@
-<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    tools:context="com.group9.fete.VenueDetail$PlaceholderFragment">
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.group9.fete.VenueDetail$PlaceholderFragment">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView"
-            android:scaleType="fitXY"
-            android:maxHeight="40dp"
-            android:contentDescription="@string/venue_detail_image_desc" />
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="149dp"
-            android:layout_gravity="center_horizontal|top"
-            android:id="@+id/top">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:weightSum="1">
-
-                <ImageView
-                    android:layout_width="126dp"
-                    android:layout_height="126dp"
-                    android:id="@+id/imageView"
-                    android:layout_margin="15dp"
-                    android:clickable="true"
-                    android:src="@drawable/backyardwithpool"
-                    android:background="@drawable/abc_menu_dropdown_panel_holo_light" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="90dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Backyard Pool"
-                    android:id="@+id/venueName"
-                    android:layout_weight="0.59"
-                    android:layout_margin="10dp"
-                    android:padding="10dp" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="120dp"
-            android:layout_gravity="center"
-            android:layout_below="@+id/top"
-            android:id="@+id/mid"
-            android:weightSum="1"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="15dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Details"
-                android:id="@+id/textView2"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Stunning pool in a quiet, secluded backyard. Can accomodate up to 30 people. No rowdy parties, please!"
-                android:id="@+id/textView3"
-                android:layout_margin="0dp"
-                android:padding="10dp"
-                android:layout_weight="0.39" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:scaleType="fitXY"
+        android:maxHeight="40dp"
+        android:contentDescription="@string/venue_detail_image_desc" />
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:id="@+id/venueName"/>
-        <!--<TextView-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:id="@+id/venueName"/>
+    <!--<TextView-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:textStyle="bold"-->
         <!--android:textSize="15sp"-->
         <!--android:text="@string/venue_detail_description"/>-->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/venueDetail"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:text="Owner"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="10"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="7"
-                android:id="@+id/userNameVD"/>
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="3"
-                android:id="@+id/userImageVD"/>
-        </LinearLayout>
-        <TableLayout
-        android:layout_height="120dp"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:layout_below="@+id/mid"
-        android:id="@+id/mid2">
-
+        android:layout_height="wrap_content"
+        android:id="@+id/venueDetail"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:text="Owner"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10"
+        android:orientation="horizontal">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Owner"
-            android:id="@+id/textView4" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:layout_margin="10dp"
-            android:weightSum="4">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView2"
-                android:visibility="visible"
-                android:src="@drawable/nina"
-                android:onClick="goToUser"
-                android:layout_weight="5"
-                android:background="@drawable/abc_menu_dropdown_panel_holo_light"
-                android:clickable="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Nina"
-                android:id="@+id/textView4" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="Contact"
-                android:clickable="true"
-                android:onClick="contact" />
-
-
-        </LinearLayout>
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="7"
+            android:id="@+id/userNameVD"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:id="@+id/userImageVD"/>
     </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mid2"
-            android:layout_margin="5dp"
-            android:weightSum="4">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="My Reviews"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/reviews" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="3">
-
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageView2"
-                    android:visibility="visible"
-                    android:src="@drawable/headshot_mn"
-                    android:onClick="goToUser"
-                    android:layout_weight="2"
-                    android:background="@drawable/abc_menu_dropdown_panel_holo_light" />
-            </LinearLayout>
-        </LinearLayout>
-    </RelativeLayout>
-</ScrollView>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/detailTable"></TableLayout>
+    </LinearLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2">
+        <TableRow>
+            <Button android:layout_weight="1" android:text="@string/save_draft_button_text"/>
+            <Button android:layout_weight="1" android:text="@string/publish_button_text"/>
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>
