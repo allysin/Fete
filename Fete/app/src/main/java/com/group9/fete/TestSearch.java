@@ -116,6 +116,7 @@ public class TestSearch extends Activity  {
 
             if(v.GetVenueName().contains(query) == true){
                 venuesList.add(createVenue("venue", v.GetVenueName()));
+
             }
 
         }
@@ -128,6 +129,7 @@ public class TestSearch extends Activity  {
         return venue;
     }
 
+
     private HashMap<String, String> createUser(String key, String name) {
         HashMap<String, String> user = new HashMap<String, String>();
         user.put(key, name);
@@ -136,8 +138,8 @@ public class TestSearch extends Activity  {
 
     public void openVenueDetail(long id) {
         Intent intent = new Intent(this, VenueDetail.class);
-        String message = String.valueOf(id);
-        intent.putExtra(EXTRA_MESSAGE, message);
+        int message = (int) id;
+        intent.putExtra("venueId", message);
         startActivity(intent);
     }
 
