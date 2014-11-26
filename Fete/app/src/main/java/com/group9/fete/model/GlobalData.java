@@ -44,40 +44,6 @@ public class GlobalData extends Application {
         return appVenues;
     }
 
-    public Venue GetVenue(int id) {
-        Venue filteredVenue = null;
-        if (appVenues == null) {
-            filteredVenue = null;
-        }
-        else {
-            for (Venue v : appVenues) {
-                int venueId = v.GetID();
-                if (venueId == id) {
-                    filteredVenue = v;
-                }
-            }
-        }
-
-        return filteredVenue;
-    }
-
-    public User GetUser(int id){
-        User user = null;
-        if (appUsers == null){
-            user = null;
-        }
-        else {
-            for (User u:appUsers){
-                int userId = u.GetUserID();
-                if (userId == id) {
-                    user = u;
-                }
-            }
-        }
-
-        return user;
-    }
-
     public List<User> GetUsers(){
         if (appUsers==null){
             appUsers = new ArrayList<User>();
@@ -89,16 +55,10 @@ public class GlobalData extends Application {
         if (appVenues == null){
             appVenues = new ArrayList<Venue>();
         }
-
-        if (appUsers == null){
-            appUsers = new ArrayList<User>();
-        }
-
         String jsonString = getJsonData();
         try {
             JSONObject jsonObject = new JSONObject(jsonString);
             JSONArray venueArray = jsonObject.getJSONArray("venues");
-            JSONArray userArray = jsonObject.getJSONArray("users");
             for(int i=0; i<venueArray.length(); i++){
                 JSONObject venue = venueArray.getJSONObject(i);
                 int ownerID = venue.getInt("ownerID");
@@ -109,23 +69,7 @@ public class GlobalData extends Application {
                 Venue v = new Venue(venueID, venueName, venueDescription, venueImage, ownerID);
                 appVenues.add(v);
             }
-
-            for(int i=0; i<userArray.length(); i++){
-                JSONObject user = userArray.getJSONObject(i);
-                int userID = user.getInt("userID");
-                String userName = user.getString("username");
-                String userImage = user.getString("userimage");
-                JSONArray ownedVenues = user.getJSONArray("ownedVenues");
-                ArrayList<Integer> venueList = new ArrayList<Integer>();
-                for (int j=0; j<ownedVenues.length(); j++) {
-                    JSONObject venue = ownedVenues.getJSONObject(j);
-                    venueList.add(venue.getInt("venueID"));
-                }
-                User u = new User(userID, userName, userImage, venueList);
-                appUsers.add(u);
-
-                Log.v(Tag, jsonObject.toString());
-            }
+            Log.v(Tag, jsonObject.toString());
         }catch(Exception e)
         {
             Log.e(Tag, e.getMessage());
