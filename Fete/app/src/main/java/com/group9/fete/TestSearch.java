@@ -128,12 +128,25 @@ public class TestSearch extends Activity  {
         return venue;
     }
 
+    private HashMap<String, String> createUser(String key, String name) {
+        HashMap<String, String> user = new HashMap<String, String>();
+        user.put(key, name);
+        return user;
+        }
+
     public void openVenueDetail(long id) {
         Intent intent = new Intent(this, VenueDetail.class);
         String message = String.valueOf(id);
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
+
+    public void openUserDetail(long id) {
+        Intent intent = new Intent(this, UserDetail.class);
+        String message = String.valueOf(id);
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+        }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
