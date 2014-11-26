@@ -2,7 +2,6 @@ package com.group9.fete;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -12,10 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.group9.fete.model.GlobalData;
-import com.group9.fete.model.User;
-import com.group9.fete.model.Venue;
-
 
 public class VenueDetail extends Activity {
 
@@ -23,11 +18,9 @@ public class VenueDetail extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_venue_detail);
-        PlaceholderFragment venueDetail = new PlaceholderFragment();
-        venueDetail.setArguments(getIntent().getExtras());
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, venueDetail)
+                    .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
     }
@@ -63,26 +56,11 @@ public class VenueDetail extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            final Context cont = getActivity();
-            GlobalData data = (GlobalData)(this.getActivity().getApplication());
-            Bundle inputExtra = getArguments();
-            int venueId = inputExtra.getInt("venueId");
             View rootView = inflater.inflate(R.layout.fragment_venue_detail, container, false);
-            Venue venue = data.GetVenue(venueId);
             TextView venueNameView = (TextView)rootView.findViewById(R.id.venueName);
-            venueNameView.setText(venue.GetVenueName());
-            TextView venueDetailView = (TextView)rootView.findViewById(R.id.venueDetail);
-            venueDetailView.setText(venue.GetVenueDescription());
-            TextView ownerNameView = (TextView)rootView.findViewById(R.id.userNameVD);
-            int ownerId = venue.GetOwnerID();
-            User user = data.GetUser(ownerId);
-            ownerNameView.setText(user.GetUserName());
-            ImageView userImageView = (ImageView)rootView.findViewById(R.id.userImageVD);
-            int userImageId = getResources().getIdentifier(user.GetUserImage(), "drawable", cont.getPackageName());
-            userImageView.setImageResource(userImageId);
+            venueNameView.setText("My backyard");
             ImageView venueImageView = (ImageView)rootView.findViewById(R.id.imageView);
-            int resID = getResources().getIdentifier(venue.GetVenueImage(), "drawable", cont.getPackageName());
-            venueImageView.setImageResource(resID);
+            venueImageView.setImageResource(R.drawable.backyardwithpool);
             return rootView;
         }
     }
