@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.group9.fete.adapter;
 
 import android.content.Context;
@@ -20,6 +21,34 @@ public class FeaturedVenueAdapter extends ArrayAdapter<Venue> {
         this.venueList = items;
     }
 
+=======
+//package com.group9.fete.adapter;
+//
+//import android.content.Context;
+//import android.view.LayoutInflater;
+//import android.view.View;
+//import android.view.ViewGroup;
+//import android.widget.ArrayAdapter;
+//import android.widget.ImageView;
+//import android.widget.TextView;
+//import com.group9.fete.R;
+//import com.group9.fete.model.Venue;
+//import java.util.List;
+//
+///**
+// * Created by Anubhav on 05-11-2014.
+// */
+//public class FeaturedVenueAdapter extends ArrayAdapter<Venue> {
+//    private final Context context;
+//    private final List<Venue> venueList;
+//
+//    public FeaturedVenueAdapter(Context c, int resourceId , List<Venue> items){
+//        super(c, resourceId, items);
+//        this.context = c;
+//        this.venueList = items;
+//    }
+//
+>>>>>>> parent of 63e9174... Revert 555ceea..55af558
 //    public View getView(int position, View convertView, ViewGroup parent){
 //        //Create inflator
 //        LayoutInflater inflator = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -37,4 +66,8 @@ public class FeaturedVenueAdapter extends ArrayAdapter<Venue> {
 //        venueNameTextView.setText(venueName);
 //        return featuredVenues;
 //    }
+<<<<<<< HEAD
 }
+=======
+//}
+>>>>>>> parent of 63e9174... Revert 555ceea..55af558
