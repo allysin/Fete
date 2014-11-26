@@ -101,7 +101,7 @@
             android:id="@+id/textView"
             android:gravity="center"
             android:clickable="true"
-            android:onClick="login"
+            android:onClick="noLogin"
             android:textSize="12sp"
             android:linksClickable="true" />
         </LinearLayout>

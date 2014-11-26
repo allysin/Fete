@@ -128,6 +128,8 @@ public class UserDetail extends Activity {
 
     public void goToProperty(View view){
         Intent userIntent = new Intent(this, VenueDetail.class);
+        int venueId = 1;
+        userIntent.putExtra(getString(R.string.venueId), venueId);
         startActivity(userIntent);
     }
 
@@ -147,6 +149,19 @@ public class UserDetail extends Activity {
         startActivity(intent);
     }
 
+    public void goToPropertyLeft(View view){
+        Intent userIntent = new Intent(this, VenueDetail.class);
+        int venueId = 5;
+        userIntent.putExtra(getString(R.string.venueId), venueId);
+        startActivity(userIntent);
+    }
+
+    public void goToPropertyRight(View view){
+        Intent userIntent = new Intent(this, VenueDetail.class);
+        int venueId = 3;
+        userIntent.putExtra(getString(R.string.venueId), venueId);
+        startActivity(userIntent);
+    }
 
 
 }

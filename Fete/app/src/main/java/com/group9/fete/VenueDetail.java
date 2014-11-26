@@ -3,6 +3,7 @@ package com.group9.fete;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -87,10 +88,10 @@ public class VenueDetail extends Activity {
         }
     }
 
-    public void goToUser(View view){
-        Intent userIntent = new Intent(this, UserDetail.class);
-        startActivity(userIntent);
-    }
+//    public void goToUser(View view){
+//        Intent userIntent = new Intent(this, UserDetail.class);
+//        startActivity(userIntent);
+//    }
 
     public void contact(View view){
         Intent intent = new Intent(Intent.ACTION_SEND);

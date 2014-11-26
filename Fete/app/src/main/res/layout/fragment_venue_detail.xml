@@ -66,8 +66,9 @@
         android:layout_alignParentBottom="true"
         android:weightSum="2">
         <TableRow>
-            <Button android:layout_weight="1" android:text="@string/save_draft_button_text"/>
-            <Button android:layout_weight="1" android:text="@string/publish_button_text"/>
+            <Button android:layout_weight="1" android:text="Contact"
+                android:clickable="true"
+                android:onClick="contact" />
         </TableRow>
     </TableLayout>
 </RelativeLayout>

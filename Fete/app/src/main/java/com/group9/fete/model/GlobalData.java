@@ -86,6 +86,7 @@ public class GlobalData extends Application {
     }
 
     public void SetData(){
+        String jsonString = getJsonData();
         if (appVenues == null){
             appVenues = new ArrayList<Venue>();
         }
@@ -94,7 +95,7 @@ public class GlobalData extends Application {
             appUsers = new ArrayList<User>();
         }
 
-        String jsonString = getJsonData();
+
         try {
             JSONObject jsonObject = new JSONObject(jsonString);
             JSONArray venueArray = jsonObject.getJSONArray("venues");

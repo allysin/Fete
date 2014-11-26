@@ -87,7 +87,7 @@ public class HomePage extends Activity {
             String whatsNewText = getResources().getString(R.string.AboutText);
 
             //build content of alert dialogue
-            new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_info).setTitle(whatsNewTitle).setMessage(whatsNewText).setPositiveButton("Got It!", new DialogInterface.OnClickListener() {
+            new AlertDialog.Builder(this).setIcon(R.drawable.ic_fete).setTitle(whatsNewTitle).setMessage(whatsNewText).setPositiveButton("Got It!", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
                         }
@@ -99,8 +99,8 @@ public class HomePage extends Activity {
             editor.commit(); // Very important to save the preference
         }
 
-
-        mTitle = mDrawerTitle = "fete";
+           //sets title for nav drawer
+//        mTitle = mDrawerTitle = "fete";
         // load slide menu items
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
 
@@ -333,7 +333,7 @@ public class HomePage extends Activity {
     @Override
     public void setTitle(CharSequence title) {
         //override
-        mTitle = "fete";
+        mTitle = "";
         getActionBar().setTitle(mTitle);
     }
 
@@ -408,6 +408,20 @@ public class HomePage extends Activity {
 
     public void goToProperty(View view){
         Intent userIntent = new Intent(this, VenueDetail.class);
+        startActivity(userIntent);
+    }
+
+    public void goToPropertyLeft(View view){
+        Intent userIntent = new Intent(this, VenueDetail.class);
+        int venueId = 5;
+        userIntent.putExtra(getString(R.string.venueId), venueId);
+        startActivity(userIntent);
+    }
+
+    public void goToPropertyRight(View view){
+        Intent userIntent = new Intent(this, VenueDetail.class);
+        int venueId = 3;
+        userIntent.putExtra(getString(R.string.venueId), venueId);
         startActivity(userIntent);
     }
 
