@@ -61,6 +61,6 @@
     <string name="about_feedback">Feedback</string>
     <string name="about_version">Version</string>
     <string name="title_activity_settings">SettingsActivity</string>
-
-
+    <!--Home page java variable strings-->
+    <string name="venueId">venueId</string>
 </resources>

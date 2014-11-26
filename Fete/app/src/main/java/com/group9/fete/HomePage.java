@@ -27,6 +27,7 @@ import com.group9.fete.model.NavDrawerItem;
 import java.util.ArrayList;
 
 public class HomePage extends Activity {
+    public static String EXTRA_MESSAGE;
     public GlobalData AppData;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
