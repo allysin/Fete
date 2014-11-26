@@ -36,7 +36,7 @@
             android:paddingLeft="10sp"
             android:paddingRight="10sp"
             android:id="@+id/userName"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:autoText="false"
             android:hint="Username"
             android:background="#ffffffff"/>
@@ -49,16 +49,16 @@
             android:paddingBottom="5sp"
             android:paddingLeft="10sp"
             android:paddingRight="10sp"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:id="@+id/editText2"
             android:hint="Password"
             android:background="#fff"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="12dp"
             android:layout_below="@+id/userName" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="12dp"
             android:layout_height="0dp"
             android:layout_weight="50"
             android:weightSum="100">
@@ -66,26 +66,30 @@
                 android:id="@+id/button1"
                 android:layout_width="0dp"
                 android:layout_weight="50"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="35dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:onClick="login"
                 android:text="@string/Login"
                 android:background="#fff"
-                android:layout_below="@+id/editText2"
-                android:layout_centerHorizontal="true"/>
+                android:layout_gravity="top"/>
             <Button
                 android:layout_width="0dp"
                 android:layout_weight="50"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="35dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:text="Sign up"
                 android:id="@+id/button2"
                 android:background="#fff"
-                android:layout_below="@+id/button1"
-                android:layout_centerHorizontal="true"
-                android:onClick="signup" />
+                android:onClick="signup"
+                android:layout_gravity="top"/>
             </LinearLayout>
         <TextView
             android:layout_width="match_parent"
@@ -97,8 +101,8 @@
             android:id="@+id/textView"
             android:gravity="center"
             android:clickable="true"
-            android:onClick="noLogin"
-            android:textSize="24sp"
+            android:onClick="login"
+            android:textSize="12sp"
             android:linksClickable="true" />
         </LinearLayout>
     </LinearLayout>
