@@ -18,11 +18,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="30"></LinearLayout>
+            android:layout_weight="40"></LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="70"
+        android:layout_weight="60"
         android:orientation="vertical"
         android:weightSum="100"
         android:layout_marginLeft="90dp"
@@ -37,7 +37,7 @@
             android:paddingLeft="10sp"
             android:paddingRight="10sp"
             android:id="@+id/userName"
-            android:textSize="12sp"
+            android:textSize="20sp"
             android:autoText="false"
             android:hint="Username"
             android:background="#ffffffff"/>
@@ -50,11 +50,11 @@
             android:paddingBottom="5sp"
             android:paddingLeft="10sp"
             android:paddingRight="10sp"
-            android:textSize="12sp"
+            android:textSize="20sp"
             android:id="@+id/editText2"
             android:hint="Password"
             android:background="#fff"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="18dp"
             android:layout_below="@+id/userName" />
 
         <LinearLayout
@@ -66,7 +66,7 @@
                 android:id="@+id/button1"
                 android:layout_width="0dp"
                 android:layout_weight="50"
-                android:textSize="15sp"
+                android:textSize="24sp"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:onClick="login"
@@ -77,7 +77,7 @@
             <Button
                 android:layout_width="0dp"
                 android:layout_weight="50"
-                android:textSize="15sp"
+                android:textSize="24sp"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:text="Sign up"
@@ -98,7 +98,7 @@
             android:gravity="center"
             android:clickable="true"
             android:onClick="login"
-            android:textSize="12sp"
+            android:textSize="24sp"
             android:linksClickable="true" />
         </LinearLayout>
     </LinearLayout>
