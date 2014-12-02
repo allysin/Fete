@@ -27,7 +27,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="24dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -37,7 +38,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_below="@+id/switchStatus"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="12dp"/>
+
 
     <Switch
         android:id="@+id/switch1"
