@@ -2,8 +2,6 @@ package com.group9.fete;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.SearchView;
 import android.widget.TextView;
 
 
@@ -53,29 +50,7 @@ public class UserDetail extends Activity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.user_detail, menu);
 
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        MenuItem swi= menu.findItem(R.id.action_search);
 
-        SearchView sw= (SearchView) swi.getActionView();
-        sw.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        sw.setIconifiedByDefault(true);
-
-        sw.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Intent intent = new Intent(UserDetail.this, TestSearch.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("query", query);
-                intent.putExtras(bundle);
-                startActivity(intent);
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(final String s) {
-                return false;
-            }
-        });
 
         return super.onCreateOptionsMenu(menu);
     }

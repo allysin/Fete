@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -30,8 +32,8 @@ public class TestSearch extends Activity  {
 
     List<Map<String, String>> venuesList = new ArrayList<Map<String,String>>();
 
-    List<Map<String, String>> usersList = new ArrayList<Map<String,String>>();
 
+    int venueId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,21 +46,16 @@ public class TestSearch extends Activity  {
         registerForContextMenu((ListView) findViewById(R.id.listView));
         TextView textView = (TextView) findViewById(R.id.status_text);
 
-
-
-
-
-
-
         String query = new String();
         // Get the intent, verify the action and get the query
         Intent intent = getIntent();
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
            query = intent.getStringExtra(SearchManager.QUERY);
-            textView.setText("You Searched for " + query);
+            textView.setText("Showing Search Results For: " + query);
 
         }
 
+        //populate list by calling initList method
         if(query != "" && venuesList.isEmpty() == true){
             initList(data, query);
         }
@@ -80,14 +77,14 @@ public class TestSearch extends Activity  {
 //        });
 
 
-        List<Venue> featuredVenues = data.GetVenues();
 
+        //set string values of list layout ids that will recieve data
+        String[] from = { "img","name","description", "id" };
 
+        //set actual ids of xml layout where data will go
+        int[] to = { R.id.img,R.id.name,R.id.description, R.id.venueId};
 
-        String[] from = { "img","name","description" };
-
-        int[] to = { R.id.img,R.id.name,R.id.description};
-
+        //create new object adapter
         SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), venuesList, R.layout.listview_layout, from, to);
 
         // Getting a reference to listview of main.xml layout file
@@ -96,18 +93,18 @@ public class TestSearch extends Activity  {
         // Setting the adapter to the listView
         listView.setAdapter(adapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                TextView idText = (TextView) view.findViewById(R.id.venueId);
+               venueId = Integer.parseInt(idText.getText().toString());
 
-//        final ListView vList =(ListView)findViewById(R.id.listView);
-//        CustomList adapter = new
-//                CustomList(TestSearch.this, venuesList, imageId);
-//        vList.setAdapter(adapter);
-//        vList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view,
-//                                    int position, long id) {
-//                Toast.makeText(TestSearch.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
-//            }
-//        });
+                openVenueDetail(venueId);
+;
+            }
+        });
+
+
 
 
 
@@ -115,25 +112,26 @@ public class TestSearch extends Activity  {
 
     private void initList(GlobalData data, String query){
         List<Venue> featuredVenues = data.GetVenues();
-        List<Venue> filteredVenues = new ArrayList<Venue>();
+
 
 
         for (int i=0;i<featuredVenues.size();i++ ) {
             Venue v = featuredVenues.get(i);
 
             if(v.GetVenueName().contains(query) == true){
+                //get venue name, venueID, venuedescription, and venue image
                 String vName = v.GetVenueName();
                 int vId = v.GetID();
                 String mDrawableName = v.GetVenueImage();
                 int resID = getResources().getIdentifier(mDrawableName , "drawable", getPackageName());
                 String vDescription = v.GetVenueDescription();
-                String output = vName;
-                //venuesList.add(createVenue("venue", output));
 
 
+                //map data to xml layout
                 HashMap<String, String> venue = new HashMap<String,String>();
                 venue.put("img", Integer.toString(resID));
                 venue.put("name", vName);
+                venue.put("id", Integer.toString(vId));
                 venue.put("description", vDescription);
                 venuesList.add(venue);
 
@@ -147,24 +145,13 @@ public class TestSearch extends Activity  {
     }
 
 
-//    private HashMap<String, String> createVenue(String key, String name) {
-//        HashMap<String, String> venue = new HashMap<String, String>();
-//        venue.put(key, name);
-//        venue.put(key, venueImage);
-//        return venue;
-//    }
 
 
 
-
-
-    public void openVenueDetail(long id) {
-        Intent intent = new Intent(this, VenueDetail.class);
-        int message = (int) id;
-        String vvv = String.valueOf(id);
-        Log.i("value id", vvv);
-        intent.putExtra("venueId", message);
-        startActivity(intent);
+    public void openVenueDetail(int venueId) {
+        Intent detailIntent = new Intent(this, VenueDetail.class);
+        detailIntent.putExtra("venueId", venueId);
+        startActivity(detailIntent);
     }
 
 

@@ -92,13 +92,12 @@
         </activity>
         <activity
             android:name=".TestSearch"
-            android:label="@string/title_activity_test_search" >
+            android:label="@string/title_activity_test_search"
+            android:parentActivityName=".HomePage" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable"
