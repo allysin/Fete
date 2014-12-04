@@ -9,14 +9,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.group9.fete.model.GlobalData;
-import com.group9.fete.model.User;
 import com.group9.fete.model.Venue;
 
 import java.util.ArrayList;
@@ -45,12 +42,11 @@ public class TestSearch extends Activity  {
         setContentView(R.layout.activity_test_search);
 
         registerForContextMenu((ListView) findViewById(R.id.listView));
-
-        registerForContextMenu((ListView) findViewById(R.id.listUsers));
-
-
-
         TextView textView = (TextView) findViewById(R.id.status_text);
+
+
+
+
 
 
 
@@ -71,27 +67,47 @@ public class TestSearch extends Activity  {
         }
 
 
-        ListView userListView = (ListView) findViewById(R.id.listUsers);
-        SimpleAdapter simpleAdpt2 = new SimpleAdapter(this, usersList, android.R.layout.simple_list_item_1, new String[] {"user"}, new int[] {android.R.id.text1});
-        userListView.setAdapter(simpleAdpt2);
+//        final ListView venueListView = (ListView) findViewById(R.id.listView);
+//        SimpleAdapter simpleAdpt = new SimpleAdapter(this, venuesList, android.R.layout.simple_list_item_1, new String[] {"venue"}, new int[] {android.R.id.text1});
+//        venueListView.setAdapter(simpleAdpt);
+//
+//        venueListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            public void onItemClick(AdapterView<?> parentAdapter, View view, int position,
+//                                    long id) {
+//
+//              openVenueDetail(id);
+//            }
+//        });
 
-        userListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parentAdapter, View view, int position,
-                                    long id) {
-                openUserDetail(id);
-            }
-        });
 
-        ListView venueListView = (ListView) findViewById(R.id.listView);
-        SimpleAdapter simpleAdpt = new SimpleAdapter(this, venuesList, android.R.layout.simple_list_item_1, new String[] {"venue"}, new int[] {android.R.id.text1});
-        venueListView.setAdapter(simpleAdpt);
+        List<Venue> featuredVenues = data.GetVenues();
 
-        venueListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parentAdapter, View view, int position,
-                                    long id) {
-                openVenueDetail(id);
-            }
-        });
+
+
+        String[] from = { "img","name","description" };
+
+        int[] to = { R.id.img,R.id.name,R.id.description};
+
+        SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), venuesList, R.layout.listview_layout, from, to);
+
+        // Getting a reference to listview of main.xml layout file
+        ListView listView = ( ListView ) findViewById(R.id.listView);
+
+        // Setting the adapter to the listView
+        listView.setAdapter(adapter);
+
+
+//        final ListView vList =(ListView)findViewById(R.id.listView);
+//        CustomList adapter = new
+//                CustomList(TestSearch.this, venuesList, imageId);
+//        vList.setAdapter(adapter);
+//        vList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view,
+//                                    int position, long id) {
+//                Toast.makeText(TestSearch.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
 
 
@@ -99,56 +115,58 @@ public class TestSearch extends Activity  {
 
     private void initList(GlobalData data, String query){
         List<Venue> featuredVenues = data.GetVenues();
-        List<User> featuredUsers = data.GetUsers();
         List<Venue> filteredVenues = new ArrayList<Venue>();
 
 
-        for (int i=0;i<featuredUsers.size();i++ ) {
-            User u = featuredUsers.get(i);
-            Log.i("user", u.GetUserName());
-            if(u.GetUserName().contains(query) == true){
-               usersList.add(createUser("user", u.GetUserName()));
-            }
-
-        }
         for (int i=0;i<featuredVenues.size();i++ ) {
             Venue v = featuredVenues.get(i);
 
             if(v.GetVenueName().contains(query) == true){
-                venuesList.add(createVenue("venue", v.GetVenueName()));
+                String vName = v.GetVenueName();
+                int vId = v.GetID();
+                String mDrawableName = v.GetVenueImage();
+                int resID = getResources().getIdentifier(mDrawableName , "drawable", getPackageName());
+                String vDescription = v.GetVenueDescription();
+                String output = vName;
+                //venuesList.add(createVenue("venue", output));
+
+
+                HashMap<String, String> venue = new HashMap<String,String>();
+                venue.put("img", Integer.toString(resID));
+                venue.put("name", vName);
+                venue.put("description", vDescription);
+                venuesList.add(venue);
 
             }
 
+
+
         }
+
+
     }
 
 
-    private HashMap<String, String> createVenue(String key, String name) {
-        HashMap<String, String> venue = new HashMap<String, String>();
-        venue.put(key, name);
-        return venue;
-    }
+//    private HashMap<String, String> createVenue(String key, String name) {
+//        HashMap<String, String> venue = new HashMap<String, String>();
+//        venue.put(key, name);
+//        venue.put(key, venueImage);
+//        return venue;
+//    }
 
 
-    private HashMap<String, String> createUser(String key, String name) {
-        HashMap<String, String> user = new HashMap<String, String>();
-        user.put(key, name);
-        return user;
-        }
+
+
 
     public void openVenueDetail(long id) {
         Intent intent = new Intent(this, VenueDetail.class);
         int message = (int) id;
+        String vvv = String.valueOf(id);
+        Log.i("value id", vvv);
         intent.putExtra("venueId", message);
         startActivity(intent);
     }
 
-    public void openUserDetail(long id) {
-        Intent intent = new Intent(this, UserDetail.class);
-        String message = String.valueOf(id);
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-        }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -157,6 +175,8 @@ public class TestSearch extends Activity  {
 
         return true;
     }
+
+
 
 //
 //    private void setupSearchView(MenuItem searchItem) {
