@@ -13,8 +13,10 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.group9.fete.model.GlobalData;
+import com.group9.fete.model.User;
 import com.group9.fete.model.Venue;
 
 import java.util.List;
@@ -23,6 +25,8 @@ import java.util.List;
  * Created by Anubhav on 05-11-2014.
  */
 public class HomeFragment extends Fragment {
+    private int featuredUserId = 2;
+
     public HomeFragment() {
     }
 
@@ -30,9 +34,9 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final Context cont = getActivity();
-        GlobalData data = ((HomePage)cont).AppData;
+        GlobalData data = (GlobalData)(getActivity().getApplication());
         View rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
-        ImageView userImage = (ImageView)rootView.findViewById(R.id.userImage);
+        ImageView userImage = (ImageView)rootView.findViewById(R.id.userImageHome);
         userImage.setImageResource(R.drawable.nina);
 //            TextView userDetailView = (TextView)rootView.findViewById(R.id.userDetail);
 //            userDetailView.setText("Nina Dobrev is our featured user this week. She likes to knit and ride bicycles" +
@@ -111,6 +115,12 @@ public class HomeFragment extends Fragment {
             //once the row is filled, all row to the table
             venueTable.addView(rowLayout);
         }
+
+        User featured = data.GetUser(featuredUserId);
+        TextView nameTxtView = (TextView)rootView.findViewById(R.id.userNameHome);
+        nameTxtView.setText(featured.GetUserName());
+        TextView detailText = (TextView)rootView.findViewById(R.id.userDetailHome);
+        detailText.setText("Blah blah blah fuck you!");
         return rootView;
     }
 }

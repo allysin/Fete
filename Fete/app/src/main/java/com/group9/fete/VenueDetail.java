@@ -88,11 +88,6 @@ public class VenueDetail extends Activity {
         }
     }
 
-//    public void goToUser(View view){
-//        Intent userIntent = new Intent(this, UserDetail.class);
-//        startActivity(userIntent);
-//    }
-
     public void contact(View view){
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/html");

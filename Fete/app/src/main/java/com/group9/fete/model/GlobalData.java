@@ -19,6 +19,7 @@ public class GlobalData extends Application {
     private String Tag = "GlobalData";
     private List<Venue> appVenues;
     private List<User> appUsers;
+    private List<Review> appReviews;
 
     private String getJsonData(){
         String text = new String();
@@ -87,19 +88,27 @@ public class GlobalData extends Application {
 
     public void SetData(){
         String jsonString = getJsonData();
-        if (appVenues == null){
-            appVenues = new ArrayList<Venue>();
-        }
-
-        if (appUsers == null){
-            appUsers = new ArrayList<User>();
-        }
-
 
         try {
+        if (appVenues == null || appUsers == null){
+            appVenues = new ArrayList<Venue>();
+            appUsers = new ArrayList<User>();
+            appReviews = new ArrayList<Review>();
             JSONObject jsonObject = new JSONObject(jsonString);
             JSONArray venueArray = jsonObject.getJSONArray("venues");
             JSONArray userArray = jsonObject.getJSONArray("users");
+            JSONArray reviewsArray = jsonObject.getJSONArray("reviews");
+
+            for (int i=0; i<reviewsArray.length(); i++){
+                JSONObject review = reviewsArray.getJSONObject(i);
+                int reviewID = review.getInt("reviewID");
+                int userID = review.getInt("userID");
+                int venueID = review.getInt("venueID");
+                String message = review.getString("reviewText");
+                Review r = new Review(reviewID, userID, venueID, message);
+                appReviews.add(r);
+            }
+
             for(int i=0; i<venueArray.length(); i++){
                 JSONObject venue = venueArray.getJSONObject(i);
                 int ownerID = venue.getInt("ownerID");
@@ -107,7 +116,14 @@ public class GlobalData extends Application {
                 String venueImage = venue.getString("venueImage");
                 String venueName = venue.getString("venueName");
                 String venueDescription = venue.getString("venueDescription");
-                Venue v = new Venue(venueID, venueName, venueDescription, venueImage, ownerID);
+                ArrayList<Review> venueReviews = new ArrayList<Review>();
+                for(int j=0;j<appReviews.size();j++){
+                    Review tempReview = appReviews.get(i);
+                    if (tempReview.GetVenueID()==venueID){
+                        venueReviews.add(tempReview);
+                    }
+                }
+                Venue v = new Venue(venueID, venueName, venueDescription, venueImage, ownerID, venueReviews);
                 appVenues.add(v);
             }
 
@@ -125,11 +141,19 @@ public class GlobalData extends Application {
                 User u = new User(userID, userName, userImage, venueList);
                 appUsers.add(u);
 
-            Log.v(Tag, jsonObject.toString());
+                Log.v(Tag, jsonObject.toString());
             }
+        }
         }catch(Exception e)
         {
             Log.e(Tag, e.getMessage());
         }
+    }
+
+    @Override
+    public void onCreate(){
+        super.onCreate();
+        //Application will initialize global data only once during application start
+        SetData();
     }
 }

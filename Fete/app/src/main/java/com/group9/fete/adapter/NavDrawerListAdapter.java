@@ -19,8 +19,10 @@ import java.util.ArrayList;
  */
 public class NavDrawerListAdapter extends BaseAdapter{
     private Context context;
+    //NavDrawerItem is a custom class we created that has 2 properties, a title and an image
     private ArrayList<NavDrawerItem> navDrawerItems;
 
+    //Constructor to initialize the class
     public NavDrawerListAdapter(Context context, ArrayList<NavDrawerItem> navDrawerItems){
         this.context = context;
         this.navDrawerItems = navDrawerItems;
@@ -43,12 +45,14 @@ public class NavDrawerListAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        //this function fills up the drawer_list_item with relevant values
         if (convertView == null) {
             LayoutInflater mInflater = (LayoutInflater)
                     context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             convertView = mInflater.inflate(R.layout.drawer_list_item, null);
         }
 
+        //fill up the Views on the UI with the data that your navDrawerItem contains
         ImageView imgIcon = (ImageView) convertView.findViewById(R.id.icon);
         TextView txtTitle = (TextView) convertView.findViewById(R.id.title);
         TextView txtCount = (TextView) convertView.findViewById(R.id.counter);

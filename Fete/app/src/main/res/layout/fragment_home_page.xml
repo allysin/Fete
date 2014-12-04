@@ -7,7 +7,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,19 +21,53 @@
             android:id="@+id/backgroundImage"
             android:scaleType="fitXY"/>
         <!--android:src="@drawable/nina"-->
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_gravity="bottom|left"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/userImage"
-            android:src="@drawable/nina"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/abc_menu_dropdown_panel_holo_light" />
-    </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/White"
+                android:text="Featured User"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_gravity="bottom|left"
+                android:id="@+id/userImageHome"
+                android:layout_below="@+id/featuredUserHome"
+                android:src="@drawable/nina"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="vertical"
+                android:weightSum="10">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:id="@+id/userNameHome"
+                    android:text="UserName"
+                    android:textColor="@color/White"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="6"
+                    android:id="@+id/userDetailHome"
+                    android:textColor="@color/White"
+                    android:text="UserDetail you know blah blah"/>
+            </LinearLayout>
+        </LinearLayout>
+        </LinearLayout>
+            </FrameLayout>
         <TextView
-            android:text="Featured Properties"
+            android:text="Trending Venues"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView2"

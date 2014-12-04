@@ -1,5 +1,7 @@
 package com.group9.fete.model;
 
+import java.util.ArrayList;
+
 /**
  * Created by Anubhav on 02-11-2014.
  */
@@ -17,23 +19,27 @@ public class Venue {
 
     private int ownerID;
 
+    private ArrayList<Review> reviews;
+
     public Venue(){
         id = 0;
         venueName = new String();
         venueDescription = new String();
         ownerID = 0;
+        reviews = new ArrayList<Review>();
     }
 
     /*There are 2 constructors in our class. To call the one above, use Venue v = new Venue();, in that case v.id = 0, v.venueName = ""
     and everything else is empty.
     To use the one below, use Venue v = new Venue(2, "Backyard with Pool", "Amazing backyard with pool, lighting and barbeque.", 1);
     In this case v.id will be 2, v.venueName will be "Backyard with Pool" and so on.*/
-    public Venue(int id, String venueName, String venueDescription, String venueImage, int ownerID){
+    public Venue(int id, String venueName, String venueDescription, String venueImage, int ownerID, ArrayList<Review> reviews){
         this.id = id;
         this.venueName = venueName;
         this.venueDescription = venueDescription;
         this.ownerID = ownerID;
         this.venueImage = venueImage;
+        this.reviews = reviews;
     }
 
     /*Get set methods help you control access to your variables. GetID does not have a corresponding SetID function

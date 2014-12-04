@@ -60,14 +60,6 @@ public class HomePage extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /*Data will be pulled from the json file whenever the Launch activity is created.
-         This will populate the global variable GlobalData that can then be used to fill data programmatically
-         on all screens.
-        */
-        if (AppData == null) {
-            AppData = (GlobalData) getApplicationContext();
-            AppData.SetData();
-        }
         super.onCreate(savedInstanceState);
 
         //Make the homepage activity the current activity
