@@ -92,6 +92,7 @@ public class UserDetail extends Activity {
 
             }
 
+            getActivity().getActionBar().setTitle(textView.getText().toString());
 
 
 

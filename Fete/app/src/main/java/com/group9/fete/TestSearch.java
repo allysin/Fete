@@ -43,16 +43,17 @@ public class TestSearch extends Activity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_search);
 
+
         registerForContextMenu((ListView) findViewById(R.id.listView));
-        TextView textView = (TextView) findViewById(R.id.status_text);
+
 
         String query = new String();
         // Get the intent, verify the action and get the query
         Intent intent = getIntent();
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
            query = intent.getStringExtra(SearchManager.QUERY);
-            textView.setText("Showing Search Results For: " + query);
-
+            //set title bar text to the text query
+            getActionBar().setTitle("Search Results for: " + query);
         }
 
         //populate list by calling initList method

@@ -31,6 +31,7 @@ public class VenueDetail extends Activity {
                     .add(R.id.container, venueDetail)
                     .commit();
         }
+
     }
 
 
@@ -67,6 +68,10 @@ public class VenueDetail extends Activity {
             final Context cont = getActivity();
             GlobalData data = (GlobalData)(this.getActivity().getApplication());
             Bundle inputExtra = getArguments();
+
+
+
+
             int venueId = inputExtra.getInt("venueId");
             View rootView = inflater.inflate(R.layout.fragment_venue_detail, container, false);
             Venue venue = data.GetVenue(venueId);
@@ -84,6 +89,8 @@ public class VenueDetail extends Activity {
             ImageView venueImageView = (ImageView)rootView.findViewById(R.id.imageView);
             int resID = getResources().getIdentifier(venue.GetVenueImage(), "drawable", cont.getPackageName());
             venueImageView.setImageResource(resID);
+
+            getActivity().getActionBar().setTitle(venue.GetVenueName());
             return rootView;
         }
     }

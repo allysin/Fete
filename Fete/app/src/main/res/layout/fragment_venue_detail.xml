@@ -66,9 +66,12 @@
         android:layout_alignParentBottom="true"
         android:weightSum="2">
         <TableRow>
-            <Button android:layout_weight="1" android:text="Contact"
+            <Button android:layout_weight="1" android:text="Contact Owner to Rent"
                 android:clickable="true"
-                android:onClick="contact" />
+                android:onClick="contact"
+                android:background="@color/Orange"
+                android:textColor="@color/White"
+                android:shadowColor="@color/Teal" />
         </TableRow>
     </TableLayout>
 </RelativeLayout>
