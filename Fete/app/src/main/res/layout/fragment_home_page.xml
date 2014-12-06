@@ -18,13 +18,18 @@
             android:layout_height="200dp"
             android:src="@drawable/waterfall_big"
             android:contentDescription="Backyard with pool"
-            android:id="@+id/backgroundImage"
+            android:id="@+id/backgroundFeaturedUserImage"
             android:scaleType="fitXY"/>
-        <!--android:src="@drawable/nina"-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#70000000"
+            android:scaleType="fitXY"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="bottom">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -35,7 +40,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:padding="5dp"
+            android:orientation="horizontal"
+            android:id="@+id/featuredUserTileHome">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="80dp"
@@ -47,18 +54,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:orientation="vertical"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:weightSum="10">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="4"
+                    android:layout_weight="3"
                     android:id="@+id/userNameHome"
                     android:text="UserName"
                     android:textColor="@color/White"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="6"
+                    android:layout_weight="7"
                     android:id="@+id/userDetailHome"
                     android:textColor="@color/White"
                     android:text="UserDetail you know blah blah"/>

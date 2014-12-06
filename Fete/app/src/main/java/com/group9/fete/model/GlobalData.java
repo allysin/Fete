@@ -132,13 +132,15 @@ public class GlobalData extends Application {
                 int userID = user.getInt("userID");
                 String userName = user.getString("username");
                 String userImage = user.getString("userimage");
+                String userBio = user.getString("bio");
                 JSONArray ownedVenues = user.getJSONArray("ownedVenues");
                 ArrayList<Integer> venueList = new ArrayList<Integer>();
                 for (int j=0; j<ownedVenues.length(); j++) {
                     JSONObject venue = ownedVenues.getJSONObject(j);
                     venueList.add(venue.getInt("venueID"));
                 }
-                User u = new User(userID, userName, userImage, venueList);
+
+                User u = new User(userID, userName, userImage,userBio,venueList);
                 appUsers.add(u);
 
                 Log.v(Tag, jsonObject.toString());

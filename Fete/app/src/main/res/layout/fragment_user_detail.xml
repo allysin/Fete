@@ -16,21 +16,22 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="149dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
         android:id="@+id/top">
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:weightSum="1">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="10">
 
             <ImageView
-                android:layout_width="126dp"
+                android:layout_width="0dp"
+                android:layout_weight="5"
                 android:layout_height="126dp"
-                android:id="@+id/imageView"
+                android:id="@+id/userImageUDetail"
                 android:layout_margin="15dp"
                 android:clickable="true"
                 android:src="@drawable/nina"
@@ -38,12 +39,14 @@
 
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_width="0dp"
+                android:layout_weight = "5"
+                android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/userName"
-                android:layout_weight="0.59"
-                android:layout_margin="15dp"
+                android:id="@+id/userNameUDetail"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:padding="10dp" />
 
         </LinearLayout>
@@ -51,8 +54,8 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="178dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_below="@+id/top"
         android:id="@+id/mid"
@@ -64,7 +67,7 @@
             android:text="Edit Profile"
             android:id="@+id/edit"
             android:layout_gravity="right"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:visibility="gone"
             android:clickable="true"
             android:onClick="goEdit"/>
@@ -73,18 +76,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Details"
-            android:id="@+id/textView2"
-            />
+            android:text="Bio"
+            android:id="@+id/textView2"            />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-            android:id="@+id/textView3"
+            android:id="@+id/userDetailUDetail"
             android:layout_margin="5dp"
-            android:padding="10dp"
-            android:layout_weight="0.39" />
+            android:padding="12dp" />
 
     </LinearLayout>
 

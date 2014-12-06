@@ -15,11 +15,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.group9.fete.model.GlobalData;
+import com.group9.fete.model.User;
+
 
 public class UserDetail extends Activity {
-
-
-
     SharedPreferences mPrefs;
     public final static String EXTRA_MESSAGE = "com.group9.fete.UserDetail.MESSAGE";
 
@@ -27,20 +27,13 @@ public class UserDetail extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_detail);
+        PlaceholderFragment userDetailFragment = new PlaceholderFragment();
+        userDetailFragment.setArguments(getIntent().getExtras());
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    .add(R.id.container, userDetailFragment)
                     .commit();
         }
-
-        //access sharedpreferences to get username stored at login
-        SharedPreferences mySP = getSharedPreferences("AppPreferences", Activity.MODE_PRIVATE);
-
-        String user =  mySP.getString("UserName", "");
-
-        Log.i("user", user);
-
-
     }
 
 
@@ -49,9 +42,6 @@ public class UserDetail extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.user_detail, menu);
-
-
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -79,25 +69,40 @@ public class UserDetail extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
+            final Activity cont = getActivity();
+
+            //Get the global data instance and get the bundle passed with the intent
+            GlobalData data = (GlobalData)(this.getActivity().getApplication());
+            //get the bundle passed to the fragment from the activity
+            Bundle inputExtra = getArguments();
+            //look for page arguments passed in the bundle
+            int userId = inputExtra.getInt("userId");
+            
+//            //access sharedpreferences to get username stored at login
+//            SharedPreferences mySP = cont.getSharedPreferences("AppPreferences", Activity.MODE_PRIVATE);
+//            String user =  mySP.getString("UserName", "");
+//            Log.i("user", user);
+
             View rootView = inflater.inflate(R.layout.fragment_user_detail, container, false);
-            Bundle arguments = getArguments();
-
-            TextView textView = (TextView) rootView.findViewById(R.id.userName);
+            User user = data.GetUser(userId);
+            TextView userNameTextView = (TextView) rootView.findViewById(R.id.userNameUDetail);
+            String userName = user.GetUserName();
+            String[] nameparts = userName.split(" ");
+            String firstName = userName;
+            if (nameparts.length>1){
+                firstName = nameparts[0];
+            }
+            userNameTextView.setText(userName);
+            TextView userDetailTextView = (TextView) rootView.findViewById(R.id.userDetailUDetail);
+            userDetailTextView.setText(user.GetUserBio());
             Button editButton = (Button) rootView.findViewById(R.id.edit);
-//
-//            set logged in user name to userdetail name and also show edit profile button
-            if (arguments != null && arguments.getString("LoggedUser")!= ""){
-                textView.setText(arguments.getString("LoggedUser", ""));
-                editButton.setVisibility(View.VISIBLE);
 
+            //set logged in user name to userdetail name and also show edit profile button
+            if (inputExtra != null && inputExtra.getBoolean(getString(R.string.loggedUserParam))== true){
+                editButton.setVisibility(View.VISIBLE);
             }
 
-            getActivity().getActionBar().setTitle(textView.getText().toString()+"'s Profile");
-
-
-
-
-
+            getActivity().getActionBar().setTitle(firstName + "'s Profile");
             return rootView;
         }
     }
@@ -105,7 +110,7 @@ public class UserDetail extends Activity {
     public void goToProperty(View view){
         Intent userIntent = new Intent(this, VenueDetail.class);
         int venueId = 1;
-        userIntent.putExtra(getString(R.string.venueId), venueId);
+        userIntent.putExtra(getString(R.string.venueIdParam), venueId);
         startActivity(userIntent);
     }
 
@@ -117,27 +122,11 @@ public class UserDetail extends Activity {
     public void goEdit (View view){
         Intent intent = new Intent(this, EditUserProfile.class);
 
-        TextView textview = (TextView) findViewById(R.id.userName);
+        TextView textview = (TextView) findViewById(R.id.userNameUDetail);
         String user = textview.toString();
         intent.putExtra(EXTRA_MESSAGE, user);
         Log.i("userNamePassed to Edit", user);
 
         startActivity(intent);
     }
-
-    public void goToPropertyLeft(View view){
-        Intent userIntent = new Intent(this, VenueDetail.class);
-        int venueId = 5;
-        userIntent.putExtra(getString(R.string.venueId), venueId);
-        startActivity(userIntent);
-    }
-
-    public void goToPropertyRight(View view){
-        Intent userIntent = new Intent(this, VenueDetail.class);
-        int venueId = 3;
-        userIntent.putExtra(getString(R.string.venueId), venueId);
-        startActivity(userIntent);
-    }
-
-
 }

@@ -220,9 +220,10 @@ public class HomePage extends Activity {
 
             FragmentManager fragmentManager = getFragmentManager();
 
-            //set username from shared preferences
+            //TODO:set username from shared preferences
             Bundle b = new Bundle();
-            b.putString("LoggedUser", user);
+            b.putInt(getString(R.string.userIdParam), 1);
+            b.putBoolean(getString(R.string.loggedUserParam), true);
             fragment.setArguments(b);
 
             fragmentManager.beginTransaction()
@@ -272,11 +273,6 @@ public class HomePage extends Activity {
         });
 
         return super.onCreateOptionsMenu(menu);
-
-
-
-
-
 
     }
 
@@ -393,27 +389,8 @@ public class HomePage extends Activity {
 //        }
 //    }
 
-    public void goToUser(View view){
-        Intent userIntent = new Intent(this, UserDetail.class);
-        startActivity(userIntent);
-    }
-
-    public void goToProperty(View view){
-        Intent userIntent = new Intent(this, VenueDetail.class);
-        startActivity(userIntent);
-    }
-
-    public void goToPropertyLeft(View view){
-        Intent userIntent = new Intent(this, VenueDetail.class);
-        int venueId = 5;
-        userIntent.putExtra(getString(R.string.venueId), venueId);
-        startActivity(userIntent);
-    }
-
-    public void goToPropertyRight(View view){
-        Intent userIntent = new Intent(this, VenueDetail.class);
-        int venueId = 3;
-        userIntent.putExtra(getString(R.string.venueId), venueId);
+    public void goTest(View view){
+        Intent userIntent = new Intent(this, TestSearch.class);
         startActivity(userIntent);
     }
 
@@ -421,12 +398,6 @@ public class HomePage extends Activity {
         Intent userIntent = new Intent(this, SearchPage.class);
         startActivity(userIntent);
     }
-
-    public void goTest(View view){
-        Intent userIntent = new Intent(this, TestSearch.class);
-        startActivity(userIntent);
-    }
-
 
     public void goEdit (View view){
         Intent intent = new Intent(this, EditUserProfile.class);
@@ -437,8 +408,5 @@ public class HomePage extends Activity {
         Log.i("userNamePassed to Edit", user);
 
         startActivity(intent);
-
     }
-
-
 }

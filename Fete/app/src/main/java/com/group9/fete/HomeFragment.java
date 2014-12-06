@@ -3,6 +3,7 @@ package com.group9.fete;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.Display;
@@ -26,6 +27,12 @@ import java.util.List;
  */
 public class HomeFragment extends Fragment {
     private int featuredUserId = 2;
+
+    ///welcome screen
+    final String welcomeScreenShownPref = "welcomeScreenShown";
+    SharedPreferences mPrefs;
+
+    public final static String EXTRA_MESSAGE = "com.group9.fete.HomePage.MESSAGE";
 
     public HomeFragment() {
     }
@@ -62,6 +69,7 @@ public class HomeFragment extends Fragment {
         }else {
             totalRows = featuredVenues.size() /itemsInRow;
         }
+
         LinearLayout venueTable = (LinearLayout)rootView.findViewById(R.id.venueTable);
         for (int i=0;i<totalRows;i++ )
         {
@@ -104,11 +112,18 @@ public class HomeFragment extends Fragment {
                 customImageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent detailIntent = new Intent(cont, VenueDetail.class);
-                        detailIntent.putExtra(getString(R.string.venueId), venueId);
-                        startActivity(detailIntent);
-            }
+                        goToProperty(view, cont, venueId);
+                    }
                 });
+
+//                customImageView.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        Intent detailIntent = new Intent(cont, VenueDetail.class);
+//                        detailIntent.putExtra(getString(R.string.venueId), venueId);
+//                        startActivity(detailIntent);
+//            }
+//                });
                 rowLayout.addView(customImageView, j);
             }
 
@@ -116,11 +131,43 @@ public class HomeFragment extends Fragment {
             venueTable.addView(rowLayout);
         }
 
+        View featuredUserTile = rootView.findViewById(R.id.featuredUserTileHome);
         User featured = data.GetUser(featuredUserId);
-        TextView nameTxtView = (TextView)rootView.findViewById(R.id.userNameHome);
+        TextView nameTxtView = (TextView)featuredUserTile.findViewById(R.id.userNameHome);
         nameTxtView.setText(featured.GetUserName());
-        TextView detailText = (TextView)rootView.findViewById(R.id.userDetailHome);
-        detailText.setText("Blah blah blah fuck you!");
+        List<Integer> venueIds = featured.GetUserVenues();
+        Venue featuredVenue = data.GetVenue(venueIds.get(0));
+        ImageView featuredVenueImage = (ImageView)rootView.findViewById(R.id.backgroundFeaturedUserImage);
+        int resID = getResources().getIdentifier(featuredVenue.GetVenueImage(), "drawable", cont.getPackageName());
+        featuredVenueImage.setImageResource(resID);
+        TextView detailText = (TextView)featuredUserTile.findViewById(R.id.userDetailHome);
+        String limitedText = featured.GetUserBio().substring(0,90);
+        detailText.setText(limitedText + "...");
+        featuredUserTile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToUser(view, cont, featuredUserId);
+            }
+        });
         return rootView;
     }
+
+    public void goToUser(View view, Context cont, int uniqueIdentifier){
+        Intent userIntent = new Intent(cont, UserDetail.class);
+        userIntent.putExtra(getString(R.string.userIdParam), uniqueIdentifier);
+        startActivity(userIntent);
+    }
+
+    public void goToProperty(View view, Context cont,int uniqueIdentifier){
+        Intent detailIntent = new Intent(cont, VenueDetail.class);
+        detailIntent.putExtra(getString(R.string.venueIdParam), uniqueIdentifier);
+        startActivity(detailIntent);
+    }
+
+//    public void goToPropertyLeft(View view){
+//        Intent userIntent = new Intent(this, VenueDetail.class);
+//        int venueId = 5;
+//        userIntent.putExtra(getString(R.string.venueId), venueId);
+//        startActivity(userIntent);
+//    }
 }

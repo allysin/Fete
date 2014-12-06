@@ -16,12 +16,15 @@ public class User {
 
     private String userImage;
 
+    private String bio;
+
     private ArrayList<Integer> userVenues;
 
     public User(){
         userID = 0;
         userName = new String();
         userImage = new String();
+        bio = new String();
         userVenues = new ArrayList<Integer>();
     }
 
@@ -29,10 +32,11 @@ public class User {
     and everything else is empty.
     To use the one below, use Venue v = new Venue(2, "Backyard with Pool", "Amazing backyard with pool, lighting and barbeque.", 1);
     In this case v.id will be 2, v.venueName will be "Backyard with Pool" and so on.*/
-    public User(int id, String userName, String userImage, ArrayList<Integer> venues){
+    public User(int id, String userName, String userImage, String bio, ArrayList<Integer> venues){
         this.userID = id;
         this.userName = userName;
         this.userImage = userImage;
+        this.bio = bio;
         this.userVenues = venues;
     }
 
@@ -55,6 +59,10 @@ public class User {
     public String GetUserImage(){
         return userImage;
     }
+
+    public String GetUserBio(){return bio;}
+
+    public void SetUserBio(String newBio){bio = newBio;}
 
     public void SetUserImage(String userImage){
         /*this refers to the object using the function. So when we do User u = new User();

@@ -2,7 +2,6 @@ package com.group9.fete;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -65,33 +64,39 @@ public class VenueDetail extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            final Context cont = getActivity();
-            GlobalData data = (GlobalData)(this.getActivity().getApplication());
+            final Activity cont = getActivity();
+            //Get the global data instance and get the bundle passed with the intent
+            GlobalData data = (GlobalData)(cont.getApplication());
             Bundle inputExtra = getArguments();
-
-
-
-
-            int venueId = inputExtra.getInt("venueId");
+            //look for page arguments passed in the bundle
+            int venueId = inputExtra.getInt(getString(R.string.venueIdParam));
             View rootView = inflater.inflate(R.layout.fragment_venue_detail, container, false);
+
+            //get venue object used to fill the page
             Venue venue = data.GetVenue(venueId);
-            TextView venueNameView = (TextView)rootView.findViewById(R.id.venueName);
+
+            TextView venueNameView = (TextView)rootView.findViewById(R.id.venueNameVDetail);
             venueNameView.setText(venue.GetVenueName());
-            TextView venueDetailView = (TextView)rootView.findViewById(R.id.venueDetail);
+            TextView venueDetailView = (TextView)rootView.findViewById(R.id.venueDetailVDetail);
             venueDetailView.setText(venue.GetVenueDescription());
-            TextView ownerNameView = (TextView)rootView.findViewById(R.id.userNameVD);
+            TextView ownerNameView = (TextView)rootView.findViewById(R.id.userNameVDetail);
             int ownerId = venue.GetOwnerID();
             User user = data.GetUser(ownerId);
             ownerNameView.setText(user.GetUserName());
-            ImageView userImageView = (ImageView)rootView.findViewById(R.id.userImageVD);
+            ImageView userImageView = (ImageView)rootView.findViewById(R.id.userImageVDetail);
             int userImageId = getResources().getIdentifier(user.GetUserImage(), "drawable", cont.getPackageName());
             userImageView.setImageResource(userImageId);
-            ImageView venueImageView = (ImageView)rootView.findViewById(R.id.imageView);
+            ImageView venueImageView = (ImageView)rootView.findViewById(R.id.venueImageVDetail);
             int resID = getResources().getIdentifier(venue.GetVenueImage(), "drawable", cont.getPackageName());
             venueImageView.setImageResource(resID);
-
+            //View reviewSection = rootView.findViewById(R.id.reviewSectionVDetail);
+            //bindReviews(inflater, reviewSection, venue);
             getActivity().getActionBar().setTitle(venue.GetVenueName());
             return rootView;
+        }
+
+        private void bindReviews(LayoutInflater inflater, View parentView, Venue v){
+            View review = inflater.inflate(R.layout.review_layout, null);
         }
     }
 
@@ -105,7 +110,20 @@ public class VenueDetail extends Activity {
         startActivity(Intent.createChooser(intent, "Contact Owner"));
     }
 
+    public void goToPropertyLeft(View view, int currentVenueId, int totalVenueCount){
+        Intent userIntent = new Intent(this, VenueDetail.class);
+        int venueId = 5;
+        userIntent.putExtra(getString(R.string.venueIdParam), venueId);
+        startActivity(userIntent);
+    }
 
-
-
+    public void goToPropertyRight(View view, int currentVenueId, int totalVenueCount){
+        Intent userIntent = new Intent(this, VenueDetail.class);
+        int venueId = currentVenueId++;
+        if (venueId>totalVenueCount-1){
+            venueId = 0;
+        }
+        userIntent.putExtra(getString(R.string.venueIdParam), venueId);
+        startActivity(userIntent);
+    }
 }

@@ -6,14 +6,14 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/venueImageVDetail"
         android:scaleType="fitXY"
         android:maxHeight="40dp"
         android:contentDescription="@string/venue_detail_image_desc" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/venueImageVDetail"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:orientation="vertical">
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="15sp"
-        android:id="@+id/venueName"/>
+        android:id="@+id/venueNameVDetail"/>
     <!--<TextView-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
@@ -32,7 +32,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/venueDetail"/>
+        android:id="@+id/venueDetailVDetail"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,18 +48,33 @@
         android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="7"
-            android:id="@+id/userNameVD"/>
+            android:id="@+id/userNameVDetail"/>
         <ImageView
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="3"
-            android:id="@+id/userImageVD"/>
+            android:id="@+id/userImageVDetail"/>
     </LinearLayout>
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/detailTable"></TableLayout>
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:text="Reviews"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/reviewSectionVDetail">
+
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

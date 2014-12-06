@@ -31,11 +31,11 @@
     <!-- Keep them in order as the titles are in -->
     <array name="nav_drawer_icons">
         <item>@drawable/ic_home</item>
-        <item>@drawable/ic_people</item>
-        <item>@drawable/ic_photos</item>
-        <item>@drawable/ic_communities</item>
+        <item>@drawable/ic_profile</item>
+        <item>@drawable/ic_venues</item>
+        <item>@drawable/ic_settings</item>
         <item>@drawable/ic_pages</item>
-        <item>@drawable/ic_whats_hot</item>
+        <item>@drawable/ic_logout</item>
     </array>
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
@@ -68,7 +68,9 @@
     together, or a party, or backyard bbq when you do not own one. We focus on the local community and each month
     have a Featured User so that you can know more about the people renting spaces and throwing events. Welcome to
     Fete!</string>
-    <string name="venueId">venueId</string>
+    <string name="venueIdParam">venueId</string>
+    <string name="userIdParam">userId</string>
+    <string name="loggedUserParam">loggedUser</string>
     <string name="title_activity_edit_user">EditUser</string>
     <string name="title_activity_edit_user_profile">EditUserProfile</string>
     <string name="title_activity_workit">Workit</string>
