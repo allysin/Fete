@@ -134,7 +134,7 @@ public class HomePage extends Activity {
                 R.string.app_name // nav drawer close - description for accessibility
         ){
             public void onDrawerClosed(View view) {
-                getActionBar().setTitle(mTitle);
+                //getActionBar().setTitle(mTitle);
                 // calling onPrepareOptionsMenu() to show action bar icons
                 invalidateOptionsMenu();
             }
@@ -322,12 +322,12 @@ public class HomePage extends Activity {
         return super.onPrepareOptionsMenu(menu);
     }
 
-    @Override
-    public void setTitle(CharSequence title) {
-        //override
-        mTitle = "";
-        getActionBar().setTitle(mTitle);
-    }
+//    @Override
+//    public void setTitle(CharSequence title) {
+//        //override
+//        mTitle = "";
+//        getActionBar().setTitle(mTitle);
+//    }
 
     /**
      * When using the ActionBarDrawerToggle, you must call it during

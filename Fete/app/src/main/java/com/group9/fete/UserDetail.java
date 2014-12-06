@@ -92,7 +92,7 @@ public class UserDetail extends Activity {
 
             }
 
-            getActivity().getActionBar().setTitle(textView.getText().toString());
+            getActivity().getActionBar().setTitle(textView.getText().toString()+"'s Profile");
 
 
 

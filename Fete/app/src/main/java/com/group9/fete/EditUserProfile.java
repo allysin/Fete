@@ -3,10 +3,12 @@ package com.group9.fete;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -52,6 +54,11 @@ public class EditUserProfile extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
+
+
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -80,16 +87,18 @@ public class EditUserProfile extends Activity {
 
     public void saveProfile(View view){
         //alert dialog confirming profile saved
-        new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_info).setMessage("Profile Saved!.").setPositiveButton("ok!", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        }).show();
+//        new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_info).setMessage("Profile Saved!.").setPositiveButton("ok!", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int which) {
+//                dialog.dismiss();
+//            }
+//        }).show();
+
+
 
         SharedPreferences mySP = getSharedPreferences("AppPreferences", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = mySP.edit();
         EditText user = (EditText)findViewById(R.id.userName);
-        String newUserName = user.getText().toString();
+        final String newUserName = user.getText().toString();
         Log.i("edited name", newUserName);
 
         //not quite fixed but will make better TODO
@@ -99,6 +108,26 @@ public class EditUserProfile extends Activity {
             editor.putString("UserName", newUserName);
             editor.commit();
         }
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(
+                new ContextThemeWrapper(this, R.style.MyAlertDialogTheme));
+        alertDialog.setMessage("Profile Saved!.");
+        alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                FragmentManager fragmentManager = getFragmentManager();
+                Fragment fragment = new UserDetail.PlaceholderFragment();
+                Bundle b = new Bundle();
+                b.putString("LoggedUser", newUserName);
+                fragment.setArguments(b);
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, fragment).commit();
+                return;
+            }
+        });
+
+        alertDialog.show();
+
+
 
     }
 

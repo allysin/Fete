@@ -8,6 +8,15 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.group9.fete.TestSearch">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/noResults"
+        android:gravity="center"
+        android:textSize="16dp"
+        android:visibility="invisible"
+        />
+
 
     <ListView
         android:layout_width="wrap_content"

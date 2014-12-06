@@ -120,6 +120,9 @@ public class TestSearch extends Activity  {
             Venue v = featuredVenues.get(i);
 
             if(v.GetVenueName().contains(query) == true){
+                //make sure this text is gone
+                TextView noResults = (TextView) findViewById(R.id.noResults);
+                noResults.setVisibility(View.INVISIBLE);
                 //get venue name, venueID, venuedescription, and venue image
                 String vName = v.GetVenueName();
                 int vId = v.GetID();
@@ -135,6 +138,13 @@ public class TestSearch extends Activity  {
                 venue.put("id", Integer.toString(vId));
                 venue.put("description", vDescription);
                 venuesList.add(venue);
+
+            }
+            else {
+
+                TextView noResults = (TextView) findViewById(R.id.noResults);
+                noResults.setVisibility(View.VISIBLE);
+                noResults.setText("No results found for your query. Please search again");
 
             }
 
