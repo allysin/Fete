@@ -393,6 +393,11 @@ public class HomePage extends Activity {
         startActivity(userIntent);
     }
 
+    public void goToProperty(View view, Context cont,int uniqueIdentifier){
+        Intent detailIntent = new Intent(cont, VenueDetail.class);
+        detailIntent.putExtra(getString(R.string.venueIdParam), uniqueIdentifier);
+        startActivity(detailIntent);
+    }
     public void searchPage(View view){
         Intent userIntent = new Intent(this, SearchPage.class);
         startActivity(userIntent);

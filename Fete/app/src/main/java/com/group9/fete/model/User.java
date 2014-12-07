@@ -20,6 +20,8 @@ public class User {
 
     private ArrayList<Integer> userVenues;
 
+    private ArrayList<Integer> favoriteVenues;
+
     public User(){
         userID = 0;
         userName = new String();
@@ -73,5 +75,9 @@ public class User {
 
     public List<Integer> GetUserVenues(){
         return userVenues;
+    }
+
+    public List<Integer> GetFavoriteVenues(){
+        return favoriteVenues;
     }
 }

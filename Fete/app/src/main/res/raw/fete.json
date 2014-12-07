@@ -73,7 +73,18 @@
         {
           "venueID": 5
         }
-      ]
+      ],
+      "favoriteVenues": [
+              {
+                "venueID": 2
+              },
+              {
+                "venueID": 3
+              },
+              {
+                "venueID": 0
+                }
+            ]
     },
     {
       "userID": 3,
