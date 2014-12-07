@@ -75,10 +75,10 @@ public class EditUserProfile extends Activity {
 
 
         //intent passed username via extra message. get it to change the text view
-        String message  = getActivity().getIntent().getExtras().getString(HomePage.EXTRA_MESSAGE);
-        Log.i("message", message);
-        EditText user = (EditText)rootView.findViewById(R.id.userName);
-        user.setText(message);
+//        String message  = getActivity().getIntent().getExtras().getString(HomePage.EXTRA_MESSAGE);
+//        Log.i("message", message);
+//        EditText user = (EditText)rootView.findViewById(R.id.userName);
+//        user.setText(message);
 
             return rootView;
         }
@@ -116,7 +116,8 @@ public class EditUserProfile extends Activity {
             public void onClick(DialogInterface dialog, int which) {
                 FragmentManager fragmentManager = getFragmentManager();
                 Fragment fragment = new UserDetail.PlaceholderFragment();
-                Bundle b = new Bundle();
+                Bundle b = new Bundle();b.putInt(getString(R.string.userIdParam), 1);
+                b.putBoolean(getString(R.string.loggedUserParam), true);
                 b.putString("LoggedUser", newUserName);
                 fragment.setArguments(b);
                 fragmentManager.beginTransaction()
