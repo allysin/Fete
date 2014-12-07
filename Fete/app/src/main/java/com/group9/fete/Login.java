@@ -18,7 +18,7 @@ public class Login extends Activity {
     public static final String PREFS_NAME = "AppPreferences";
 
     // Welcome screen variable in sp...only used when need to reset for system
-     //final String welcomeScreenShownPref = "welcomeScreenShown";
+     final String welcomeScreenShownPref = "welcomeScreenShown";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +85,8 @@ public class Login extends Activity {
         editor.putString("UserName", userName);
 
         // If need to reset for testing purposes
-        //editor.putBoolean(welcomeScreenShownPref, false);
+        editor.putBoolean(welcomeScreenShownPref, false);
+
 
         editor.apply();
 
@@ -112,6 +113,7 @@ public class Login extends Activity {
 
         // If need to reset for testing purposes
         //editor.remove(welcomeScreenShownPref);
+
 
         editor.commit();
         Intent userIntent = new Intent(this, HomePage.class);

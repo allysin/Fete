@@ -12,7 +12,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -65,7 +64,7 @@ public class HomePage extends Activity {
         setContentView(R.layout.activity_home_page);
 
         //get shared preferences
-        mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        mPrefs = getSharedPreferences("AppPreferences", Activity.MODE_PRIVATE);
 
         //set shared preference for welcome screen to false
         Boolean welcomeScreenShown = mPrefs.getBoolean(welcomeScreenShownPref, false);
