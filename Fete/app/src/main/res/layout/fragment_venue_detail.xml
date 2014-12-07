@@ -3,6 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.group9.fete.VenueDetail$PlaceholderFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,12 +23,13 @@
         android:layout_below="@+id/venueImageVDetail"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:paddingTop="15dp"
         android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:id="@+id/venueNameVDetail"/>
     <!--<TextView-->
         <!--android:layout_width="match_parent"-->
@@ -32,32 +40,55 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="5dp"
         android:id="@+id/venueDetailVDetail"/>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:text="Amenities"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="5dp"
+                android:id="@+id/amenitiesSectionVDetail">
+            </LinearLayout>
+        </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15sp"
+        android:paddingTop="15dp"
         android:textStyle="bold"
         android:text="Owner"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="10"
+        android:paddingTop="5dp"
         android:orientation="horizontal">
         <TextView
         android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_weight="7"
             android:id="@+id/userNameVDetail"/>
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_weight="3"
             android:id="@+id/userImageVDetail"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="15dp"
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
@@ -69,12 +100,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:paddingTop="5dp"
             android:id="@+id/reviewSectionVDetail">
-
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
+    </RelativeLayout>
+    </ScrollView>
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

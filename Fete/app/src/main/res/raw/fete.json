@@ -5,42 +5,77 @@
       "venueName": "Welcoming house on Fuller Road",
       "venueImage": "poolimage0",
       "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "ownerID": 1
+      "ownerID": 1,
+      "venueAmenities":[
+      {"amenityID":1},
+      {"amenityID":2}
+      ]
     },
     {
       "venueID": 2,
       "venueName": "Big Pool House",
       "venueImage": "poolimage1",
       "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "ownerID": 2
+      "ownerID": 2,
+      "venueAmenities":[
+            {"amenityID":3},
+            {"amenityID":5},
+            {"amenityID":6},
+            {"amenityID":11},
+            {"amenityID":13}
+            ]
     },
     {
       "venueID": 3,
       "venueName": "Classy Apartment with Rooftop Patio",
       "venueImage": "poolimage2",
       "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "ownerID": 2
+      "ownerID": 2,
+      "venueAmenities":[
+                  {"amenityID":1},
+                  {"amenityID":2},
+                  {"amenityID":3},
+                  {"amenityID":5},
+                  {"amenityID":12}
+                  ]
     },
     {
       "venueID": 4,
       "venueName": "Treehouse",
       "venueImage": "poolimage3",
       "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "ownerID": 3
+      "ownerID": 3,
+      "venueAmenities":[
+                  {"amenityID":11},
+                  {"amenityID":13},
+                  {"amenityID":14}
+                  ]
     },
     {
       "venueID": 5,
       "venueName": "Pool with Slide and BBQ",
       "venueImage": "poolimage4",
       "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "ownerID": 2
+      "ownerID": 2,
+      "venueAmenities":[
+                  {"amenityID":1},
+                  {"amenityID":4},
+                  {"amenityID":8},
+                  {"amenityID":14},
+                  {"amenityID":17}
+                  ]
     },
     {
       "venueID": 6,
       "venueName": "Pool with hottub and floaties",
       "venueImage": "poolimage5",
       "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "ownerID": 1
+      "ownerID": 1,
+      "venueAmenities":[
+                  {"amenityID":15},
+                  {"amenityID":16},
+                  {"amenityID":17}
+                  ]
     }
   ],
   "users": [
@@ -102,7 +137,7 @@
       "username": "User Surname4",
       "userimage": "user3",
       "bio": "loading...",
-      "ownedVenue": []
+      "ownedVenues": []
     },
     {
       "userID": 5,
@@ -163,5 +198,97 @@
       "venueID": 6,
       "reviewText": "The barbeque party hosted here was a great hit, and I hope to host another one here next month."
     }
+  ],
+  "amenities":[
+    {
+      "amenityID":1,
+      "amenityName": "Accessible",
+      "amenityIcon":"accessible"
+    },
+    {
+      "amenityID":2,
+      "amenityName": "Air Conditioning",
+      "amenityIcon":"airconditioning"
+    },
+    {
+      "amenityID":3,
+      "amenityName": "Cable TV",
+      "amenityIcon":"cabletv"
+    },
+    {
+      "amenityID":4,
+      "amenityName": "Door Man",
+      "amenityIcon":"doorman"
+    },
+    {
+      "amenityID":5,
+      "amenityName": "Elevator",
+      "amenityIcon":"elevator"
+    },
+    {
+      "amenityID":6,
+      "amenityName": "Essentials",
+      "amenityIcon":"essentials"
+    },
+    {
+      "amenityID":7,
+      "amenityName": "Fire Extinguisher",
+      "amenityIcon":"fireextinguisher"
+    },
+    {
+      "amenityID":8,
+      "amenityName": "First Aid",
+      "amenityIcon":"firstaid"
+    },
+    {
+      "amenityID":9,
+      "amenityName": "Gym",
+      "amenityIcon":"gym"
+    },
+    {
+      "amenityID":10,
+      "amenityName": "Heating",
+      "amenityIcon":"heating"
+    },
+        {
+          "amenityID":11,
+          "amenityName": "Internet",
+          "amenityIcon":"internet"
+        },
+        {
+          "amenityID":12,
+          "amenityName": "Kitchen",
+          "amenityIcon":"kitchen"
+        },
+        {
+          "amenityID":13,
+          "amenityName": "No Smoking",
+          "amenityIcon":"nosmoking"
+        },
+        {
+          "amenityID":14,
+          "amenityName": "Parking",
+          "amenityIcon":"parking"
+        },
+        {
+          "amenityID":15,
+          "amenityName": "Party",
+          "amenityIcon":"party"
+        },
+        {
+          "amenityID":16,
+          "amenityName": "Pets Allowed",
+          "amenityIcon":"petsallowed"
+        },
+        {
+          "amenityID":17,
+          "amenityName": "Pool",
+          "amenityIcon":"pool"
+        },
+        {
+          "amenityID":18,
+          "amenityName": "Wireless",
+          "amenityIcon":"wireless"
+        }
   ]
 }

@@ -2,6 +2,7 @@ package com.group9.fete;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,11 +11,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.group9.fete.model.Amenities;
 import com.group9.fete.model.GlobalData;
+import com.group9.fete.model.Review;
 import com.group9.fete.model.User;
 import com.group9.fete.model.Venue;
+
+import java.util.List;
 
 
 public class VenueDetail extends Activity {
@@ -89,14 +95,56 @@ public class VenueDetail extends Activity {
             ImageView venueImageView = (ImageView)rootView.findViewById(R.id.venueImageVDetail);
             int resID = getResources().getIdentifier(venue.GetVenueImage(), "drawable", cont.getPackageName());
             venueImageView.setImageResource(resID);
-            //View reviewSection = rootView.findViewById(R.id.reviewSectionVDetail);
-            //bindReviews(inflater, reviewSection, venue);
+
+            View reviewSection = rootView.findViewById(R.id.reviewSectionVDetail);
+            bindReviews(inflater, reviewSection, venue, data);
+
+            View amenitiesSection = rootView.findViewById(R.id.amenitiesSectionVDetail);
+            bindAmenities(inflater, amenitiesSection, venue, cont);
+
             getActivity().getActionBar().setTitle(venue.GetVenueName());
             return rootView;
         }
 
-        private void bindReviews(LayoutInflater inflater, View parentView, Venue v){
-            View review = inflater.inflate(R.layout.review_layout, null);
+        private void bindAmenities(LayoutInflater inflater, View parentView, Venue v, Context cont){
+            List<Amenities> amenities = v.GetAmenities();
+            int numberOfAmenities = amenities.size();
+            int rowCount = numberOfAmenities/2 + (numberOfAmenities%2);
+            for (int i=0;i<rowCount;i++){
+                int counter = 0;
+                int index = i*2 + counter;
+                LinearLayout childView = (LinearLayout) inflater.inflate(R.layout.amenities_layout, null);
+                Amenities am = amenities.get(index);
+                ImageView image1 = (ImageView)childView.findViewById(R.id.image1AmenityLayout);
+                int imageId = getResources().getIdentifier(am.GetIcon(), "drawable", cont.getPackageName());
+                image1.setImageResource(imageId);
+                TextView text1 = (TextView)childView.findViewById(R.id.amenity1NameReviewLayout);
+                text1.setText(am.GetName());
+                counter++;
+                index = i*2 + counter;
+                if (numberOfAmenities>index) {
+                    am = amenities.get(index);
+                    ImageView image2 = (ImageView)childView.findViewById(R.id.image2AmenityLayout);
+                    imageId = getResources().getIdentifier(am.GetIcon(), "drawable", cont.getPackageName());
+                    image2.setImageResource(imageId);
+                    TextView text2 = (TextView)childView.findViewById(R.id.amenity2NameReviewLayout);
+                    text2.setText(am.GetName());
+                }
+                ((LinearLayout)parentView).addView(childView);
+            }
+        }
+
+        private void bindReviews(LayoutInflater inflater, View parentView, Venue v, GlobalData data){
+            List<Review> reviews = v.GetReviews();
+            for(Review i:reviews) {
+                View reviewView = inflater.inflate(R.layout.review_layout, null);
+                User u = data.GetUser(i.GetUserID());
+                TextView userNameView = (TextView)reviewView.findViewById(R.id.usernameReviewLayout);
+                userNameView.setText(u.GetUserName());
+                TextView reviewTextView = (TextView)reviewView.findViewById(R.id.reviewTextReviewLayout);
+                reviewTextView.setText(i.GetReviewText());
+                ((LinearLayout)parentView).addView(reviewView);
+            }
         }
     }
 

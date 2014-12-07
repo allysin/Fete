@@ -20,6 +20,7 @@ public class GlobalData extends Application {
     private List<Venue> appVenues;
     private List<User> appUsers;
     private List<Review> appReviews;
+    private List<Amenities> venueAmenities;
 
     private String getJsonData(){
         String text = new String();
@@ -55,6 +56,7 @@ public class GlobalData extends Application {
                 int venueId = v.GetID();
                 if (venueId == id) {
                     filteredVenue = v;
+                    break;
                 }
             }
         }
@@ -72,6 +74,7 @@ public class GlobalData extends Application {
                 int userId = u.GetUserID();
                 if (userId == id) {
                     user = u;
+                    break;
                 }
             }
         }
@@ -86,6 +89,35 @@ public class GlobalData extends Application {
         return appUsers;
     }
 
+    public Amenities GetAmenity(int id){
+        Amenities amenity = null;
+        if (venueAmenities!=null) {
+            for (Amenities am : venueAmenities) {
+                if (am.GetId() == id) {
+                    amenity = am;
+                    break;
+                }
+            }
+        }
+        return amenity;
+    }
+
+    private void SetAmenities(JSONArray amenities){
+        this.venueAmenities = new ArrayList<Amenities>();
+        try {
+            for (int i = 0; i < amenities.length(); i++) {
+                JSONObject amenity = amenities.getJSONObject(i);
+                int amenityId = amenity.getInt("amenityID");
+                String amenityName = amenity.getString("amenityName");
+                String amenityIcon = amenity.getString("amenityIcon");
+                Amenities amenityObj = new Amenities(amenityId, amenityName, amenityIcon);
+                this.venueAmenities.add(amenityObj);
+             }
+        }catch (Exception e){
+            Log.e(Tag, e.getMessage());
+        }
+    }
+
     public void SetData(){
         String jsonString = getJsonData();
 
@@ -98,6 +130,8 @@ public class GlobalData extends Application {
             JSONArray venueArray = jsonObject.getJSONArray("venues");
             JSONArray userArray = jsonObject.getJSONArray("users");
             JSONArray reviewsArray = jsonObject.getJSONArray("reviews");
+            JSONArray amenitiesArray = jsonObject.getJSONArray("amenities");
+            SetAmenities(amenitiesArray);
 
             for (int i=0; i<reviewsArray.length(); i++){
                 JSONObject review = reviewsArray.getJSONObject(i);
@@ -116,14 +150,23 @@ public class GlobalData extends Application {
                 String venueImage = venue.getString("venueImage");
                 String venueName = venue.getString("venueName");
                 String venueDescription = venue.getString("venueDescription");
+                JSONArray amenityList = venue.getJSONArray("venueAmenities");
+                ArrayList<Amenities> amenities = new ArrayList<Amenities>();
+                for(int j=0;j<amenityList.length();j++){
+                    JSONObject amenity = amenityList.getJSONObject(j);
+                    int amenityId = amenity.getInt("amenityID");
+                    Amenities tempAmenity = venueAmenities.get(amenityId);
+                    amenities.add(tempAmenity);
+                }
                 ArrayList<Review> venueReviews = new ArrayList<Review>();
                 for(int j=0;j<appReviews.size();j++){
-                    Review tempReview = appReviews.get(i);
+                    Review tempReview = appReviews.get(j);
                     if (tempReview.GetVenueID()==venueID){
                         venueReviews.add(tempReview);
+                        break;
                     }
                 }
-                Venue v = new Venue(venueID, venueName, venueDescription, venueImage, ownerID, venueReviews);
+                Venue v = new Venue(venueID, venueName, venueDescription, venueImage, ownerID, venueReviews, amenities);
                 appVenues.add(v);
             }
 
