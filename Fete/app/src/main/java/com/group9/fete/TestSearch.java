@@ -141,7 +141,7 @@ public class TestSearch extends Activity  {
 
             }
             else {
-
+                //no venue name contains the search query display the text and let the user search again
                 TextView noResults = (TextView) findViewById(R.id.noResults);
                 noResults.setVisibility(View.VISIBLE);
                 noResults.setText("No results found for your query. Please search again");

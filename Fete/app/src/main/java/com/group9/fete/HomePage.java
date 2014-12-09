@@ -244,16 +244,25 @@ public class HomePage extends Activity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.home_page, menu);
 
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        MenuItem swi= menu.findItem(R.id.action_search);
 
+        // Get the SearchView and set the searchable configuration
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+
+        //get searchview widget menu item
+        MenuItem swi= menu.findItem(R.id.action_search);
         SearchView sw= (SearchView) swi.getActionView();
+        //set searchview widget hint
         sw.setQueryHint("Try Pool");
 
+        //calling setSearchableInfo() and passing it the SearchableInfo object that represents  searchable configuration
         sw.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        sw.setIconifiedByDefault(true);
 
+        // Do not iconify the widget; expand it by default
+        sw.setIconifiedByDefault(false);
+
+        //set onQueryText Listener for when user types search query in action bar
         sw.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            //when user returns query send the query intent to the searchable activity of TestSearch
             @Override
             public boolean onQueryTextSubmit(String query) {
                 Intent intent = new Intent(HomePage.this, TestSearch.class);
@@ -264,13 +273,16 @@ public class HomePage extends Activity {
                 return true;
             }
 
+            //of usage if searchable activity and activity initiating search are the same.
             @Override
             public boolean onQueryTextChange(final String s) {
                 return false;
             }
         });
 
-        return super.onCreateOptionsMenu(menu);
+
+
+            return super.onCreateOptionsMenu(menu);
 
     }
 
@@ -293,8 +305,11 @@ public class HomePage extends Activity {
         switch (item.getItemId()) {
             case R.id.action_settings:
                 //When settings button is selected on the AppBar, settings page should show up
-                Intent settingsIntent = new Intent(this, SettingsActivity.class);
-                startActivity(settingsIntent);
+                Fragment fragment = null;
+                fragment = new SettingsFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, fragment).commit();
                 break;
             case R.id.action_search:
                 //When Search button is clicked, Textbox should appear. TODO
@@ -412,4 +427,6 @@ public class HomePage extends Activity {
 
         startActivity(intent);
     }
+
+
 }
