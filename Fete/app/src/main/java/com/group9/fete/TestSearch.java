@@ -116,10 +116,12 @@ public class TestSearch extends Activity  {
 
 
 
+
         for (int i=0;i<featuredVenues.size();i++ ) {
             Venue v = featuredVenues.get(i);
 
-            if(v.GetVenueName().contains(query) == true){
+                ///now case irrelevant
+            if(v.GetVenueName().toLowerCase().contains(query.toLowerCase()) == true){
                 //make sure this text is gone
                 TextView noResults = (TextView) findViewById(R.id.noResults);
                 noResults.setVisibility(View.INVISIBLE);
