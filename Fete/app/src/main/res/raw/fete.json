@@ -82,7 +82,7 @@
     {
       "userID": 1,
       "username": "Allyson Mackay",
-      "userimage": "user0",
+      "userimage": "allyson",
       "bio": "I am one of the creators of the app Fete and I strongly believe in giving back to the community. I am currently based in Ann Arbor, but I love to travel, and my next destination is India. Yay!",
       "ownedVenues": [
         {
@@ -96,7 +96,7 @@
     {
       "userID": 2,
       "username": "Michael Nguyen",
-      "userimage": "user1",
+      "userimage": "michael",
       "bio": "I am one of the creators of the app Fete and I strongly believe in giving back to the community. I am currently based in Ann Arbor, and you can find me on Tinder when I am not working.",
       "ownedVenues": [
         {
@@ -124,7 +124,7 @@
     {
       "userID": 3,
       "username": "Anubhav Saxena",
-      "userimage": "user2",
+      "userimage": "anubhav",
       "bio": "loading...",
       "ownedVenues": [
         {
@@ -156,7 +156,7 @@
     {
       "userID": 7,
       "username": "User Surname5",
-      "userimage": "user6",
+      "userimage": "user2",
       "bio": "loading...",
       "ownedVenues": []
     }

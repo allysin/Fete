@@ -142,7 +142,8 @@ public class VenueDetail extends Activity {
                 TextView userNameView = (TextView)reviewView.findViewById(R.id.usernameReviewLayout);
                 userNameView.setText(u.GetUserName());
                 TextView reviewTextView = (TextView)reviewView.findViewById(R.id.reviewTextReviewLayout);
-                reviewTextView.setText(i.GetReviewText());
+                String reviewText = i.GetReviewText().substring(0,120) + "...";
+                reviewTextView.setText(reviewText);
                 ((LinearLayout)parentView).addView(reviewView);
             }
         }

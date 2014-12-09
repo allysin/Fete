@@ -43,16 +43,7 @@ public class HomeFragment extends Fragment {
         final Context cont = getActivity();
         GlobalData data = (GlobalData)(getActivity().getApplication());
         View rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
-        ImageView userImage = (ImageView)rootView.findViewById(R.id.userImageHome);
-        userImage.setImageResource(R.drawable.nina);
-//            TextView userDetailView = (TextView)rootView.findViewById(R.id.userDetail);
-//            userDetailView.setText("Nina Dobrev is our featured user this week. She likes to knit and ride bicycles" +
-//                    "down by the river whenever...");
 
-        //code will fetch images named poolimage with numbers concatenated
-//        String filenameVenueImage = getString(R.string.venue_image_names);
-//        String fileNumberTotalString = getString(R.string.number_of_venues);
-//        Integer totalFiles = Integer.parseInt(fileNumberTotalString);
         WindowManager wm = (WindowManager) cont.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
         Point size = new Point();
@@ -133,6 +124,9 @@ public class HomeFragment extends Fragment {
 
         View featuredUserTile = rootView.findViewById(R.id.featuredUserTileHome);
         User featured = data.GetUser(featuredUserId);
+        ImageView userImage = (ImageView)rootView.findViewById(R.id.userImageHome);
+        int userImageId = getResources().getIdentifier(featured.GetUserImage(), "drawable", cont.getPackageName());
+        userImage.setImageResource(userImageId);
         TextView nameTxtView = (TextView)featuredUserTile.findViewById(R.id.userNameHome);
         nameTxtView.setText(featured.GetUserName());
         List<Integer> venueIds = featured.GetUserVenues();
