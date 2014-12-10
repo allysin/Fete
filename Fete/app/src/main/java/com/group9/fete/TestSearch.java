@@ -99,9 +99,9 @@ public class TestSearch extends Activity  {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 TextView idText = (TextView) view.findViewById(R.id.venueId);
                venueId = Integer.parseInt(idText.getText().toString());
-
+                 Log.i("venueid", idText.getText().toString());
                 openVenueDetail(venueId);
-;
+
             }
         });
 
@@ -115,7 +115,7 @@ public class TestSearch extends Activity  {
         List<Venue> featuredVenues = data.GetVenues();
 
 
-
+        Boolean flag = false;
 
         for (int i=0;i<featuredVenues.size();i++ ) {
             Venue v = featuredVenues.get(i);
@@ -124,7 +124,7 @@ public class TestSearch extends Activity  {
             if(v.GetVenueName().toLowerCase().contains(query.toLowerCase()) == true){
                 //make sure this text is gone
                 TextView noResults = (TextView) findViewById(R.id.noResults);
-                noResults.setVisibility(View.INVISIBLE);
+                noResults.setVisibility(View.GONE);
                 //get venue name, venueID, venuedescription, and venue image
                 String vName = v.GetVenueName();
                 int vId = v.GetID();
@@ -141,20 +141,20 @@ public class TestSearch extends Activity  {
                 venue.put("description", vDescription);
                 venuesList.add(venue);
 
-            }
-            else {
-                //no venue name contains the search query display the text and let the user search again
-                TextView noResults = (TextView) findViewById(R.id.noResults);
-                noResults.setVisibility(View.VISIBLE);
-                noResults.setText("No results found for your query. Please search again");
+                flag = true;
 
             }
-
-
 
         }
 
 
+        if(flag == false) {
+            //no venue name contains the search query display the text and let the user search again
+            TextView noResults = (TextView) findViewById(R.id.noResults);
+            noResults.setVisibility(View.VISIBLE);
+            noResults.setText("No results found for your query. Please search again");
+
+        }
     }
 
 

@@ -134,30 +134,30 @@
     },
     {
       "userID": 4,
-      "username": "User Surname4",
+      "username": "Penelope Payton",
       "userimage": "user3",
-      "bio": "loading...",
+      "bio": "Born on a farm in the wild lands of idaho, Penelope became a great woman but only after she discovered Amine",
       "ownedVenues": []
     },
     {
       "userID": 5,
-      "username": "User Surname5",
+      "username": "Keith Gurgick",
       "userimage": "user4",
-      "bio": "loading...",
+      "bio": "Keith Gurgick is a crazy but loveable man who hails from down South. He can drink a mean whiseky",
       "ownedVenues": []
     },
     {
       "userID": 6,
-      "username": "User Surname6",
-      "userimage": "user5",
+      "username": "Xi Huang",
+      "userimage": "Xi likes to smoke cigarettes but that doesnt make her a bad person. Dont worry about the smell",
       "bio": "loading...",
       "ownedVenues": []
     },
     {
       "userID": 7,
-      "username": "User Surname5",
+      "username": "Colin Drayton",
       "userimage": "user2",
-      "bio": "loading...",
+      "bio": "Colin is from California and is soon going to be homeless but who knows what will happen if he actually isnt",
       "ownedVenues": []
     }
   ],
@@ -190,7 +190,7 @@
       "reviewID": 5,
       "userID": 5,
       "venueID": 5,
-      "reviewText": "Yet another fantastic fete experience. Bella was a great host, very friendly and helpful."
+      "reviewText": "Yet another fantastic fete experience. Bella was a great host, very friendly and helpful. She was mega great and I'd go back everyday if I could. Made a friend for life in that there house. "
     },
     {
       "reviewID": 6,

@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -80,12 +81,14 @@ public class VenueDetail extends Activity {
 
             //get venue object used to fill the page
             Venue venue = data.GetVenue(venueId);
-
+            Log.i("venueNumber", venue.toString());
             TextView venueNameView = (TextView)rootView.findViewById(R.id.venueNameVDetail);
             venueNameView.setText(venue.GetVenueName());
             TextView venueDetailView = (TextView)rootView.findViewById(R.id.venueDetailVDetail);
             venueDetailView.setText(venue.GetVenueDescription());
             TextView ownerNameView = (TextView)rootView.findViewById(R.id.userNameVDetail);
+
+
             int ownerId = venue.GetOwnerID();
             User user = data.GetUser(ownerId);
             ownerNameView.setText(user.GetUserName());
