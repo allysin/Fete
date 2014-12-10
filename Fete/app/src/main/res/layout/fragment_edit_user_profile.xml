@@ -29,11 +29,10 @@
                 <ImageView
                     android:layout_width="126dp"
                     android:layout_height="126dp"
-                    android:id="@+id/imageView"
+                    android:id="@+id/userImageUDetail"
                     android:layout_margin="15dp"
                     android:clickable="true"
-                    android:src="@drawable/nina"
-                    android:background="@drawable/abc_menu_dropdown_panel_holo_light" />
+                     />
 
 
                 <EditText
@@ -106,30 +105,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
                 android:layout_margin="10dp"
-                android:weightSum="4">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageView2"
-                    android:visibility="visible"
-                    android:src="@drawable/poolimage4"
-                    android:onClick="goToProperty"
-                    android:layout_weight="2"
-                    android:background="@drawable/abc_menu_dropdown_panel_holo_light"
-                    android:clickable="true" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageView3"
-                    android:src="@drawable/poolimage2"
-                    android:layout_weight="2"
-                    android:layout_alignParentRight="false"
-                    android:background="@drawable/abc_menu_dropdown_panel_holo_light"
-                    android:clickable="true"
-                    android:onClick="goToProperty" />
-
+                android:orientation="vertical"
+                android:id="@+id/venueTable">
             </LinearLayout>
         </LinearLayout>
 
