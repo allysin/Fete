@@ -34,7 +34,7 @@
         <item>@drawable/ic_profile</item>
         <item>@drawable/ic_venues</item>
         <item>@drawable/ic_settings</item>
-        <item>@drawable/ic_pages</item>
+        <item>@drawable/ic_about</item>
         <item>@drawable/ic_logout</item>
     </array>
     <!-- Content Description -->

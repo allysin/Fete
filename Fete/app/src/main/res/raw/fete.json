@@ -4,7 +4,7 @@
       "venueID": 1,
       "venueName": "Welcoming house on Fuller Road",
       "venueImage": "poolimage0",
-      "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "venueDescription": "Ample space for relaxation on the poolside. Full house available for organising celebrations. Cable tv and air conditioning included. The house is fully furnished ad situated at a grand location on Fuller Road.",
       "ownerID": 1,
       "venueAmenities":[
       {"amenityID":1},
@@ -15,7 +15,7 @@
       "venueID": 2,
       "venueName": "Big Pool House",
       "venueImage": "poolimage1",
-      "venueDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "venueDescription": "Spacious backyard with pool available for hosting celebrations. Two rooms at the back of the house arre also available if needed. The rooms are equipped with the basic essential amenities. Parking space is also available.",
       "ownerID": 2,
       "venueAmenities":[
             {"amenityID":3},
@@ -136,14 +136,14 @@
       "userID": 4,
       "username": "Penelope Payton",
       "userimage": "user3",
-      "bio": "Born on a farm in the wild lands of idaho, Penelope became a great woman but only after she discovered Amine",
+      "bio": "Penelope is from California and is soon going to be homeless but who knows what will happen if he actually isnt.",
       "ownedVenues": []
     },
     {
       "userID": 5,
-      "username": "Keith Gurgick",
+      "username": "Anna Hendrick",
       "userimage": "user4",
-      "bio": "Keith Gurgick is a crazy but loveable man who hails from down South. He can drink a mean whiseky",
+      "bio": "Anna Hendrick is a crazy but loveable host who hails from down South. She loves to party and is fun to hang out with.",
       "ownedVenues": []
     },
     {
@@ -155,9 +155,9 @@
     },
     {
       "userID": 7,
-      "username": "Colin Drayton",
+      "username": "Felicia Drayton",
       "userimage": "user2",
-      "bio": "Colin is from California and is soon going to be homeless but who knows what will happen if he actually isnt",
+      "bio": "Born on a farm in the wild lands of idaho, Felicia became a great woman but only after she discovered Amine",
       "ownedVenues": []
     }
   ],
@@ -172,11 +172,11 @@
       "reviewID": 2,
       "userID": 5,
       "venueID": 2,
-      "reviewText": "Brian is a great host. Very friendly and personable, responded quickly to all my emails. The apartment is beautifully decorated and laid out well. Everything one would need or expect in there own home can be found here. All around perfect experience. Will definitely come back should the chance arise."
+      "reviewText": "Michael is a great host. Very friendly and personable, responded quickly to all my emails. The apartment is beautifully decorated and laid out well. Everything one would need or expect in there own home can be found here. All around perfect experience. Will definitely come back should the chance arise."
     },
     {
       "reviewID": 3,
-      "userID": 1,
+      "userID": 6,
       "venueID": 3,
       "reviewText": "Great experience. Evy and her roommate Erin are very hospitable and considerate. They even gave us two Smartrip cards! Their place is neat spacious, and artistic. I highly recommend the place!"
     },
