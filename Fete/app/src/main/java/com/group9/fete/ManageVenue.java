@@ -1,5 +1,4 @@
 package com.group9.fete;
-
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
@@ -13,7 +12,6 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.Switch;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,52 +30,42 @@ public class ManageVenue extends Activity {
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
-        initList();
-
-        // Get the message from the intent
-        Intent intent = getIntent();
-        //String message = intent.getStringExtra(OverviewActivity.EXTRA_MESSAGE);
-
-        //int id = (int) Long.parseLong(message);
-
-        // Create the text view
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        //textView.setText(venueList.get(id));
+            initList();
+// Get the message from the intent
+            Intent intent = getIntent();
+//String message = intent.getStringExtra(OverviewActivity.EXTRA_MESSAGE);
+//int id = (int) Long.parseLong(message);
+// Create the text view
+            TextView textView = new TextView(this);
+            textView.setTextSize(40);
+//textView.setText(venueList.get(id));
             switchStatus = (TextView) findViewById(R.id.switchStatus);
             mySwitch = (Switch) findViewById(R.id.mySwitch);
-
-            //set the switch to ON
+//set the switch to ON
             mySwitch.setChecked(true);
-            //attach a listener to check for changes in state
+//attach a listener to check for changes in state
             mySwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView,
                                              boolean isChecked) {
-
                     if(isChecked){
                         switchStatus.setText("Venue currently visible");
                     }else{
                         switchStatus.setText("Venue currently invisible");
                     }
-
                 }
             });
-
-            //check the current state before we display the screen
+//check the current state before we display the screen
             if(mySwitch.isChecked()){
                 switchStatus.setText("Venue currently visible");
             }
             else {
                 switchStatus.setText("Venue currently invisible");
             }
-        // Set the text view as the activity layout
-        setContentView(textView);
-
+// Set the text view as the activity layout
+            setContentView(textView);
         }
     }
-
     private void initList() {
         venueList.add("Venue 1");
         venueList.add("Venue 2");
@@ -87,43 +75,38 @@ public class ManageVenue extends Activity {
         venueList.add("Venue 6");
         venueList.add("Venue 7");
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+// Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.manage_venue, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+// Handle action bar item clicks here. The action bar will
+// automatically handle clicks on the Home/Up button, so long
+// as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            // launch intent to settings screen
+// launch intent to settings screen
             return true;
         }
-        //TODO
-        // else if (id == R.id.action_logout) {
-            // launch intent to settings screen
-          //  return true;
-        //}
+//TODO
+// else if (id == R.id.action_logout) {
+// launch intent to settings screen
+// return true;
+//}
         return super.onOptionsItemSelected(item);
     }
-
-/**
+    /**
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
-
         public PlaceholderFragment() {
         }
-
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_manage_venue, container, false);
             return rootView;
         }
