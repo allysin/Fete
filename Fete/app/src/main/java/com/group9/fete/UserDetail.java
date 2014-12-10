@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -95,6 +96,7 @@ public class UserDetail extends Activity {
 
             View rootView = inflater.inflate(R.layout.fragment_user_detail, container, false);
             User user = data.GetUser(userId);
+            Log.i("user id is", String.valueOf(userId));
             TextView userNameTextView = (TextView) rootView.findViewById(R.id.userNameUDetail);
             String userName = user.GetUserName();
             String[] nameparts = userName.split(" ");

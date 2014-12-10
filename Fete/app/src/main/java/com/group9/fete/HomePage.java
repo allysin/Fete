@@ -52,6 +52,8 @@ public class HomePage extends Activity {
     private ArrayList<NavDrawerItem> navDrawerItems;
     private NavDrawerListAdapter adapter;
 
+    public int userId;
+
     ///welcome screen
     final String welcomeScreenShownPref = "welcomeScreenShown";
     SharedPreferences mPrefs;
@@ -216,13 +218,23 @@ public class HomePage extends Activity {
             SharedPreferences mySP = getSharedPreferences("AppPreferences", Activity.MODE_PRIVATE);
             String user =  mySP.getString("UserName", "");
 
-            Log.i("user", user);
+            Log.i("user Is Named", user);
+            if(user.equals("Allyson")){
+                userId = 1;
+            }
+            else if(user.equals("Michael")){
+                userId = 2;
+            }
+            else if(user.equals("Anubhav")){
+                userId = 3;
+            }
+            else userId = 1;
 
             FragmentManager fragmentManager = getFragmentManager();
 
             //TODO:set username from shared preferences
             Bundle b = new Bundle();
-            b.putInt(getString(R.string.userIdParam), 1);
+            b.putInt(getString(R.string.userIdParam), userId);
             b.putBoolean(getString(R.string.loggedUserParam), true);
             fragment.setArguments(b);
 
@@ -422,7 +434,7 @@ public class HomePage extends Activity {
 
     public void goEdit (View view){
         Bundle b = new Bundle();
-        b.putInt(getString(R.string.userIdParam), 1);
+        b.putInt(getString(R.string.userIdParam), userId);
         b.putBoolean(getString(R.string.loggedUserParam), true);
 
 
@@ -439,7 +451,7 @@ public class HomePage extends Activity {
     public void saveProfile(View view){
 
         GlobalData data = (GlobalData) getApplication();
-        User user = data.GetUser(1);
+        User user = data.GetUser(userId);
         EditText userNameTextView = (EditText) findViewById(R.id.userName);
         user.SetUserName(userNameTextView.getText().toString());
         EditText userDetailTextView = (EditText) findViewById(R.id.userDetailUDetail);
@@ -447,7 +459,7 @@ public class HomePage extends Activity {
 
 
         Bundle b = new Bundle();
-        b.putInt(getString(R.string.userIdParam), 1);
+        b.putInt(getString(R.string.userIdParam), userId);
         b.putBoolean(getString(R.string.loggedUserParam), true);
 
 
