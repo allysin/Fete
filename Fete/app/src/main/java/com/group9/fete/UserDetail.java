@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -76,6 +75,7 @@ public class UserDetail extends Activity {
         public PlaceholderFragment() {
         }
 
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
@@ -106,6 +106,13 @@ public class UserDetail extends Activity {
             TextView userDetailTextView = (TextView) rootView.findViewById(R.id.userDetailUDetail);
             userDetailTextView.setText(user.GetUserBio());
             Button editButton = (Button) rootView.findViewById(R.id.edit);
+
+            ImageView userImageView = (ImageView)rootView.findViewById(R.id.userImageUDetail);
+
+            int userImageId = getResources().getIdentifier(user.GetUserImage(), "drawable", cont.getPackageName());
+
+
+            userImageView.setImageResource(userImageId);
 
             //set logged in user name to userdetail name and also show edit profile button
             if (inputExtra != null && inputExtra.getBoolean(getString(R.string.loggedUserParam)) == true) {
@@ -207,14 +214,5 @@ public class UserDetail extends Activity {
         startActivity(intent);
     }
 
-    public void goEdit (View view){
-        Intent intent = new Intent(this, EditUserProfile.class);
 
-        TextView textview = (TextView) findViewById(R.id.userNameUDetail);
-        String user = textview.toString();
-        intent.putExtra(EXTRA_MESSAGE, user);
-        Log.i("userNamePassed to Edit", user);
-
-        startActivity(intent);
-    }
 }

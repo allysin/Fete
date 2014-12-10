@@ -55,7 +55,7 @@ public class User {
 
     /*The parameter newName will come from the user when he types the name of his place on the VenueDetail page*/
     public void SetUserName(String newName){
-        userImage = newName;
+        userName = newName;
     }
 
     public String GetUserImage(){

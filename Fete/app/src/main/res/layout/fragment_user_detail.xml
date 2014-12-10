@@ -34,8 +34,7 @@
                 android:id="@+id/userImageUDetail"
                 android:layout_margin="15dp"
                 android:clickable="true"
-                android:src="@drawable/nina"
-                android:background="@drawable/abc_menu_dropdown_panel_holo_light" />
+                 />
 
 
             <TextView

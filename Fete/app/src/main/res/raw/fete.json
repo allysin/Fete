@@ -125,7 +125,7 @@
       "userID": 3,
       "username": "Anubhav Saxena",
       "userimage": "anubhav",
-      "bio": "loading...",
+      "bio": "Anubhav hates meetings. He hates them so much that he would prefer to eat cheetos rather than not eat anything at all",
       "ownedVenues": [
         {
           "venueID": 4
@@ -149,8 +149,8 @@
     {
       "userID": 6,
       "username": "Xi Huang",
-      "userimage": "Xi likes to smoke cigarettes but that doesnt make her a bad person. Dont worry about the smell",
-      "bio": "loading...",
+      "userimage": "user5",
+      "bio": "Xi likes to smoke cigarettes but that doesnt make her a bad person. Dont worry about the smell",
       "ownedVenues": []
     },
     {
@@ -176,25 +176,25 @@
     },
     {
       "reviewID": 3,
-      "userID": 5,
+      "userID": 1,
       "venueID": 3,
       "reviewText": "Great experience. Evy and her roommate Erin are very hospitable and considerate. They even gave us two Smartrip cards! Their place is neat spacious, and artistic. I highly recommend the place!"
     },
     {
       "reviewID": 4,
-      "userID": 5,
+      "userID": 2,
       "venueID": 4,
       "reviewText": "Lovely backyard! Very welcoming crew. Fantastic location! Perfect place to chill right by the core of DuPont Circle. Perfect for an academic conference in either Georgetown or GeorgeWashington University."
     },
     {
       "reviewID": 5,
-      "userID": 5,
+      "userID": 3,
       "venueID": 5,
       "reviewText": "Yet another fantastic fete experience. Bella was a great host, very friendly and helpful. She was mega great and I'd go back everyday if I could. Made a friend for life in that there house. "
     },
     {
       "reviewID": 6,
-      "userID": 5,
+      "userID": 2,
       "venueID": 6,
       "reviewText": "The barbeque party hosted here was a great hit, and I hope to host another one here next month."
     }

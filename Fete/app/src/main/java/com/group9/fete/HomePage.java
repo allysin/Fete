@@ -20,12 +20,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
 
 import com.group9.fete.adapter.NavDrawerListAdapter;
 import com.group9.fete.model.GlobalData;
 import com.group9.fete.model.NavDrawerItem;
+import com.group9.fete.model.User;
 
 import java.util.ArrayList;
 
@@ -417,15 +419,44 @@ public class HomePage extends Activity {
         startActivity(userIntent);
     }
 
+
     public void goEdit (View view){
-        Intent intent = new Intent(this, EditUserProfile.class);
+        Bundle b = new Bundle();
+        b.putInt(getString(R.string.userIdParam), 1);
+        b.putBoolean(getString(R.string.loggedUserParam), true);
 
-//        TextView textview = (TextView) findViewById(R.id.userName);
-//        String user = textview.getText().toString();
-//        intent.putExtra(EXTRA_MESSAGE, user);
-//        Log.i("userNamePassed to Edit", user);
 
-        startActivity(intent);
+        Fragment fragment = null;
+        fragment = new EditUserProfile.PlaceholderFragment();
+        fragment.setArguments(b);
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, fragment).commit();
+
+
+    }
+
+    public void saveProfile(View view){
+
+        GlobalData data = (GlobalData) getApplication();
+        User user = data.GetUser(1);
+        EditText userNameTextView = (EditText) findViewById(R.id.userName);
+        user.SetUserName(userNameTextView.getText().toString());
+        EditText userDetailTextView = (EditText) findViewById(R.id.userDetailUDetail);
+        user.SetUserBio(userDetailTextView.getText().toString());
+
+
+        Bundle b = new Bundle();
+        b.putInt(getString(R.string.userIdParam), 1);
+        b.putBoolean(getString(R.string.loggedUserParam), true);
+
+
+        Fragment fragment = null;
+        fragment = new UserDetail.PlaceholderFragment();
+        fragment.setArguments(b);
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, fragment).commit();
     }
 
 

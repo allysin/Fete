@@ -100,7 +100,7 @@ public class VenueDetail extends Activity {
             venueImageView.setImageResource(resID);
 
             View reviewSection = rootView.findViewById(R.id.reviewSectionVDetail);
-            bindReviews(inflater, reviewSection, venue, data);
+            bindReviews(inflater, reviewSection, venue, data, cont);
 
             View amenitiesSection = rootView.findViewById(R.id.amenitiesSectionVDetail);
             bindAmenities(inflater, amenitiesSection, venue, cont);
@@ -137,13 +137,20 @@ public class VenueDetail extends Activity {
             }
         }
 
-        private void bindReviews(LayoutInflater inflater, View parentView, Venue v, GlobalData data){
+        private void bindReviews(LayoutInflater inflater, View parentView, Venue v, GlobalData data, Context cont){
             List<Review> reviews = v.GetReviews();
             for(Review i:reviews) {
                 View reviewView = inflater.inflate(R.layout.review_layout, null);
                 User u = data.GetUser(i.GetUserID());
                 TextView userNameView = (TextView)reviewView.findViewById(R.id.usernameReviewLayout);
                 userNameView.setText(u.GetUserName());
+
+                ImageView userImageView = (ImageView)reviewView.findViewById(R.id.imageReviewLayout);
+
+                int userImageId = getResources().getIdentifier(u.GetUserImage(), "drawable", cont.getPackageName());
+
+
+                userImageView.setImageResource(userImageId);
                 TextView reviewTextView = (TextView)reviewView.findViewById(R.id.reviewTextReviewLayout);
                 String reviewText = i.GetReviewText().substring(0,120) + "...";
                 reviewTextView.setText(reviewText);
